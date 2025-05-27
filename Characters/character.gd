@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 	velocity= lerp(velocity,Vector2.ZERO,FRICTION)
 	
 func move() -> void:
+	print("Moviendo con mov_direction:", mov_direction)
 	mov_direction = mov_direction.normalized()
 	velocity += mov_direction * acceleration
 	velocity = velocity.limit_length(max_speed)
