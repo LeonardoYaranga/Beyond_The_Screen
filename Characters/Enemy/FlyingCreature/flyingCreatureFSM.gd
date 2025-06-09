@@ -11,7 +11,7 @@ func _ready() -> void:
 	
 	
 func _state_logic(_delta: float) -> void:
-	print("Estado actual flyingCreatureFSM:", state)
+	#print("Estado actual flyingCreatureFSM:", state)
 	if state == states.chase:
 		parent.chase()
 		parent.move()

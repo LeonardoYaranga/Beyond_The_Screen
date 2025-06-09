@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bewi3o6ctifas"
-path="res://.godot/imported/door_spritesheet.png-58dcc72f573216d21ca6c6b6437991ba.ctex"
+uid="uid://cg0k0rarnwsex"
+path="res://.godot/imported/progress bar.png-5c40abd3d5a4526b333c315dbd5ab108.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/v1.1 dungeon crawler 16X16 pixel pack/tiles/wall/door_spritesheet.png"
-dest_files=["res://.godot/imported/door_spritesheet.png-58dcc72f573216d21ca6c6b6437991ba.ctex"]
+source_file="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/progress bar.png"
+dest_files=["res://.godot/imported/progress bar.png-5c40abd3d5a4526b333c315dbd5ab108.ctex"]
 
 [params]
 

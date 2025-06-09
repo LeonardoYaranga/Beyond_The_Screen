@@ -24,6 +24,10 @@ window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://0jdoqrlr71q6"
 
+[global_group]
+
+player=""
+
 [input]
 
 ui_attack={

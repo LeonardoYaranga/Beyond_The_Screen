@@ -287,7 +287,10 @@ _data = {
 radius = 4.0
 
 [node name="FlyingCreature" instance=ExtResource("1_masxo")]
+collision_mask = 7
 script = ExtResource("2_xbh0k")
+acceleration = 20
+max_speed = 50
 
 [node name="FiniteStateMachine" parent="." index="0"]
 script = ExtResource("2_cjiim")

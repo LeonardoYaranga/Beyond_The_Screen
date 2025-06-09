@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://q34ohw0soigc"]
+
+[ext_resource type="Script" uid="uid://btil8dvv532ly" path="res://Rooms/Room.gd" id="1_hbclw"]
+[ext_resource type="TileSet" uid="uid://ccs1t2ogd147h" path="res://Rooms/tileSetRoom.tres" id="1_wi63m"]
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_hbclw")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_wi63m")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+
+[node name="Entrance" type="Node2D" parent="."]
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="EnemyPositions" type="Node2D" parent="."]
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
