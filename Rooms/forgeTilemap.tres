@@ -1,10 +1,10 @@
 [gd_resource type="TileSet" load_steps=19 format=3 uid="uid://c2wi4f7i4yvtc"]
 
-[ext_resource type="Texture2D" uid="uid://dg4ntp4puk6h" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/TilemapWorld1/CastleTilemap.png" id="1_wvein"]
-[ext_resource type="Texture2D" uid="uid://bp30lcj7e70nl" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/TilemapWorld1/interiorForge.png" id="2_qouxi"]
+[ext_resource type="Texture2D" uid="uid://dg4ntp4puk6h" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/TilemapWorld1/CastleTilemap.png" id="1_br71i"]
+[ext_resource type="Texture2D" uid="uid://bp30lcj7e70nl" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/TilemapWorld1/interiorForge.png" id="2_6acr8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qouxi"]
-texture = ExtResource("1_wvein")
+texture = ExtResource("1_br71i")
 use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -410,7 +410,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, -6.80221, -5.88
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmqhg"]
-texture = ExtResource("2_qouxi")
+texture = ExtResource("2_6acr8")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

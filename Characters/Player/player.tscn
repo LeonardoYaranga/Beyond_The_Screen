@@ -559,3 +559,5 @@ hframes = 3
 libraries = {
 &"": SubResource("AnimationLibrary_klx3t")
 }
+
+[node name="Camera2D" type="Camera2D" parent="." index="5"]

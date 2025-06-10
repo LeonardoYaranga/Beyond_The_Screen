@@ -31,4 +31,6 @@ position = Vector2(89, 14)
 [node name="Player" parent="." instance=ExtResource("2_e2o6t")]
 position = Vector2(192, 230)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [connection signal="hp_changed" from="Player" to="UI" method="_on_player_hp_changed"]
