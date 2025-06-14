@@ -1,11 +1,11 @@
-[gd_scene load_steps=33 format=4 uid="uid://d0x8m3iwe4h45"]
+[gd_scene load_steps=33 format=4 uid="uid://cs32sq0soe3ui"]
 
-[ext_resource type="Texture2D" uid="uid://lfwch0yk6euk" path="res://Assets/Escenario2/neo_zero_props_02_free.png" id="1_rsqr0"]
-[ext_resource type="Texture2D" uid="uid://bp5s2dua2d006" path="res://Assets/Escenario2/neo_zero_tiles_and_buildings_01.png" id="2_5bwsx"]
-[ext_resource type="Texture2D" uid="uid://cggifkrvcr2hk" path="res://Assets/Escenario2/neo_zero_props_and_items_01.png" id="3_gxicp"]
-[ext_resource type="Texture2D" uid="uid://bphuuwk3mvfav" path="res://Assets/Escenario2/neo_zero_buildings_02.png" id="4_fxvdw"]
-[ext_resource type="Texture2D" uid="uid://sfgngjl1ytfq" path="res://Assets/Escenario2/neo_zero_tileset_02.png" id="5_n4sfy"]
-[ext_resource type="TileSet" uid="uid://d2rq8uu321bnf" path="res://Rooms/TexturaRoom2_1.tres" id="6_5bwsx"]
+[ext_resource type="Texture2D" uid="uid://c214xdv2ftskj" path="res://Assets/Escenario2/neo_zero_props_02_free.png" id="1_rsqr0"]
+[ext_resource type="Texture2D" uid="uid://c2bdjy47xuu1p" path="res://Assets/Escenario2/neo_zero_tiles_and_buildings_01.png" id="2_5bwsx"]
+[ext_resource type="Texture2D" uid="uid://drr6a7jmywc3f" path="res://Assets/Escenario2/neo_zero_props_and_items_01.png" id="3_gxicp"]
+[ext_resource type="Texture2D" uid="uid://c8ovn07ma2a5b" path="res://Assets/Escenario2/neo_zero_buildings_02.png" id="4_fxvdw"]
+[ext_resource type="Texture2D" uid="uid://dmouy5wl0tk6g" path="res://Assets/Escenario2/neo_zero_tileset_02.png" id="5_n4sfy"]
+[ext_resource type="TileSet" uid="uid://cvlp8f6by2i8t" path="res://Rooms/TexturaRoom2_1.tres" id="6_5bwsx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyyk6"]
 texture = ExtResource("1_rsqr0")

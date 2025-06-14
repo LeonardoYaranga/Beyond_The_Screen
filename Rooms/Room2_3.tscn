@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://ctrrjualucvhf"]
+[gd_scene load_steps=50 format=4 uid="uid://p08sgfjshirg"]
 
 [ext_resource type="Texture2D" uid="uid://c2bdjy47xuu1p" path="res://Assets/Escenario2/neo_zero_tiles_and_buildings_01.png" id="1_bxvg0"]
 [ext_resource type="Texture2D" uid="uid://drr6a7jmywc3f" path="res://Assets/Escenario2/neo_zero_props_and_items_01.png" id="2_1bper"]

@@ -1,6 +1,6 @@
-[gd_resource type="TileSet" load_steps=44 format=3 uid="uid://d2rq8uu321bnf"]
+[gd_resource type="TileSet" load_steps=44 format=3 uid="uid://cvlp8f6by2i8t"]
 
-[ext_resource type="Texture2D" uid="uid://djeu2jntyu2ye" path="res://Assets/Escenario2/pixel-cyberpunk-interior.png" id="1_r26jw"]
+[ext_resource type="Texture2D" uid="uid://c35tf366j03nk" path="res://Assets/Escenario2/pixel-cyberpunk-interior.png" id="1_r26jw"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_tr5nx"]
 
