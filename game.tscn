@@ -1,20 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://btgvgyjddcunf"]
+[gd_scene load_steps=7 format=3 uid="uid://btgvgyjddcunf"]
 
 [ext_resource type="Script" uid="uid://6pe8wt51ir6y" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://c3sowk1rwvpqb" path="res://Characters/Player/player.tscn" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://t5hykviety2f" path="res://Rooms.gd" id="5_80cx4"]
 [ext_resource type="Script" uid="uid://m2tivhml7axd" path="res://UI.gd" id="5_eow3j"]
-[ext_resource type="PackedScene" uid="uid://j7j0l1dvua13" path="res://Rooms/Room2_1.tscn" id="6_hve3p"]
 [ext_resource type="Texture2D" uid="uid://d4gl37sdximtr" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/health_ui.png" id="6_j5wjh"]
-[ext_resource type="PackedScene" uid="uid://dwrp6oby2k24m" path="res://Rooms/room0.tscn" id="7_eow3j"]
-[ext_resource type="PackedScene" uid="uid://bibhdx2fhxxja" path="res://Rooms/room_1_forge.tscn" id="7_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://cg0k0rarnwsex" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/progress bar.png" id="7_vef74"]
-[ext_resource type="PackedScene" uid="uid://mssul1qevxux" path="res://Rooms/room_1_tavern.tscn" id="8_iotsf"]
-[ext_resource type="PackedScene" uid="uid://dvym5c2rfliwd" path="res://Rooms/roomCueva.tscn" id="9_lc2xo"]
-[ext_resource type="PackedScene" uid="uid://cbojvv52a1d44" path="res://Rooms/Room2_2.tscn" id="10_215e1"]
-[ext_resource type="PackedScene" uid="uid://p08sgfjshirg" path="res://Rooms/Room2_3.tscn" id="11_7sc4i"]
-[ext_resource type="PackedScene" uid="uid://cs32sq0soe3ui" path="res://Rooms/Room2_4.tscn" id="12_80cx4"]
-[ext_resource type="PackedScene" uid="uid://b274sjcmew37r" path="res://Rooms/Room2_5.tscn" id="13_e8heu"]
-[ext_resource type="PackedScene" uid="uid://coi4d4b15jsfc" path="res://Rooms/Room1_5.tscn" id="14_7sc4i"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_feb5d")
@@ -33,39 +24,10 @@ texture_progress = ExtResource("7_vef74")
 tint_progress = Color(0.792157, 0.101961, 0.14902, 1)
 
 [node name="Rooms" type="Node2D" parent="."]
-
-[node name="Room0" parent="Rooms" instance=ExtResource("7_eow3j")]
-position = Vector2(562, 81)
-
-[node name="Room21" parent="Rooms" instance=ExtResource("6_hve3p")]
-position = Vector2(469, 442)
-
-[node name="Room_1_forge" parent="Rooms" instance=ExtResource("7_mfdv2")]
-position = Vector2(399, -259)
-
-[node name="Room_1_Tavern" parent="Rooms" instance=ExtResource("8_iotsf")]
-position = Vector2(-522, 503)
-
-[node name="Room" parent="Rooms" instance=ExtResource("9_lc2xo")]
-position = Vector2(1821, 238)
-
-[node name="Room22" parent="Rooms" instance=ExtResource("10_215e1")]
-position = Vector2(1174, 196)
-
-[node name="Room23" parent="Rooms" instance=ExtResource("11_7sc4i")]
-position = Vector2(2137, -109)
-
-[node name="Room24" parent="Rooms" instance=ExtResource("12_80cx4")]
-position = Vector2(2049, 380)
-
-[node name="Room25" parent="Rooms" instance=ExtResource("13_e8heu")]
-position = Vector2(1295, 761)
-
-[node name="Room2" parent="Rooms" instance=ExtResource("14_7sc4i")]
-position = Vector2(-414, -352)
+script = ExtResource("5_80cx4")
 
 [node name="Player" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(190, 147)
+position = Vector2(768, 317)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

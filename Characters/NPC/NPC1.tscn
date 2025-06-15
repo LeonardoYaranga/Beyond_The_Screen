@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfhdbyd7e5122"]
 
-[ext_resource type="PackedScene" uid="uid://dy5ak2onfmqah" path="res://Characters/character.tscn" id="1_wu4gm"]
+[ext_resource type="PackedScene" uid="uid://dy5ak2onfmqah" path="res://Characters/character.tscn" id="1_ieo7r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wu4gm"]
 
-[node name="Character" instance=ExtResource("1_wu4gm")]
+[node name="NPC1" instance=ExtResource("1_ieo7r")]
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_wu4gm")

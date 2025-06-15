@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c2ee3jo0tcww3"]
+[gd_scene load_steps=25 format=3 uid="uid://c2ee3jo0tcww3"]
 
 [ext_resource type="Script" uid="uid://beafb1udhvply" path="res://Rooms/Door.gd" id="1_eplmc"]
 [ext_resource type="Texture2D" uid="uid://bewi3o6ctifas" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/tiles/wall/door_spritesheet.png" id="1_wpbgl"]
@@ -180,6 +180,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0s24"]
 size = Vector2(30, 29)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eplmc"]
+size = Vector2(21, 20)
+
 [node name="Door" type="StaticBody2D"]
 collision_mask = 0
 script = ExtResource("1_eplmc")
@@ -196,3 +199,11 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 9.5)
 shape = SubResource("RectangleShape2D_n0s24")
+
+[node name="Detector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+position = Vector2(2, 13)
+shape = SubResource("RectangleShape2D_eplmc")

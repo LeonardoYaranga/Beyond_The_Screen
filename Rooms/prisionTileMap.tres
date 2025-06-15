@@ -193,7 +193,6 @@ texture = ExtResource("1_rkk5n")
 0:0/0 = 0
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.04682, -8, -5.84541, -3.6871, -5.84541, 3.32739, -3.50725, 5.30583, 2.06837, 5.48569, 4.5864, 2.96767, 4.5864, -4.22668, 2.60795, -8)
-1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-2.78781, -8, -5.12597, -5.48569, -6.02527, -0.989223, -5.12597, 2.96767, -3.14753, 5.84541, 1.5288, 6.02527, 3.6871, 4.40654, 4.40654, 1.5288, 4.5864, -2.60795, 4.22668, -4.76626, 2.06838, -8, -0.809364, -8)
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 3:0/0 = 0
@@ -212,7 +211,7 @@ texture = ExtResource("1_rkk5n")
 3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_l2nqm")
 4:1/0 = 0
 5:1/0 = 0
-5:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:1/0 = 0
 6:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_2cauw")
 7:1/0 = 0
@@ -306,6 +305,5 @@ texture = ExtResource("1_rkk5n")
 
 [resource]
 physics_layer_0/collision_layer = 1
-physics_layer_1/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_y8hch")

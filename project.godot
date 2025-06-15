@@ -42,6 +42,10 @@ ui_attack={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
 
+[navigation]
+
+3d/merge_rasterizer_cell_scale=0.001
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
