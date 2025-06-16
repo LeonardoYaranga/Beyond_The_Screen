@@ -4,6 +4,14 @@ extends Character
 @onready var sword_hitbox: Area2D = get_node("Sword/Node2D/Sprite2D/Hitbox")
 @onready var sword_animation_player: AnimationPlayer = sword.get_node("SwordAnimationPlayer")
 
+#Sistema de mejora de danio de la espada (Posible implementaicon con el BlackSmith
+#var coins: int = 0
+#var sword_damage: int = 10
+#
+#func upgrade_sword() -> void:
+	#sword_damage += 5
+	#print("Daño de espada aumentado a:", sword_damage)
+
 func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position()-global_position).normalized()
 	sword.rotation = mouse_direction.angle()

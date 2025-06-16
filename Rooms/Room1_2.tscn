@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=4 uid="uid://coi4d4b15jsfc"]
+[gd_scene load_steps=88 format=4 uid="uid://coi4d4b15jsfc"]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_5e0r1"]
 [ext_resource type="Texture2D" uid="uid://bm47x2eepls2t" path="res://Art/Cute_Fantasy/Cute_Fantasy/Tiles/Grass/Grass_Tiles_3.png" id="2_m6o3a"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cwhym57lmoa15" path="res://Art/Cute_Fantasy/Cute_Fantasy/Animals/Sheep/Sheep_03.png" id="15_4wn5t"]
 [ext_resource type="Texture2D" uid="uid://dylirpbhxuqnd" path="res://Art/Cute_Fantasy/Cute_Fantasy/Tiles/Cliff/Stone_Cliff_3_Tile.png" id="16_anrnl"]
 [ext_resource type="Texture2D" uid="uid://dm823kv5awvh" path="res://Art/Cute_Fantasy/Cute_Fantasy/House/Buildings/Houses/House_1_5.png" id="17_a0ko4"]
+[ext_resource type="PackedScene" uid="uid://cliq6hv0trr1v" path="res://Characters/NPC/aldeano.tscn" id="17_m6o3a"]
 [ext_resource type="Texture2D" uid="uid://d1jxd8ag543lm" path="res://Art/Cute_Fantasy/Cute_Fantasy/House/Buildings/Houses/House_5_3.png" id="18_nfqn5"]
 [ext_resource type="Texture2D" uid="uid://d288y2by864jv" path="res://Art/Cute_Fantasy/Cute_Fantasy/House/Buildings/Houses/House_5_4.png" id="19_0j4yw"]
 [ext_resource type="PackedScene" uid="uid://c2ee3jo0tcww3" path="res://Rooms/Door.tscn" id="20_7v8kk"]
@@ -1243,7 +1244,11 @@ position = Vector2(-13, -5)
 tile_map_data = PackedByteArray("AAD8/woAAAADAAUAAAD9/wsAAAADAAUAAAD9/yIAAAAFABQAAAD//x0AAAAIAAUAAAABACUAAAAHABAAAAACACUAAAAIABAAAAACACYAAAAFAAYAAAAOACIAAAAIAAUAAAAPACIAAAAHAAQAAAARACAAAAAIAAQAAAAeACMAAAAFAAYAAAAmACEAAAAEAAQAAAAnACEAAAAEAAQAAAAsABoAAAAEAAQAAAD9/wIAAAAEABQAAAAtAAQAAAAHAAUAAAAtAAUAAAAHAAUAAAAhAP7/AAAIAAcAAAAiAP7/AAAGAAgAAAAYAA8AAwAAAAAAAAAYABAAAwAAAAEAAAAZAA8AAwABAAAAAAAZABAAAwABAAEAAAALAPz/BAACAAEAAAALAPv/BAACAAAAAAAMAPv/BAACAAAAAAAMAPz/BAACAAEAAAALAP3/BAACAAIAAAAMAP3/BAACAAIAAAANAPv/BAADAAAAAAANAPz/BAADAAEAAAANAP3/BAADAAIAAAAOAPv/BAACAAAAAAAOAPz/BAACAAEAAAAOAP3/BAACAAIAAAAPAPv/BAADAAAAAAAPAPz/BAADAAEAAAAPAP3/BAADAAIAAAAQAPv/BAACAAAAAAAQAPz/BAACAAEAAAAQAP3/BAACAAIAAAARAPv/BAADAAAAAAARAPz/BAADAAEAAAARAP3/BAADAAIAAAASAPv/BAACAAAAAAASAPz/BAACAAEAAAASAP3/BAACAAIAAAATAPv/BAADAAAAAAATAPz/BAADAAEAAAATAP3/BAADAAIAAAA=")
 tile_set = SubResource("TileSet_eqgbm")
 
-[node name="Buildings" type="Node2D" parent="." index="4"]
+[node name="Aldeano" parent="." index="4" instance=ExtResource("17_m6o3a")]
+position = Vector2(238, 312)
+scale = Vector2(0.620213, 0.918764)
+
+[node name="Buildings" type="Node2D" parent="." index="5"]
 
 [node name="Casa1" type="StaticBody2D" parent="Buildings" index="0"]
 position = Vector2(-226, -119)
@@ -1295,7 +1300,7 @@ region_rect = Rect2(258.5, -2, 125.5, 114)
 position = Vector2(614, 240)
 polygon = PackedVector2Array(-28, 36, 28, 36, 28, 10, 34, 7, 34, -39, 9, -63, 3, -66, -4, -66, -10, -63, -33, -40, -34, 8, -28, 10)
 
-[node name="Doors" parent="." index="6"]
+[node name="Doors" parent="." index="7"]
 position = Vector2(88, 181)
 
 [node name="TavernDoor" parent="Doors" index="0" instance=ExtResource("20_7v8kk")]
@@ -1313,11 +1318,11 @@ position = Vector2(508, 254)
 scale = Vector2(-0.711834, 0.930165)
 target_room = "Room1_3"
 
-[node name="EnemyPositions" parent="." index="7"]
+[node name="EnemyPositions" parent="." index="8"]
 position = Vector2(285, 108)
 
-[node name="PlayerDetector" parent="." index="8"]
+[node name="PlayerDetector" parent="." index="9"]
 position = Vector2(61, 70)
 
-[node name="PlayerSpawnPos" type="Marker2D" parent="." index="9"]
+[node name="PlayerSpawnPos" type="Marker2D" parent="." index="10"]
 position = Vector2(634, 41)
