@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=3 uid="uid://byuhfkprgxf1c"]
+
+[ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_p7ymv"]
+[ext_resource type="Texture2D" uid="uid://scniebnyb51y" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/smoker.png" id="2_xlcti"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpk5w"]
+atlas = ExtResource("2_xlcti")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgtmp"]
+atlas = ExtResource("2_xlcti")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jebtt"]
+atlas = ExtResource("2_xlcti")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j02l"]
+atlas = ExtResource("2_xlcti")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l64dq"]
+atlas = ExtResource("2_xlcti")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l87t"]
+atlas = ExtResource("2_xlcti")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vlfm7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpk5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgtmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jebtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j02l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l64dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l87t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdgv2"]
+size = Vector2(15, 11)
+
+[sub_resource type="Animation" id="Animation_y53vv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_dkpdi"]
+resource_name = "idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k88iq"]
+_data = {
+&"RESET": SubResource("Animation_y53vv"),
+&"idle": SubResource("Animation_dkpdi")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g8hlc"]
+radius = 22.0
+
+[node name="Smoker" instance=ExtResource("1_p7ymv")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(-5, -5.5)
+scale = Vector2(0.791667, 0.770833)
+sprite_frames = SubResource("SpriteFrames_vlfm7")
+frame = 1
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(-12.5, 7.5)
+shape = SubResource("RectangleShape2D_kdgv2")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_k88iq")
+}
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(-10, -1)
+shape = SubResource("CircleShape2D_g8hlc")

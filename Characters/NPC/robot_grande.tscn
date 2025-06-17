@@ -1,0 +1,120 @@
+[gd_scene load_steps=16 format=3 uid="uid://dj4l1v7vwbf1t"]
+
+[ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_yhqqf"]
+[ext_resource type="Texture2D" uid="uid://cp6vpb1dnqlba" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/RobotGrande/player-stand-1.png" id="2_arnlt"]
+[ext_resource type="Texture2D" uid="uid://brf3c8fvevppa" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/RobotGrande/player-stand-2.png" id="3_kxerj"]
+[ext_resource type="Texture2D" uid="uid://de06414a3m0yv" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/RobotGrande/player-stand-3.png" id="4_30yxx"]
+[ext_resource type="Texture2D" uid="uid://dwtsnyfid82g2" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/RobotGrande/player-stand-4.png" id="5_48s62"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv6aq"]
+atlas = ExtResource("2_arnlt")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4ucp"]
+atlas = ExtResource("3_kxerj")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc1lx"]
+atlas = ExtResource("4_30yxx")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu4er"]
+atlas = ExtResource("5_48s62")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x4hud"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv6aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4ucp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc1lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu4er")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhqqf"]
+size = Vector2(27.5, 14)
+
+[sub_resource type="Animation" id="Animation_8og3d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_86qri"]
+resource_name = "idle"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pqf7m"]
+_data = {
+&"RESET": SubResource("Animation_8og3d"),
+&"idle": SubResource("Animation_86qri")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_arnlt"]
+radius = 29.0172
+
+[node name="RobotGrande" instance=ExtResource("1_yhqqf")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(-6.5, -6.5)
+scale = Vector2(0.8375, 0.8375)
+sprite_frames = SubResource("SpriteFrames_x4hud")
+frame = 1
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(-7.75, 7)
+shape = SubResource("RectangleShape2D_yhqqf")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_pqf7m")
+}
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(-8, -2)
+shape = SubResource("CircleShape2D_arnlt")

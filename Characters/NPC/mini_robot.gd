@@ -2,11 +2,11 @@ extends NPC
 
 func _ready() -> void:
 	super._ready()
-	dialogue_lines = ["¡Bienvenido a mi forja!", "Puedo mejorar tu espada por 10 monedas."]
+	dialogue_lines = ["Ayudanos :c", "Sigue adelante"]
 
 func start_dialogue() -> void:
 	# Ejemplo: Mostrar diálogo y ofrecer mejora
-	print("Herrero dice:", dialogue_lines[0])
+	print("Mini robot dice:", dialogue_lines[0])
 	# Más adelante, integrar con un sistema de diálogo y comercio
 	#if interacting_player and interacting_player.has_method("upgrade_sword"):
 		#if interacting_player.coins >= 10:  # Suponiendo que Player tiene "coins"

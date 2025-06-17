@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdeujp3pf103v"]
+
+[ext_resource type="Script" uid="uid://bjlh3sonky6li" path="res://Rooms/Objetos/objeto.gd" id="1_7l77g"]
+
+[node name="Objeto" type="StaticBody2D"]
+script = ExtResource("1_7l77g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

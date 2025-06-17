@@ -15,6 +15,5 @@ wait_time = 0.5
 autostart = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="5"]
-debug_enabled = true
 
 [connection signal="timeout" from="PathTimer" to="." method="_on_path_timer_timeout"]

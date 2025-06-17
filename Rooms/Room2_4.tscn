@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cs32sq0soe3ui"]
+[gd_scene load_steps=37 format=4 uid="uid://cs32sq0soe3ui"]
 
 [ext_resource type="Texture2D" uid="uid://c214xdv2ftskj" path="res://Assets/Escenario2/neo_zero_props_02_free.png" id="1_rsqr0"]
 [ext_resource type="Texture2D" uid="uid://c2bdjy47xuu1p" path="res://Assets/Escenario2/neo_zero_tiles_and_buildings_01.png" id="2_5bwsx"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://c8ovn07ma2a5b" path="res://Assets/Escenario2/neo_zero_buildings_02.png" id="4_fxvdw"]
 [ext_resource type="Texture2D" uid="uid://dmouy5wl0tk6g" path="res://Assets/Escenario2/neo_zero_tileset_02.png" id="5_n4sfy"]
 [ext_resource type="TileSet" uid="uid://cvlp8f6by2i8t" path="res://Rooms/TexturaRoom2_1.tres" id="6_5bwsx"]
+[ext_resource type="PackedScene" uid="uid://cc1hf3e7tks6v" path="res://Rooms/Objetos/fuego.tscn" id="7_gxicp"]
+[ext_resource type="PackedScene" uid="uid://b4dmy087ehotu" path="res://Characters/NPC/encapuchado.tscn" id="8_fxvdw"]
+[ext_resource type="PackedScene" uid="uid://b5f8nnu5lafba" path="res://Rooms/Objetos/barril_toxico.tscn" id="9_n4sfy"]
+[ext_resource type="PackedScene" uid="uid://hodv5cwqmjkb" path="res://Characters/Enemy/enemy_2_4.tscn" id="10_hyivd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyyk6"]
 texture = ExtResource("1_rsqr0")
@@ -1221,3 +1225,57 @@ tile_set = ExtResource("6_5bwsx")
 modulate = Color(0.509804, 1, 0.607843, 1)
 tile_map_data = PackedByteArray("AAATAAgAAQAaAAAAAAATAAkAAQAaAAEAAAAUAAgAAQAbAAAAAAAUAAkAAQAbAAEAAAAVAAgAAQAcAAAAAAAVAAkAAQAcAAEAAAAWAAgAAQAdAAAAAAAWAAkAAQAdAAEAAAARABYAAQAaAAAAAAARABcAAQAaAAEAAAASABYAAQAbAAAAAAASABcAAQAbAAEAAAATABYAAQAcAAAAAAATABcAAQAcAAEAAAAUABYAAQAdAAAAAAAUABcAAQAdAAEAAAAvAAYAAQAaAAAAAAAvAAcAAQAaAAEAAAAwAAYAAQAbAAAAAAAwAAcAAQAbAAEAAAAxAAYAAQAcAAAAAAAxAAcAAQAcAAEAAAAyAAYAAQAdAAAAAAAyAAcAAQAdAAEAAAA=")
 tile_set = ExtResource("6_5bwsx")
+
+[node name="Fuego4" parent="." instance=ExtResource("7_gxicp")]
+position = Vector2(287, -10)
+
+[node name="Fuego3" parent="." instance=ExtResource("7_gxicp")]
+position = Vector2(320, -33)
+
+[node name="Fuego2" parent="." instance=ExtResource("7_gxicp")]
+position = Vector2(307, 419)
+
+[node name="Fuego8" parent="." instance=ExtResource("7_gxicp")]
+position = Vector2(285, 430)
+
+[node name="Fuego" parent="." instance=ExtResource("7_gxicp")]
+position = Vector2(288, 399)
+
+[node name="Fuego7" parent="." instance=ExtResource("7_gxicp")]
+position = Vector2(610, -30)
+
+[node name="Fuego6" parent="." instance=ExtResource("7_gxicp")]
+position = Vector2(627, -54)
+
+[node name="Fuego5" parent="." instance=ExtResource("7_gxicp")]
+position = Vector2(508, 91)
+
+[node name="Fuego11" parent="." instance=ExtResource("7_gxicp")]
+position = Vector2(507, 424)
+
+[node name="Fuego10" parent="." instance=ExtResource("7_gxicp")]
+position = Vector2(482, 424)
+
+[node name="Encapuchado" parent="." instance=ExtResource("8_fxvdw")]
+position = Vector2(17, 378)
+
+[node name="Fuego9" parent="." instance=ExtResource("7_gxicp")]
+position = Vector2(534, 94)
+
+[node name="BarrilToxico" parent="." instance=ExtResource("9_n4sfy")]
+position = Vector2(134, 5)
+
+[node name="BarrilToxico2" parent="." instance=ExtResource("9_n4sfy")]
+position = Vector2(295, 118)
+
+[node name="BarrilToxico3" parent="." instance=ExtResource("9_n4sfy")]
+position = Vector2(186, 181)
+
+[node name="BarrilToxico4" parent="." instance=ExtResource("9_n4sfy")]
+position = Vector2(328, -106)
+
+[node name="BarrilToxico5" parent="." instance=ExtResource("9_n4sfy")]
+position = Vector2(312, 390)
+
+[node name="Enemy2_4" parent="BarrilToxico5" instance=ExtResource("10_hyivd")]
+position = Vector2(342, -161)

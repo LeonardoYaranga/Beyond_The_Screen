@@ -6,8 +6,9 @@ const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemy/spawn
 
 const ENEMY_SCENES: Dictionary = {
 	"FLYING_CREATURE": preload("res://Characters/Enemy/FlyingCreature/FlyingCreature.tscn"),
+	"GOBLIN": preload("res://Characters/Enemy/Goblin/Goblin.tscn")
+	 #"SLIME_BOSS": preload("res://Characters/Enemies/Bosses/SlimeBoss.tscn")
 	#More types of enemies.
-	#"GOBLIN": preload("res://Characters/Enemies/Goblin/Goblin.tscn"), "SLIME_BOSS": preload("res://Characters/Enemies/Bosses/SlimeBoss.tscn")
 }
 
 var num_enemies: int
@@ -50,7 +51,11 @@ func _close_entrance() -> void:
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
 		var enemy: CharacterBody2D
-		enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
+		if randi()%2 == 0:
+			enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
+		else:
+			enemy = ENEMY_SCENES.GOBLIN.instantiate()
+			
 		enemy.position = enemy_position.position 
 		call_deferred("add_child", enemy)
 		

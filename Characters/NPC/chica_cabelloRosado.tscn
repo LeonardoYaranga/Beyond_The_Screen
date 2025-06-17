@@ -1,0 +1,114 @@
+[gd_scene load_steps=13 format=3 uid="uid://dcv0lwidbgi2t"]
+
+[ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_fr50d"]
+[ext_resource type="Texture2D" uid="uid://b5itwk4ncgrwm" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/Punk_idle.png" id="2_2njgv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skj66"]
+atlas = ExtResource("2_2njgv")
+region = Rect2(0, 11, 48, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cenf"]
+atlas = ExtResource("2_2njgv")
+region = Rect2(48, 11, 48, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcmh2"]
+atlas = ExtResource("2_2njgv")
+region = Rect2(96, 11, 48, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfkij"]
+atlas = ExtResource("2_2njgv")
+region = Rect2(144, 11, 48, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o4ghc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skj66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cenf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcmh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfkij")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fr50d"]
+size = Vector2(17, 10)
+
+[sub_resource type="Animation" id="Animation_w1q8g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_ru1wk"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.266667, 0.5, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_isrxs"]
+_data = {
+&"RESET": SubResource("Animation_w1q8g"),
+&"idle": SubResource("Animation_ru1wk")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2njgv"]
+radius = 26.0768
+
+[node name="ChicaRosado" instance=ExtResource("1_fr50d")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_o4ghc")
+frame = 1
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(-9.5, 14)
+shape = SubResource("RectangleShape2D_fr50d")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_isrxs")
+}
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(-11, 1)
+shape = SubResource("CircleShape2D_2njgv")
