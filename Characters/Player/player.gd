@@ -37,9 +37,11 @@ func get_input() -> void:
 		sword_animation_player.play("attack")	#El attack es una animacion que se creo en el SwordAnimationPlayer
 	
 func switch_camera() -> void:
-	var main_scene_camera: Camera2D = get_parent().get_node("Camera2D")
-	main_scene_camera.position = position
-	main_scene_camera.current = true
-	get_node("Camera2D").current = false
-
+	var main_scene_camera = get_parent().get_node("Camera2D")
+	if main_scene_camera is Camera2D:
+		main_scene_camera.position = position
+		main_scene_camera.make_current()
+		print($Camera2D.get_class()," is current?: ", $Camera2D.is_current())
+	else:
+		print("No se encontró una Camera2D válida.")
 	
