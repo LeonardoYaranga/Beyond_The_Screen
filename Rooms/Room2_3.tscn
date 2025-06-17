@@ -1,10 +1,15 @@
-[gd_scene load_steps=50 format=4 uid="uid://ctrrjualucvhf"]
+[gd_scene load_steps=55 format=4 uid="uid://p08sgfjshirg"]
 
 [ext_resource type="Texture2D" uid="uid://c2bdjy47xuu1p" path="res://Assets/Escenario2/neo_zero_tiles_and_buildings_01.png" id="1_bxvg0"]
 [ext_resource type="Texture2D" uid="uid://drr6a7jmywc3f" path="res://Assets/Escenario2/neo_zero_props_and_items_01.png" id="2_1bper"]
 [ext_resource type="Texture2D" uid="uid://b4yfsd6iwmhbw" path="res://Assets/Escenario2/Jerom_topRL_CCBYSA3.png" id="3_b0ftf"]
 [ext_resource type="Texture2D" uid="uid://bf8qm1qtra27j" path="res://Assets/Escenario2/apartmentA5demo.png" id="4_rewcn"]
 [ext_resource type="Texture2D" uid="uid://hwcy7ef6fo64" path="res://Assets/Escenario2/void-tiles.png" id="5_76btu"]
+[ext_resource type="PackedScene" uid="uid://cc1hf3e7tks6v" path="res://Rooms/Objetos/fuego.tscn" id="6_gcgeg"]
+[ext_resource type="PackedScene" uid="uid://dwnkmxsv4i127" path="res://Rooms/Objetos/compu.tscn" id="7_axl2v"]
+[ext_resource type="PackedScene" uid="uid://b5f8nnu5lafba" path="res://Rooms/Objetos/barril_toxico.tscn" id="8_dwet7"]
+[ext_resource type="PackedScene" uid="uid://cvln3bqw0dn5t" path="res://Characters/NPC/cyborg.tscn" id="9_rp0wk"]
+[ext_resource type="PackedScene" uid="uid://byuhfkprgxf1c" path="res://Characters/NPC/smoker.tscn" id="10_1hphg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_puj0m"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -530,7 +535,6 @@ texture = ExtResource("2_1bper")
 1:6/0 = 0
 1:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ayfbs")
 8:6/0 = 0
-8:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.90873, 8, -5.02551, 8, -5.02551, 2.995, 4.11178, 3.09653)
 8:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4bct")
 9:6/0 = 0
 9:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4bct")
@@ -542,7 +546,6 @@ texture = ExtResource("2_1bper")
 7:7/0 = 0
 7:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4bct")
 8:7/0 = 0
-8:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.11178, 0.0507641, 0.862967, 0.152288, 0.964493, 8, -1.97975, 8, -1.97975, 0.152288, -5.02551, 0.0507641, -5.12704, -8, 4.11178, -8)
 8:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4bct")
 9:7/0 = 0
 9:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4bct")
@@ -561,7 +564,6 @@ texture = ExtResource("2_1bper")
 7:8/0 = 0
 7:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4bct")
 8:8/0 = 0
-8:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.964493, 8, -1.97975, 8, -2.08127, -8, 0.862967, -8)
 8:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4bct")
 9:8/0 = 0
 9:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4bct")
@@ -579,7 +581,7 @@ texture = ExtResource("2_1bper")
 7:9/0 = 0
 7:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4bct")
 8:9/0 = 0
-8:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.79195, 4.92399, -4.01026, 5.02551, -4.01026, -3.90873, -1.7767, -4.11178, -1.87822, -8, 1.16754, -8, 0.862967, -4.11178, 2.89348, -3.90873)
+8:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.97845, -8, 1.43887, -8, 3.0576, 5.03605, -3.95689, 4.85619)
 8:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4bct")
 9:9/0 = 0
 9:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_p4bct")
@@ -2009,3 +2011,42 @@ tile_set = SubResource("TileSet_qt1ov")
 [node name="Objetos" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD6/wsABQAEAAUAAAD7/wsABQAFAAUAAAD8/wsABQAGAAUAAAARAAIABQAEAAUAAAASAAIABQAFAAUAAAATAAIABQAGAAUAAAACAAIABQADAAUAAAAPAAsABQADAAUAAAAQAAsABQADAAUAAAAJAAYABQADAAYAAAAVAAMABQAAAAEAAAAVAAQABQAAAAIAAAAWAAMABQABAAEAAAAWAAQABQABAAIAAAAVAAUABQAAAAEAAAAVAAYABQAAAAIAAAAWAAUABQABAAEAAAAWAAYABQABAAIAAAAVAAcABQAAAAEAAAAVAAgABQAAAAIAAAAWAAcABQABAAEAAAAWAAgABQABAAIAAAD4/wAABQAAAAEAAAD4/wEABQAAAAIAAAD7/wAABQAAAAEAAAD7/wEABQAAAAIAAAD+/wAABQAAAAEAAAD+/wEABQAAAAIAAAD4/wIABQABAAEAAAD4/wMABQABAAIAAAD7/wIABQABAAEAAAD7/wMABQABAAIAAAD+/wIABQABAAEAAAD+/wMABQABAAIAAAD+/wUAAgAIAAYAAAD+/wYAAgAIAAcAAAD+/wcAAgAIAAgAAAD+/wgAAgAIAAkAAAAEAAUAAgAIAAYAAAAEAAYAAgAIAAcAAAAEAAcAAgAIAAgAAAAEAAgAAgAIAAkAAAAKAAUAAgAIAAYAAAAKAAYAAgAIAAcAAAAKAAcAAgAIAAgAAAAKAAgAAgAIAAkAAAAQAAUAAgAIAAYAAAAQAAYAAgAIAAcAAAAQAAcAAgAIAAgAAAAQAAgAAgAIAAkAAAAXAAUAAgAIAAYAAAAXAAYAAgAIAAcAAAAXAAcAAgAIAAgAAAAXAAgAAgAIAAkAAAAXAAAAAgAIAAYAAAAXAAEAAgAIAAcAAAAXAAIAAgAIAAgAAAAXAAMAAgAIAAkAAAAQAAAAAgAIAAYAAAAQAAEAAgAIAAcAAAAQAAIAAgAIAAgAAAAQAAMAAgAIAAkAAAAKAAAAAgAIAAYAAAAKAAEAAgAIAAcAAAAKAAIAAgAIAAgAAAAKAAMAAgAIAAkAAAAEAAAAAgAIAAYAAAAEAAEAAgAIAAcAAAAEAAIAAgAIAAgAAAAEAAMAAgAIAAkAAAD//wAAAgAIAAYAAAD//wEAAgAIAAcAAAD//wIAAgAIAAgAAAD//wMAAgAIAAkAAAD5/wYAAgAIAAYAAAD5/wcAAgAIAAcAAAD5/wgAAgAIAAgAAAD5/wkAAgAIAAkAAAAGAAUABwAEABIAAAAHAAUABwAFABIAAAAGAAYABwAEABMAAAAHAAYABwAFABMAAAAaAAAABwAGABIAAAAaAAEABwAGABMAAAAbAAAABwAHABIAAAAbAAEABwAHABMAAAAFAAAABwAGABQAAAAFAAEABwAGABUAAAAGAAAABwAHABQAAAAJAAwABwAGABQAAAAJAA0ABwAGABUAAAAKAAwABwAHABQAAAAQAAwABwAGABQAAAAQAA0ABwAGABUAAAARAAwABwAHABQAAAApAAYABQAGAAAAAAApAAcABQAGAAEAAAAqAAYABQAHAAAAAAAqAAcABQAHAAEAAAAgAAUAAgAEAAkAAAAmAAkAAgAEAAkAAAAjAAUAAgAIAAQAAAAkAAUAAgAIAAQAAAAeAAkAAgAIAAQAAAAfAAkAAgAIAAQAAAANAAsAAgAJAAQAAAAMAAsAAgAJAAQAAAAGAAIAAgAJAAQAAAAHAAIAAgAJAAQAAAAVAAEAAgAIAAQAAAAWAAEAAgAIAAQAAAD6//7/AgAIAAQAAAAAAAsAAgAIAAQAAAAhAAkAAgABAAgAAAAiAAkAAgABAAgAAAAjAAkAAgABAAgAAAANAAIAAgAAAAgAAAAOAAIAAgAAAAgAAAD9/wsAAgABAAgAAAD+/wsAAgABAAgAAAA=")
 tile_set = SubResource("TileSet_qt1ov")
+
+[node name="Fuego" parent="." instance=ExtResource("6_gcgeg")]
+position = Vector2(-130, 168)
+
+[node name="Fuego2" parent="." instance=ExtResource("6_gcgeg")]
+position = Vector2(-14, -28)
+
+[node name="Compu" parent="." instance=ExtResource("7_axl2v")]
+position = Vector2(89, 39)
+
+[node name="BarrilToxico" parent="." instance=ExtResource("8_dwet7")]
+position = Vector2(36, 103)
+
+[node name="BarrilToxico2" parent="." instance=ExtResource("8_dwet7")]
+position = Vector2(24, 103)
+
+[node name="Fuego3" parent="." instance=ExtResource("6_gcgeg")]
+position = Vector2(449, 168)
+
+[node name="Fuego4" parent="." instance=ExtResource("6_gcgeg")]
+position = Vector2(426, 168)
+
+[node name="Cyborg" parent="." instance=ExtResource("9_rp0wk")]
+position = Vector2(408, 45)
+
+[node name="Smoker" parent="." instance=ExtResource("10_1hphg")]
+position = Vector2(-89, 77)
+
+[node name="Fuego5" parent="." instance=ExtResource("6_gcgeg")]
+position = Vector2(216, 88)
+
+[node name="BarrilToxico3" parent="." instance=ExtResource("8_dwet7")]
+position = Vector2(282, 184)
+
+[node name="BarrilToxico4" parent="." instance=ExtResource("8_dwet7")]
+position = Vector2(296, 184)
+
+[node name="BarrilToxico5" parent="." instance=ExtResource("8_dwet7")]
+position = Vector2(584, 152)

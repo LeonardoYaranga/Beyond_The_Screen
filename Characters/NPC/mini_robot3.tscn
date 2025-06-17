@@ -1,0 +1,163 @@
+[gd_scene load_steps=15 format=3 uid="uid://b6mae5h3wffui"]
+
+[ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_p84us"]
+[ext_resource type="Script" uid="uid://csgyge5d2p7gp" path="res://Characters/NPC/mini_robot.gd" id="2_rdbna"]
+[ext_resource type="Texture2D" uid="uid://bukj2u0ekaupv" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/robot walk3.png" id="3_p84us"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdbna"]
+atlas = ExtResource("3_p84us")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtgwg"]
+atlas = ExtResource("3_p84us")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky0tf"]
+atlas = ExtResource("3_p84us")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fei81"]
+atlas = ExtResource("3_p84us")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4k4td"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdbna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtgwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky0tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fei81")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk32g"]
+size = Vector2(7, 4)
+
+[sub_resource type="Animation" id="Animation_im7nd"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_fxgl4"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_4gdvd"]
+resource_name = "idle_minirobot"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0bw1q"]
+_data = {
+&"RESET": SubResource("Animation_im7nd"),
+&"idle": SubResource("Animation_fxgl4"),
+&"idle_minirobot": SubResource("Animation_4gdvd")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fxgl4"]
+radius = 20.025
+
+[node name="Mini Robot celeste" instance=ExtResource("1_p84us")]
+script = ExtResource("2_rdbna")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(-4.76837e-07, 9.53674e-07)
+scale = Vector2(0.4375, 0.445313)
+sprite_frames = SubResource("SpriteFrames_4k4td")
+frame = 1
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(-0.5, 5)
+shape = SubResource("RectangleShape2D_pk32g")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_0bw1q")
+}
+
+[node name="InteractionArea" parent="." index="4"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+shape = SubResource("CircleShape2D_fxgl4")
