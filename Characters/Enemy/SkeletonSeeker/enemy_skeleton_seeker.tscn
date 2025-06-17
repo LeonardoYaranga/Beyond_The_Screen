@@ -1,0 +1,185 @@
+[gd_scene load_steps=17 format=3 uid="uid://21k5tvm4h7oj"]
+
+[ext_resource type="PackedScene" uid="uid://buu64l6pc8rur" path="res://Characters/Enemy/enemy.tscn" id="1_xdnn7"]
+[ext_resource type="Texture2D" uid="uid://1frlpk3ofark" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Seeker/skeleton_seeker_walk.png" id="2_i5h8y"]
+
+[sub_resource type="GDScript" id="GDScript_ewwc4"]
+script/source = "extends NPC
+
+func _ready() -> void:
+	super._ready()
+	dialogue_lines = [\"¡Bienvenido a mi forja!\", \"Puedo mejorar tu espada por 10 monedas.\"]
+
+func start_dialogue() -> void:
+	# Ejemplo: Mostrar diálogo y ofrecer mejora
+	print(\"Herrero dice:\", dialogue_lines[0])
+	# Más adelante, integrar con un sistema de diálogo y comercio
+	#if interacting_player and interacting_player.has_method(\"upgrade_sword\"):
+		#if interacting_player.coins >= 10:  # Suponiendo que Player tiene \"coins\"
+			#interacting_player.upgrade_sword()
+			#interacting_player.coins -= 10
+			#print(\"Espada mejorada!\")
+		#else:
+			#print(\"No tienes suficientes monedas.\")
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewwc4"]
+atlas = ExtResource("2_i5h8y")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiqkg"]
+atlas = ExtResource("2_i5h8y")
+region = Rect2(0, 120, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pee2m"]
+atlas = ExtResource("2_i5h8y")
+region = Rect2(0, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10g7n"]
+atlas = ExtResource("2_i5h8y")
+region = Rect2(0, 360, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv78u"]
+atlas = ExtResource("2_i5h8y")
+region = Rect2(0, 480, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wesji"]
+atlas = ExtResource("2_i5h8y")
+region = Rect2(0, 600, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mnoc6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewwc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiqkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pee2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10g7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv78u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wesji")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5t814"]
+size = Vector2(92, 84)
+
+[sub_resource type="Animation" id="Animation_dp4hi"]
+resource_name = "skeletor_walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 5]
+}
+
+[sub_resource type="Animation" id="Animation_4m0r6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6anmn"]
+_data = {
+&"RESET": SubResource("Animation_4m0r6"),
+&"skeletor_walk": SubResource("Animation_dp4hi")
+}
+
+[sub_resource type="GDScript" id="GDScript_i5h8y"]
+script/source = "extends NPC
+
+func _ready() -> void:
+	super._ready()
+	dialogue_lines = [\"¡Bienvenido a mi forja!\", \"Puedo mejorar tu espada por 10 monedas.\"]
+
+func start_dialogue() -> void:
+	# Ejemplo: Mostrar diálogo y ofrecer mejora
+	print(\"Herrero dice:\", dialogue_lines[0])
+	# Más adelante, integrar con un sistema de diálogo y comercio
+	#if interacting_player and interacting_player.has_method(\"upgrade_sword\"):
+		#if interacting_player.coins >= 10:  # Suponiendo que Player tiene \"coins\"
+			#interacting_player.upgrade_sword()
+			#interacting_player.coins -= 10
+			#print(\"Espada mejorada!\")
+		#else:
+			#print(\"No tienes suficientes monedas.\")
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ujc2n"]
+radius = 46.0109
+
+[node name="EnemySkeletonSeeker" instance=ExtResource("1_xdnn7")]
+script = SubResource("GDScript_ewwc4")
+dialogue_lines = Array[String](["¡Hola, viajero!"])
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_mnoc6")
+frame = 1
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(6, 5)
+shape = SubResource("RectangleShape2D_5t814")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_6anmn")
+}
+
+[node name="InteractionArea" type="Area2D" parent="." index="6"]
+collision_layer = 2
+script = SubResource("GDScript_i5h8y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(5, 4)
+shape = SubResource("CircleShape2D_ujc2n")
