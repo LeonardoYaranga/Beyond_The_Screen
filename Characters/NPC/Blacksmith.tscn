@@ -1,0 +1,133 @@
+[gd_scene load_steps=14 format=3 uid="uid://d2y4xmud5b0xy"]
+
+[ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_637o4"]
+[ext_resource type="Script" uid="uid://cg7tledumvo1y" path="res://Characters/NPC/Blacksmith.gd" id="2_wruom"]
+[ext_resource type="Texture2D" uid="uid://bqka6tgtwhpyg" path="res://Art/NPCs/Lively NPC_ blacksmith/spritesheets/idle.png" id="3_1ebss"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sam5p"]
+atlas = ExtResource("3_1ebss")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yegsy"]
+atlas = ExtResource("3_1ebss")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seet1"]
+atlas = ExtResource("3_1ebss")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysxo5"]
+atlas = ExtResource("3_1ebss")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4q1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sam5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yegsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_seet1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysxo5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ebss"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_7mfft"]
+resource_name = "idle"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+
+[sub_resource type="Animation" id="Animation_3o4g8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujun0"]
+_data = {
+&"RESET": SubResource("Animation_3o4g8"),
+&"idle": SubResource("Animation_7mfft")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sam5p"]
+
+[node name="Blacksmith" instance=ExtResource("1_637o4")]
+script = ExtResource("2_wruom")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_p4q1j")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(-1, 9)
+scale = Vector2(0.856909, 0.877933)
+shape = SubResource("CircleShape2D_1ebss")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_ujun0")
+}
+
+[node name="InteractionArea" parent="." index="4"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(-1, 1)
+scale = Vector2(1.62857, 1.732)
+shape = SubResource("CircleShape2D_sam5p")
