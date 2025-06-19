@@ -2,6 +2,11 @@ extends Control
 
 signal start_game()
 @onready var buttons_v_box = %ButtonsVBox
+# Asumiendo que el nodo TextureRect se llama "texture_rect"
+@onready var texture_rect = $TextureRect  # Cambia esto por el nombre de tu nodo
+
+func _ready() -> void:
+	texture_rect.modulate = Color(1, 1, 1, 0.6)
 
 func _on_start_game_button_pressed() -> void:
 	print("MainMenu: Boton Start pressed")

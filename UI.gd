@@ -26,6 +26,7 @@ func _input(event: InputEvent) -> void:
 		game_menu.visible = !game_menu.visible
 		if game_menu.visible:
 			menu_opened.emit()
+			health_bar.hide()  # Ocultar hasta que el juego comience
 		else:
 			menu_closed.emit()	
 			
@@ -53,6 +54,7 @@ func _on_main_menu_start_game() -> void:
 	
 func _on_game_menu_return_to_game() -> void:
 	game_menu.hide()
+	health_bar.show()
 	menu_closed.emit()
 
 func _on_game_menu_main_menu() -> void:
