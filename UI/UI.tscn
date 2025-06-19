@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://6gyvhuihnost"]
+
+[ext_resource type="Script" uid="uid://m2tivhml7axd" path="res://UI.gd" id="1_e707p"]
+[ext_resource type="PackedScene" uid="uid://c0wehu0pinqks" path="res://Menu/MainMenu.tscn" id="2_f1fl4"]
+[ext_resource type="Texture2D" uid="uid://d4gl37sdximtr" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/health_ui.png" id="3_jqf55"]
+[ext_resource type="Texture2D" uid="uid://cg0k0rarnwsex" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/progress bar.png" id="4_byuxr"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_e707p")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_f1fl4")]
+unique_name_in_owner = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 19.0
+offset_top = 18.0
+offset_right = 99.0
+offset_bottom = 34.0
+value = 23.0
+texture_over = ExtResource("3_jqf55")
+texture_progress = ExtResource("4_byuxr")
+tint_progress = Color(0.792157, 0.101961, 0.14902, 1)
+
+[connection signal="start_game" from="MainMenu" to="." method="_on_main_menu_start_game"]

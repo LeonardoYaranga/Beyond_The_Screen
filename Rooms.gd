@@ -10,14 +10,17 @@ const ROOM_SCENES: Dictionary = {
 	"Room2_5": preload("res://Rooms/Room2_5.tscn"),
 }
 
-@onready var player: CharacterBody2D = get_parent().get_node("Player")
+#@onready var player: CharacterBody2D = get_parent().get_node("Player")
+var player: Character = null
 var current_room: Node2D = null
 var current_room_name: String = ""
 
-func _ready() -> void:
-	# Instanciar la sala inicial (cárcel)
-	_load_room("Room2_5")
-
+#func _ready() -> void:
+	## Instanciar la sala inicial (cárcel)
+	#_load_room("Room1_5")
+func initialize(player_node: Character) -> void:
+	player = player_node
+	
 func _load_room(room_name: String) -> void:
 	if current_room:
 		if current_room.has_signal("door_entered"):
@@ -30,9 +33,9 @@ func _load_room(room_name: String) -> void:
 	
 func _add_room_deferred() -> void:
 	add_child(current_room)
-	
-	var spawn_pos = current_room.get_node("PlayerSpawnPos").position
-	player.position = spawn_pos
+	if player:
+		var spawn_pos = current_room.get_node("PlayerSpawnPos").position
+		player.position = spawn_pos
 	
 	if current_room.has_signal("door_entered"):
 		print("Conectando door_entered para sala:", current_room_name)

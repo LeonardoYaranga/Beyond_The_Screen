@@ -4,13 +4,6 @@ extends Character
 @onready var sword_hitbox: Area2D = get_node("Sword/Node2D/Sprite2D/Hitbox")
 @onready var sword_animation_player: AnimationPlayer = sword.get_node("SwordAnimationPlayer")
 
-#Sistema de mejora de danio de la espada (Posible implementaicon con el BlackSmith
-#var coins: int = 0
-#var sword_damage: int = 10
-#
-#func upgrade_sword() -> void:
-	#sword_damage += 5
-	#print("Daño de espada aumentado a:", sword_damage)
 
 func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position()-global_position).normalized()
@@ -35,7 +28,15 @@ func get_input() -> void:
 		mov_direction+= Vector2.UP
 	if Input.is_action_just_pressed("ui_attack") and not sword_animation_player.is_playing(): #Se creo el ui_attack como un Input map en Project/ProjectSettings/ 2D Physics 
 		sword_animation_player.play("attack")	#El attack es una animacion que se creo en el SwordAnimationPlayer
-	
+
+func activate_player_camera() -> void:
+	var player_camera = $Camera2D
+	if player_camera is Camera2D:
+		player_camera.make_current()
+		print("Player Camera2D activated, is current?: ", player_camera.is_current())
+	else:
+		print("No se encontró la Camera2D del Player.")
+
 func switch_camera() -> void:
 	var main_scene_camera = get_parent().get_node("Camera2D")
 	if main_scene_camera is Camera2D:
@@ -44,4 +45,3 @@ func switch_camera() -> void:
 		print($Camera2D.get_class()," is current?: ", $Camera2D.is_current())
 	else:
 		print("No se encontró una Camera2D válida.")
-	

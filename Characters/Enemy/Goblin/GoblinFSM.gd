@@ -27,7 +27,9 @@ func _get_transition() -> int:
 			if parent.distance_to_player < parent.MAX_DISTANCE_TO_PLAYER and parent.distance_to_player > parent.MIN_DISTANCE_TO_PLAYER:
 				return states.idle
 		states.hurt:
+			print("State hurt")
 			if not animation_player.is_playing():
+				print("Now can move")
 				return states.move
 	return -1
 	

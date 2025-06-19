@@ -1,0 +1,44 @@
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://c2qoebb3mbfqe"]
+
+[ext_resource type="FontFile" uid="uid://irf00yw8ay4d" path="res://Assets/fonts/Early GameBoy.ttf" id="1_xpsm5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_se787"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q7npb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6ceh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2l176"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awvjm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3gavf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qw5sh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brcf4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2n7n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23s0g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0g0id"]
+
+[resource]
+default_font = ExtResource("1_xpsm5")
+default_font_size = 16
+Button/colors/font_color = Color(6.54578e-06, 0.984692, 0.740528, 1)
+Button/colors/font_focus_color = Color(0.11856, 0.196427, 0.709859, 1)
+Button/colors/font_hover_color = Color(0.233576, 0.805116, 0.731876, 1)
+Button/colors/font_pressed_color = Color(0.0323026, 0.0909961, 0.320332, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_se787")
+Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_q7npb")
+Button/styles/focus = SubResource("StyleBoxEmpty_i6ceh")
+Button/styles/hover = SubResource("StyleBoxEmpty_2l176")
+Button/styles/hover_mirrored = SubResource("StyleBoxEmpty_awvjm")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_3gavf")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qw5sh")
+Button/styles/normal = SubResource("StyleBoxEmpty_brcf4")
+Button/styles/normal_mirrored = SubResource("StyleBoxEmpty_l2n7n")
+Button/styles/pressed = SubResource("StyleBoxEmpty_23s0g")
+Button/styles/pressed_mirrored = SubResource("StyleBoxEmpty_0g0id")

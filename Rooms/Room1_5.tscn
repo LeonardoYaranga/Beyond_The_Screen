@@ -1,7 +1,8 @@
-[gd_scene load_steps=48 format=4 uid="uid://dvym5c2rfliwd"]
+[gd_scene load_steps=49 format=4 uid="uid://dvym5c2rfliwd"]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_nste2"]
 [ext_resource type="Texture2D" uid="uid://bs1spwck2sn7s" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/TilemapWorld1/Tilemap Dungeon original size.png" id="2_xm8vc"]
+[ext_resource type="PackedScene" uid="uid://hodv5cwqmjkb" path="res://Characters/Enemy/enemy_2_4.tscn" id="3_248om"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_brgd8"]
 
@@ -1338,3 +1339,9 @@ tile_set = SubResource("TileSet_u0smc")
 
 [node name="PlayerDetector" parent="." index="6"]
 position = Vector2(-360, -183)
+
+[node name="Enemy2_4" parent="." index="7" instance=ExtResource("3_248om")]
+position = Vector2(-569, -238)
+
+[node name="PlayerSpawnPos" type="Marker2D" parent="." index="8"]
+position = Vector2(-584, -100)
