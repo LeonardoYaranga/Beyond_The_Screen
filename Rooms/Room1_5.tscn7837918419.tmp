@@ -1475,3 +1475,6 @@ position = Vector2(713, 303)
 
 [node name="skeleton_seeker" parent="." index="8" instance=ExtResource("3_248om")]
 position = Vector2(-186, 296)
+max_hp = null
+acceleration = null
+max_speed = null
