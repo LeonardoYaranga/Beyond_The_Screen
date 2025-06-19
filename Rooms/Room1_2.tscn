@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=4 uid="uid://coi4d4b15jsfc"]
+[gd_scene load_steps=89 format=4 uid="uid://coi4d4b15jsfc"]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_5e0r1"]
 [ext_resource type="Texture2D" uid="uid://bm47x2eepls2t" path="res://Art/Cute_Fantasy/Cute_Fantasy/Tiles/Grass/Grass_Tiles_3.png" id="2_m6o3a"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://d1jxd8ag543lm" path="res://Art/Cute_Fantasy/Cute_Fantasy/House/Buildings/Houses/House_5_3.png" id="18_nfqn5"]
 [ext_resource type="Texture2D" uid="uid://d288y2by864jv" path="res://Art/Cute_Fantasy/Cute_Fantasy/House/Buildings/Houses/House_5_4.png" id="19_0j4yw"]
 [ext_resource type="PackedScene" uid="uid://c2ee3jo0tcww3" path="res://Rooms/Door.tscn" id="20_7v8kk"]
+[ext_resource type="PackedScene" uid="uid://cimg84sy6a07y" path="res://Characters/NPC/campesino.tscn" id="22_hqe16"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_et7i0"]
 vertices = PackedVector2Array(7.02344, 1.92188, 5.01563, 1.92188, 5.07031, 1.0625, 6.96094, 0.0859375, -1.97656, 7.13281, -1.97656, 8, -8, 8, -8, -8, 1.97656, 3.125, 8, -8, 2.95313, 1.97656, 1, 6.21875, 1, 7.07813, 8, -0.03125, 1.92188, 6.10156, 2.95313, 2.95313, 3.92188, 1.0625, 3.86719, 1.85938)
@@ -1245,7 +1246,7 @@ tile_map_data = PackedByteArray("AAD8/woAAAADAAUAAAD9/wsAAAADAAUAAAD9/yIAAAAFABQ
 tile_set = SubResource("TileSet_eqgbm")
 
 [node name="Aldeano" parent="." index="4" instance=ExtResource("17_m6o3a")]
-position = Vector2(238, 312)
+position = Vector2(342, 336)
 scale = Vector2(0.620213, 0.918764)
 
 [node name="Buildings" type="Node2D" parent="." index="5"]
@@ -1326,3 +1327,6 @@ position = Vector2(61, 70)
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="10"]
 position = Vector2(634, 41)
+
+[node name="campesino" parent="." index="11" instance=ExtResource("22_hqe16")]
+position = Vector2(86, 266)

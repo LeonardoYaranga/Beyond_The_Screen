@@ -1,0 +1,130 @@
+[gd_scene load_steps=13 format=3 uid="uid://cimg84sy6a07y"]
+
+[ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_g508c"]
+[ext_resource type="Texture2D" uid="uid://cntbnpvbfo22e" path="res://Art/NPCs/Man_Peasant/Man_Peasant.png" id="2_a7jg3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve2ma"]
+atlas = ExtResource("2_a7jg3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w175"]
+atlas = ExtResource("2_a7jg3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbu2j"]
+atlas = ExtResource("2_a7jg3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk44y"]
+atlas = ExtResource("2_a7jg3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tneog"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve2ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w175")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbu2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk44y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmq87"]
+size = Vector2(11, 5)
+
+[sub_resource type="Animation" id="Animation_7y3y5"]
+resource_name = "idle"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_q2r7j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d175k"]
+_data = {
+&"RESET": SubResource("Animation_q2r7j"),
+&"idle": SubResource("Animation_7y3y5")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0yc4"]
+height = 26.0
+
+[node name="campesino" instance=ExtResource("1_g508c")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_tneog")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(-0.5, 8.5)
+shape = SubResource("RectangleShape2D_nmq87")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_d175k")
+}
+
+[node name="InteractionArea" parent="." index="4"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_i0yc4")
