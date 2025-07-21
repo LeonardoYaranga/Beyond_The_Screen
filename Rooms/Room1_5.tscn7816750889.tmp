@@ -1469,3 +1469,9 @@ position = Vector2(-328, -278)
 
 [node name="PlayerDetector" parent="." index="6"]
 position = Vector2(-360, -183)
+
+[node name="Skeleton_Lighter" parent="." index="7" instance=ExtResource("3_wcpl2")]
+position = Vector2(713, 303)
+
+[node name="skeleton_seeker" parent="." index="8" instance=ExtResource("3_248om")]
+position = Vector2(-186, 296)
