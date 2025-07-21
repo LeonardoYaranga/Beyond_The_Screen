@@ -228,7 +228,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(2.03445, -8, 8, -8, 8, 
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2ldk"]
-texture = ExtResource("2_wcpl2")
+texture = ExtResource("2_m6o3a")
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_et7i0")
 1:0/0 = 0
@@ -336,11 +336,11 @@ texture = ExtResource("2_wcpl2")
 6:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4o0my"]
-texture = ExtResource("3_8lnsw")
+texture = ExtResource("3_hqe16")
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ut1kp"]
-texture = ExtResource("4_1m7sq")
+texture = ExtResource("4_2wqjw")
 0:0/0 = 0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lhyjd"]
@@ -350,12 +350,12 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(8, 8, -8, 8, -8, -8, 8,
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fhc0k"]
-texture = ExtResource("4_xq51m")
+texture = ExtResource("5_oamgo")
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lhyjd")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hqe16"]
-texture = ExtResource("6_1hig3")
+texture = ExtResource("6_57is1")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

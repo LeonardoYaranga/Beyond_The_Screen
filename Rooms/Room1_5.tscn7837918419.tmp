@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://dvym5c2rfliwd"]
+[gd_scene load_steps=57 format=4 uid=""]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_nste2"]
 [ext_resource type="Texture2D" uid="uid://bs1spwck2sn7s" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/TilemapWorld1/Tilemap Dungeon original size.png" id="2_xm8vc"]

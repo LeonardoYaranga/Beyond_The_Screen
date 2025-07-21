@@ -2,7 +2,7 @@ extends Control
 
 signal start_game()
 @onready var buttons_v_box = %ButtonsVBox
-# Asumiendo que el nodo TextureRect se llama "texture_rect"
+# Asumiendo que el nodo TextureRect se llama "texture_rect".
 @onready var texture_rect = $TextureRect  # Cambia esto por el nombre de tu nodo
 
 func _ready() -> void:
