@@ -18,8 +18,9 @@ var current_room_name: String = ""
 func _ready() -> void:
 	# Instanciar la sala inicial (cárcel)
 	_load_room("Room1_5")
-#func initialize(player_node: Character) -> void:
-#	player = player_node
+	
+func initialize(player_node: Character) -> void:
+	player = player_node
 	
 func _load_room(room_name: String) -> void:
 	if current_room:
