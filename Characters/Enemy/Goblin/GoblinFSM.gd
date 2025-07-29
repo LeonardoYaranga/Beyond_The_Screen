@@ -13,12 +13,26 @@ func _ready() -> void:
 	
 	
 func _state_logic(_delta: float) -> void:
+	
 	if state == states.move:
 		parent.chase()
 		parent.move()
 		
 		
 func _get_transition() -> int:
+	if not is_instance_valid(parent):
+		print("Error: Parent no válido")
+		return -1
+	if is_instance_valid(parent):
+		print("Nombre del nodo:", parent.name)
+		print("Clase del nodo:", parent.get_class())
+		
+		var script = parent.get_script()
+		if script:
+			print("Script asignado:", script)
+			print("Ruta del script:", script.resource_path)
+		else:
+			print("El parent no tiene script asignado.")
 	match state:
 		states.idle:
 			if parent.distance_to_player > parent.MAX_DISTANCE_TO_PLAYER or parent.distance_to_player < parent.MIN_DISTANCE_TO_PLAYER:

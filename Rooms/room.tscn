@@ -19,4 +19,12 @@ script = ExtResource("1_hbclw")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 
+[node name="AnimatedObjects" type="Node2D" parent="."]
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="NPCsPositions" type="Node2D" parent="."]
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

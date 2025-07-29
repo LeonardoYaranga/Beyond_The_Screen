@@ -11,11 +11,12 @@ class_name Enemy
 
 func _ready() -> void:
 	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
-	animation_player.play("idle")
- 
+
+	
 func chase() -> void:
 	if not navigation_agent.is_target_reached():
-		var vector_to_next_point: Vector2 = navigation_agent.get_next_path_position() - global_position
+		var next_point: Vector2 = navigation_agent.get_next_path_position()
+		var vector_to_next_point: Vector2 = (next_point - global_position).normalized()
 		mov_direction = vector_to_next_point
 		#print("Dirección de movimiento enemy.gd:", mov_direction)
 		if vector_to_next_point.x > 0 and animated_sprite.flip_h:
@@ -27,7 +28,6 @@ func _get_path_to_player() -> void:
 	navigation_agent.target_position = player.position
 
 func _on_path_timer_timeout() -> void:
-	#print("Actualizando camino")
 	if is_instance_valid(player):
 		_get_path_to_player()
 	else:

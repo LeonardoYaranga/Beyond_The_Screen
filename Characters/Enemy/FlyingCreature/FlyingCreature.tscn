@@ -262,18 +262,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true, false, true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Hitbox/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xbh0k"]
 _data = {
@@ -287,6 +275,7 @@ _data = {
 radius = 4.0
 
 [node name="FlyingCreature" instance=ExtResource("1_masxo")]
+collision_mask = 3
 script = ExtResource("2_xbh0k")
 acceleration = 20
 max_speed = 50
@@ -298,6 +287,8 @@ script = ExtResource("2_cjiim")
 sprite_frames = SubResource("SpriteFrames_sdxpn")
 
 [node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(4, 3)
+scale = Vector2(0.621469, -0.626312)
 shape = SubResource("CircleShape2D_t87nm")
 
 [node name="AnimationPlayer" parent="." index="3"]
@@ -306,10 +297,12 @@ libraries = {
 }
 
 [node name="Hitbox" type="Area2D" parent="." index="6"]
-collision_layer = 0
+collision_layer = 4
 collision_mask = 2
 script = ExtResource("6_mtxhg")
 metadata/_custom_type_script = "uid://b3u6lrbai0l4k"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(4, 3)
+scale = Vector2(0.797376, 0.589988)
 shape = SubResource("CircleShape2D_sdxpn")

@@ -23,13 +23,13 @@ func start_game() -> void:
 	player = PlayerScene.instantiate()
 	add_child(player)
 	
-	ui.initialize(player) #Quiz esto hace q salga 2 players?
+	ui.initialize(player) 
 	rooms.initialize(player)
 
 	# Configurar la cámara
 	player.activate_player_camera()
 	# Cargar la sala inicial
-	rooms._load_room("Room1_1")  # Cárcel como sala inicial
+	rooms._load_room("Room2_5")
 	# Despausar el juego
 	get_tree().paused = false #Esto no es necesario ya que nunca se pausa pero porsiacaso
 		#Puede servir para otro menu, como el de pausa

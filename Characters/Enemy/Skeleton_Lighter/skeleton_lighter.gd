@@ -1,4 +1,4 @@
-@icon("res://Assets/EscenarioCueva/Enemy/Skeleton_Seeker/skeleton_seeker_idle.png")
+@icon("res://Art/v1.1 dungeon crawler 16x16 pixel pack/enemies/goblin/goblin_idle_anim_f0.png")
 
 extends Character
 class_name skeletonLighter
