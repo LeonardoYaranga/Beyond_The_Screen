@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cndyc6hxbww8"
-path="res://.godot/imported/Blacksmith_House.png-638869af42fcc8720d771c70e348ca26.ctex"
+uid="uid://bvyq8mjxggdjm"
+path="res://.godot/imported/Cattail_6_Anim.png-6ee19a5b994a63c581f6b06fbcea1345.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Cute_Fantasy/Cute_Fantasy/House/Buildings/Special_Buildings/Blacksmith_House/Blacksmith_House.png"
-dest_files=["res://.godot/imported/Blacksmith_House.png-638869af42fcc8720d771c70e348ca26.ctex"]
+source_file="res://Art/Cute_Fantasy/Cute_Fantasy/Outdoor decoration/Outdoor_Decor_Animations/Water_Decor_Animations/Water_Plants/Cattail_6_Anim.png"
+dest_files=["res://.godot/imported/Cattail_6_Anim.png-6ee19a5b994a63c581f6b06fbcea1345.ctex"]
 
 [params]
 
