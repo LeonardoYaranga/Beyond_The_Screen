@@ -55,7 +55,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vtw5"]
-size = Vector2(24.5, 43)
+size = Vector2(32.25, 20)
 
 [sub_resource type="Animation" id="Animation_ck1s4"]
 length = 0.001
@@ -127,7 +127,7 @@ scale = Vector2(0.483333, 0.525)
 sprite_frames = SubResource("SpriteFrames_x66mg")
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(0.75, 2.5)
+position = Vector2(2, 8)
 shape = SubResource("RectangleShape2D_7vtw5")
 
 [node name="AnimationPlayer" parent="." index="3"]

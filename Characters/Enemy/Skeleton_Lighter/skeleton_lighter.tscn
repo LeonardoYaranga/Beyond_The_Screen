@@ -69,7 +69,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ib0pt"]
-size = Vector2(40, 55)
+size = Vector2(12.25, 25.2813)
 
 [sub_resource type="Animation" id="Animation_csmfs"]
 length = 0.001
@@ -132,6 +132,7 @@ _data = {
 }
 
 [node name="Skeleton_Lighter" instance=ExtResource("1_l5cpn")]
+position = Vector2(1, 2)
 script = ExtResource("2_p5kqf")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
@@ -140,7 +141,7 @@ scale = Vector2(0.454819, 0.51178)
 sprite_frames = SubResource("SpriteFrames_qm12q")
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(-2, -1)
+position = Vector2(0.875, -7.64063)
 shape = SubResource("RectangleShape2D_ib0pt")
 
 [node name="AnimationPlayer" parent="." index="3"]

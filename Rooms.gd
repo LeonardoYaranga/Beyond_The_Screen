@@ -7,6 +7,9 @@ const ROOM_SCENES: Dictionary = {
 	"Room1_4": preload("res://Rooms/Room1_4.tscn"),  # Taberna
 	"Room1_5": preload("res://Rooms/Room1_5.tscn"),  # Cueva
 	"Room2_1": preload("res://Rooms/Room2_1.tscn"),
+	"Room2_2": preload("res://Rooms/Room2_2.tscn"),
+	"Room2_3": preload("res://Rooms/Room2_3.tscn"),
+	"Room2_4": preload("res://Rooms/Room2_4.tscn"),
 	"Room2_5": preload("res://Rooms/Room2_5.tscn"),
 }
 
@@ -14,10 +17,6 @@ const ROOM_SCENES: Dictionary = {
 var player: Character = null
 var current_room: Node2D = null
 var current_room_name: String = ""
-
-func _ready() -> void:
-	# Instanciar la sala inicial (cárcel)
-	_load_room("Room1_5")
 	
 func initialize(player_node: Character) -> void:
 	player = player_node
@@ -48,4 +47,5 @@ func _on_door_entered(door: Node2D) -> void:
 	print("Rooms: Cambiando a sala:", door.target_room)
 	var target_room = door.target_room
 	if target_room:
+		print("Deberia estar en sala: ", door.target_room)
 		_load_room(target_room)
