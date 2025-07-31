@@ -9,7 +9,6 @@ func _init() -> void:
 func _ready() -> void:
 	set_state(states.chase)
 	
-	
 func _state_logic(_delta: float) -> void:
 	#print("Estado actual flyingCreatureFSM:", state)
 	if state == states.chase:

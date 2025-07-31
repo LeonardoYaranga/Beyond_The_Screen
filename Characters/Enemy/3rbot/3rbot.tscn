@@ -1531,6 +1531,18 @@ tracks/29/keys = {
 "update": 0,
 "values": [Vector2(-2, 4)]
 }
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("AnimatedSprite2D:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_7rfqg"]
 resource_name = "dead"
@@ -1600,7 +1612,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_lcn5k"]
 resource_name = "disappear"
-length = 1.3
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1620,7 +1632,7 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333, 0.666667, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
@@ -1649,10 +1661,23 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.895425),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ct7j8"]
 resource_name = "dive_attack"
 length = 2.0
+step = 0.0333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1684,7 +1709,7 @@ tracks/2/path = NodePath("HitboxBody/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.433333),
+"times": PackedFloat32Array(0, 0.366667, 0.433333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -1696,10 +1721,10 @@ tracks/3/path = NodePath("HitboxBody/CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0739833, 0.335286, 0.402973),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0739833, 0.335286, 0.402973, 1.99686),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -28.4815), Vector2(0, -30.0638), Vector2(-0.273665, -18.3547), Vector2(0, 6.64567)]
+"values": [Vector2(0, -28.4815), Vector2(0, -30.0638), Vector2(-0.273665, -18.3547), Vector2(0, 6.64567), Vector2(0, 0.949382)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1904,6 +1929,30 @@ tracks/20/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1.19957, 1.28555)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("AnimatedSprite2D:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("HitboxBody/CollisionShape2D:scale")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0.408007, 1.99686),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.677038, 0.463354), Vector2(0.26067, 0.250073)]
 }
 
 [sub_resource type="Animation" id="Animation_g2m2j"]
@@ -2194,6 +2243,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycoxo"]
@@ -2504,7 +2565,8 @@ _data = {
 collision_mask = 2
 script = ExtResource("2_4mb70")
 MAX_DISTANCE_TO_PLAYER = 300.0
-MIN_DISTANCE_TO_ATTACK = 30.0
+MIN_DISTANCE_TO_ATTACK = 40.0
+ATTACK_SPEED_CHANGE_FACTOR = 0.3
 max_hp = 10
 hp = 10
 acceleration = 50
@@ -2518,7 +2580,6 @@ position = Vector2(-2, -48)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_yneep")
 animation = &"normal_move"
-frame = 1
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(-2, 4)
@@ -2536,7 +2597,12 @@ wait_time = 0.2
 [node name="AttackTimer" type="Timer" parent="." index="6"]
 wait_time = 1.5
 
-[node name="HitboxBody" type="Area2D" parent="." index="7"]
+[node name="CannotMoveDelayTimer" type="Timer" parent="." index="7"]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="HitboxBody" type="Area2D" parent="." index="8"]
 position = Vector2(-2, 1)
 scale = Vector2(3.65411, 3.15995)
 collision_layer = 4
@@ -2548,8 +2614,9 @@ metadata/_custom_type_script = "uid://b3u6lrbai0l4k"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxBody" index="0"]
 scale = Vector2(0.255038, 0.279696)
 shape = SubResource("CapsuleShape2D_nnwj8")
+disabled = true
 
-[node name="SpecialSworlds" type="Node2D" parent="." index="8"]
+[node name="SpecialSworlds" type="Node2D" parent="." index="9"]
 
 [node name="Hitbox" type="Area2D" parent="SpecialSworlds" index="0"]
 position = Vector2(37, 5)
@@ -2618,7 +2685,7 @@ scale = Vector2(1.31087, 2.15236)
 shape = SubResource("CapsuleShape2D_lcn5k")
 disabled = true
 
-[node name="NormalMiniSworld" type="Node2D" parent="." index="9"]
+[node name="NormalMiniSworld" type="Node2D" parent="." index="10"]
 
 [node name="Hitbox" type="Area2D" parent="NormalMiniSworld" index="0"]
 position = Vector2(-44, 8)
@@ -2638,3 +2705,4 @@ shape = SubResource("CapsuleShape2D_ycoxo")
 disabled = true
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="CannotMoveDelayTimer" to="." method="_on_cannot_move_delay_timer_timeout"]

@@ -1247,6 +1247,7 @@ position = Vector2(596, 26)
 
 [node name="3rbot" parent="Enemies" index="0" instance=ExtResource("7_ju54h")]
 position = Vector2(495, 63)
+ATTACK_SPEED_CHANGE_FACTOR = 0.3
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="11"]
 position = Vector2(54, 197)
