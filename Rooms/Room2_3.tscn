@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://p08sgfjshirg"]
+[gd_scene load_steps=58 format=4 uid="uid://p08sgfjshirg"]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_axl2v"]
 [ext_resource type="Texture2D" uid="uid://c2bdjy47xuu1p" path="res://Assets/Escenario2/neo_zero_tiles_and_buildings_01.png" id="1_bxvg0"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b5f8nnu5lafba" path="res://Rooms/Objetos/barril_toxico.tscn" id="8_dwet7"]
 [ext_resource type="PackedScene" uid="uid://cvln3bqw0dn5t" path="res://Characters/NPC/cyborg.tscn" id="9_rp0wk"]
 [ext_resource type="PackedScene" uid="uid://byuhfkprgxf1c" path="res://Characters/NPC/smoker.tscn" id="10_1hphg"]
+[ext_resource type="AudioStream" uid="uid://dr4feygtmvvoa" path="res://Music/deep_under_background.wav" id="13_rp0wk"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_puj0m"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -2060,3 +2061,6 @@ position = Vector2(-89, 77)
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="11"]
 position = Vector2(112, 255)
+
+[node name="BackgroundMusic" parent="." index="12"]
+stream = ExtResource("13_rp0wk")

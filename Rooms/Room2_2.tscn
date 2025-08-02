@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cbojvv52a1d44"]
+[gd_scene load_steps=33 format=4 uid="uid://cbojvv52a1d44"]
 
 [ext_resource type="Texture2D" uid="uid://c2bdjy47xuu1p" path="res://Assets/Escenario2/neo_zero_tiles_and_buildings_01.png" id="1_7iopg"]
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_oaymm"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c7tles64pm52d" path="res://Characters/NPC/silla_ruedas.tscn" id="7_we1jx"]
 [ext_resource type="PackedScene" uid="uid://dsexcioh0qw86" path="res://Characters/NPC/mini_robot.tscn" id="8_45i1d"]
 [ext_resource type="PackedScene" uid="uid://cucph4o2m1lnc" path="res://Characters/NPC/villano_2_2.tscn" id="10_tqoa4"]
+[ext_resource type="AudioStream" uid="uid://dr4feygtmvvoa" path="res://Music/deep_under_background.wav" id="13_45i1d"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_puj0m"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -665,3 +666,7 @@ position = Vector2(592, 145)
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="11"]
 position = Vector2(86, 141)
+
+[node name="BackgroundMusic" parent="." index="12"]
+stream = ExtResource("13_45i1d")
+stream_paused = true

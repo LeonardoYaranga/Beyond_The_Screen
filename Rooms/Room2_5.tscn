@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://b274sjcmew37r"]
+[gd_scene load_steps=34 format=4 uid="uid://b274sjcmew37r"]
 
 [ext_resource type="Texture2D" uid="uid://c214xdv2ftskj" path="res://Assets/Escenario2/neo_zero_props_02_free.png" id="1_ms7mg"]
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_wf706"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dmouy5wl0tk6g" path="res://Assets/Escenario2/neo_zero_tileset_02.png" id="5_hcsjy"]
 [ext_resource type="PackedScene" uid="uid://cc1hf3e7tks6v" path="res://Rooms/Objetos/fuego.tscn" id="6_8c3r3"]
 [ext_resource type="PackedScene" uid="uid://x6wfk16d4rvb" path="res://Characters/Enemy/3rbot/3rbot.tscn" id="7_ju54h"]
+[ext_resource type="AudioStream" uid="uid://c27gvh8iv05tq" path="res://Music/chill-progressive-rock-metal-riffs.wav" id="9_hcsjy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hcsjy"]
 texture = ExtResource("1_ms7mg")
@@ -1247,7 +1248,9 @@ position = Vector2(596, 26)
 
 [node name="3rbot" parent="Enemies" index="0" instance=ExtResource("7_ju54h")]
 position = Vector2(495, 63)
-ATTACK_SPEED_CHANGE_FACTOR = 0.3
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="11"]
 position = Vector2(54, 197)
+
+[node name="BackgroundMusic" parent="." index="12"]
+stream = ExtResource("9_hcsjy")

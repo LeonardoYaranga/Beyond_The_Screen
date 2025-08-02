@@ -1,10 +1,11 @@
-[gd_scene load_steps=190 format=3 uid="uid://x6wfk16d4rvb"]
+[gd_scene load_steps=191 format=3 uid="uid://x6wfk16d4rvb"]
 
 [ext_resource type="PackedScene" uid="uid://buu64l6pc8rur" path="res://Characters/Enemy/enemy.tscn" id="1_kled0"]
 [ext_resource type="Script" uid="uid://ewc6xugpssd3" path="res://Characters/Enemy/3rbot/3rbot.gd" id="2_4mb70"]
 [ext_resource type="Texture2D" uid="uid://dumwi532g6lta" path="res://Art/FinalBoss/Heart hoarder boss Sprite/The Heart Hoarder Sprite sheet 222x119.png" id="2_rk3g7"]
 [ext_resource type="Script" uid="uid://d0coby1na46ld" path="res://Characters/Enemy/3rbot/3rbotFSM.gd" id="3_338ua"]
 [ext_resource type="Texture2D" uid="uid://nt0lb5m1l4kt" path="res://Art/FinalBoss/Heart hoarder boss Sprite/Air Attack Slam Sprite sheet 246x121.png" id="3_rk3g7"]
+[ext_resource type="AudioStream" uid="uid://cp7m48cvmfqab" path="res://Music/dramatic-robotic-attack.mp3" id="6_iwvsl"]
 [ext_resource type="Script" uid="uid://b3u6lrbai0l4k" path="res://Characters/hitbox.gd" id="6_lcn5k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_muxh1"]
@@ -1210,7 +1211,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("NormalMiniSworld/Hitbox/CollisionShape2D:disabled")
+tracks/3/path = NodePath("NormalMiniSword/Hitbox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1538,6 +1539,18 @@ tracks/30/path = NodePath("AnimatedSprite2D:visible")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("AttackSound:playing")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1954,6 +1967,18 @@ tracks/22/keys = {
 "update": 0,
 "values": [Vector2(0.677038, 0.463354), Vector2(0.26067, 0.250073)]
 }
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("AttackSound:playing")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_g2m2j"]
 resource_name = "hurt"
@@ -2080,7 +2105,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("NormalMiniSworld/Hitbox/CollisionShape2D:position")
+tracks/2/path = NodePath("NormalMiniSword/Hitbox/CollisionShape2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -2092,7 +2117,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("NormalMiniSworld/Hitbox/CollisionShape2D:rotation")
+tracks/3/path = NodePath("NormalMiniSword/Hitbox/CollisionShape2D:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -2104,7 +2129,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("NormalMiniSworld/Hitbox/CollisionShape2D:scale")
+tracks/4/path = NodePath("NormalMiniSword/Hitbox/CollisionShape2D:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -2116,7 +2141,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("NormalMiniSworld/Hitbox/CollisionShape2D:shape")
+tracks/5/path = NodePath("NormalMiniSword/Hitbox/CollisionShape2D:shape")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -2128,7 +2153,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("NormalMiniSworld/Hitbox/CollisionShape2D:disabled")
+tracks/6/path = NodePath("NormalMiniSword/Hitbox/CollisionShape2D:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -2136,6 +2161,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [false, true, false, true, false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AttackSound:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_rk3g7"]
@@ -2544,6 +2581,18 @@ tracks/22/keys = {
 "update": 0,
 "values": [Vector2(0, 6.32921), Vector2(0, 6.32921), Vector2(0, 0)]
 }
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("AttackSound:playing")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.000212536),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mm1qk"]
 _data = {
@@ -2602,7 +2651,10 @@ unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
 
-[node name="HitboxBody" type="Area2D" parent="." index="8"]
+[node name="AttackSound" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource("6_iwvsl")
+
+[node name="HitboxBody" type="Area2D" parent="." index="9"]
 position = Vector2(-2, 1)
 scale = Vector2(3.65411, 3.15995)
 collision_layer = 4
@@ -2616,7 +2668,7 @@ scale = Vector2(0.255038, 0.279696)
 shape = SubResource("CapsuleShape2D_nnwj8")
 disabled = true
 
-[node name="SpecialSworlds" type="Node2D" parent="." index="9"]
+[node name="SpecialSworlds" type="Node2D" parent="." index="10"]
 
 [node name="Hitbox" type="Area2D" parent="SpecialSworlds" index="0"]
 position = Vector2(37, 5)
@@ -2685,9 +2737,9 @@ scale = Vector2(1.31087, 2.15236)
 shape = SubResource("CapsuleShape2D_lcn5k")
 disabled = true
 
-[node name="NormalMiniSworld" type="Node2D" parent="." index="10"]
+[node name="NormalMiniSword" type="Node2D" parent="." index="11"]
 
-[node name="Hitbox" type="Area2D" parent="NormalMiniSworld" index="0"]
+[node name="Hitbox" type="Area2D" parent="NormalMiniSword" index="0"]
 position = Vector2(-44, 8)
 rotation = 2.61799
 scale = Vector2(-1.06426, -1.10464)
@@ -2697,11 +2749,11 @@ script = ExtResource("6_lcn5k")
 knockback_force = 450
 metadata/_custom_type_script = "uid://b3u6lrbai0l4k"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NormalMiniSworld/Hitbox" index="0"]
-position = Vector2(6.45152, -8.95524)
-rotation = -2.87979
-scale = Vector2(1.21856, -0.131588)
-shape = SubResource("CapsuleShape2D_ycoxo")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NormalMiniSword/Hitbox" index="0"]
+position = Vector2(0.847481, -6.84585)
+rotation = -2.61799
+scale = Vector2(1.01845, -0.15994)
+shape = SubResource("CapsuleShape2D_qn1jc")
 disabled = true
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

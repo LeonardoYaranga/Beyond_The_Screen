@@ -134,15 +134,15 @@ func _exit_state(state_exited: int) -> void:
 			parent.max_speed = parent.default_max_speed
 			print("3rbotFSM.gd: Restaurando acceleration:", parent.acceleration, "max_speed:", parent.max_speed)
 		states.wide_attack:
-			parent.special_sworld_1_hitbox.monitoring = false
-			parent.special_sworld_2_hitbox.monitoring = false
-			parent.special_sworld_3_hitbox.monitoring = false
-			parent.special_sworld_4_hitbox.monitoring = false
+			parent.special_sword_1_hitbox.monitoring = false
+			parent.special_sword_2_hitbox.monitoring = false
+			parent.special_sword_3_hitbox.monitoring = false
+			parent.special_sword_4_hitbox.monitoring = false
 		states.dive_attack:
-			parent.special_sworld_1_hitbox.monitoring = false
-			parent.special_sworld_2_hitbox.monitoring = false
-			parent.special_sworld_3_hitbox.monitoring = false
-			parent.special_sworld_4_hitbox.monitoring = false
+			parent.special_sword_1_hitbox.monitoring = false
+			parent.special_sword_2_hitbox.monitoring = false
+			parent.special_sword_3_hitbox.monitoring = false
+			parent.special_sword_4_hitbox.monitoring = false
 		states.disappear:
 			parent.acceleration = parent.default_acceleration
 			parent.max_speed = parent.default_max_speed

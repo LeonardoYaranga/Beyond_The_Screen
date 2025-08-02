@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://mssul1qevxux"]
+[gd_scene load_steps=7 format=4 uid="uid://mssul1qevxux"]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_rrso0"]
 [ext_resource type="TileSet" uid="uid://cofocmu7ryqme" path="res://Rooms/tavernTileMap.tres" id="2_f8qx3"]
 [ext_resource type="TileSet" uid="uid://c2wi4f7i4yvtc" path="res://Rooms/forgeTilemap.tres" id="3_srmf6"]
 [ext_resource type="PackedScene" uid="uid://c2ee3jo0tcww3" path="res://Rooms/Door.tscn" id="4_uhug5"]
 [ext_resource type="PackedScene" uid="uid://cliq6hv0trr1v" path="res://Characters/NPC/TavernMaid.tscn" id="5_f8qx3"]
+[ext_resource type="AudioStream" uid="uid://dfs6drnjy60w8" path="res://Music/khiva-live-music-in-a-restaurant.wav" id="6_srmf6"]
 
 [node name="Room_1_Tavern" instance=ExtResource("1_rrso0")]
 
@@ -36,3 +37,7 @@ target_room = "Room1_2"
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="10"]
 position = Vector2(369, 33)
+
+[node name="BackgroundMusic" parent="." index="15"]
+stream = ExtResource("6_srmf6")
+volume_db = -0.1

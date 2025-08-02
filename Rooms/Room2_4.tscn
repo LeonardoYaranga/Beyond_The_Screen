@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cs32sq0soe3ui"]
+[gd_scene load_steps=40 format=4 uid="uid://cs32sq0soe3ui"]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_bx0fb"]
 [ext_resource type="Texture2D" uid="uid://c214xdv2ftskj" path="res://Assets/Escenario2/neo_zero_props_02_free.png" id="1_rsqr0"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c2ee3jo0tcww3" path="res://Rooms/Door.tscn" id="8_jrj50"]
 [ext_resource type="PackedScene" uid="uid://b5f8nnu5lafba" path="res://Rooms/Objetos/barril_toxico.tscn" id="9_n4sfy"]
 [ext_resource type="PackedScene" uid="uid://hodv5cwqmjkb" path="res://Characters/Enemy/enemy_2_4.tscn" id="10_hyivd"]
+[ext_resource type="AudioStream" uid="uid://dr4feygtmvvoa" path="res://Music/deep_under_background.wav" id="13_gyhlh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jrj50"]
 texture = ExtResource("1_rsqr0")
@@ -1292,3 +1293,6 @@ script = null
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="11"]
 position = Vector2(16, 52)
+
+[node name="BackgroundMusic" parent="." index="12"]
+stream = ExtResource("13_gyhlh")
