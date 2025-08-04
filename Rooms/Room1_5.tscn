@@ -1484,7 +1484,7 @@ position = Vector2(509, 334)
 position = Vector2(-186, 296)
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="13"]
-position = Vector2(194, 802)
+position = Vector2(193, 821)
 
 [node name="BackgroundMusic" parent="." index="14"]
 stream = ExtResource("6_xq51m")
