@@ -1,10 +1,11 @@
-[gd_scene load_steps=58 format=4 uid="uid://dvym5c2rfliwd"]
+[gd_scene load_steps=59 format=4 uid="uid://dvym5c2rfliwd"]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_nste2"]
 [ext_resource type="Texture2D" uid="uid://bs1spwck2sn7s" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/TilemapWorld1/Tilemap Dungeon original size.png" id="2_xm8vc"]
 [ext_resource type="PackedScene" uid="uid://ywo74gnfag7y" path="res://Characters/Enemy/Skeleton_Seeker/skeleton_seeker.tscn" id="3_248om"]
 [ext_resource type="PackedScene" uid="uid://bs7rfrdn1dvkg" path="res://Characters/Enemy/Skeleton_Lighter/skeleton_lighter.tscn" id="3_wcpl2"]
 [ext_resource type="PackedScene" uid="uid://c2ee3jo0tcww3" path="res://Rooms/Door.tscn" id="3_xq51m"]
+[ext_resource type="AudioStream" uid="uid://dr4feygtmvvoa" path="res://Music/deep_under_background.wav" id="6_xq51m"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_brgd8"]
 
@@ -1476,11 +1477,15 @@ position = Vector2(-328, -278)
 [node name="PlayerDetector" parent="." index="6"]
 position = Vector2(158, -258)
 
-[node name="Skeleton_Lighter" parent="." index="7" instance=ExtResource("3_wcpl2")]
+[node name="Skeleton_Lighter" parent="Enemies" index="0" instance=ExtResource("3_wcpl2")]
 position = Vector2(509, 334)
 
-[node name="skeleton_seeker" parent="." index="8" instance=ExtResource("3_248om")]
+[node name="skeleton_seeker" parent="Enemies" index="1" instance=ExtResource("3_248om")]
 position = Vector2(283, 630)
+collision_mask = 3
 
-[node name="PlayerSpawnPos" type="Marker2D" parent="." index="13"]
+[node name="PlayerSpawnPos" type="Marker2D" parent="." index="11"]
 position = Vector2(193, 821)
+
+[node name="BackgroundMusic" parent="." index="12"]
+stream = ExtResource("6_xq51m")

@@ -3,6 +3,7 @@ extends Node2D
 @export var PlayerScene: PackedScene
 @export var Player2Scene: PackedScene
 @export var RoomsScene: PackedScene
+@export var startRoom: String
 @onready var ui: UI = $UI
 @onready var camera: Camera2D = $Camera2D
 

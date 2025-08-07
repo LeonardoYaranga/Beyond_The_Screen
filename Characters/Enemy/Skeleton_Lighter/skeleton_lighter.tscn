@@ -194,8 +194,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ib0pt"]
-size = Vector2(9.125, 16.6406)
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1qts"]
 
 [sub_resource type="Animation" id="Animation_csmfs"]
 length = 0.001
@@ -224,8 +223,8 @@ tracks/1/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_c7krn"]
-resource_name = "walk"
+[sub_resource type="Animation" id="Animation_nt4gt"]
+resource_name = "dead"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -236,7 +235,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"default"]
+"values": [&"dead"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -245,10 +244,24 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.366667, 0.466667, 0.633333, 0.766667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0966096, 0.200375, 0.296985, 0.400751, 0.500939, 0.602915, 0.699525),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 2, 3, 4, 5, 6, 7]
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_7rti5"]
@@ -279,8 +292,9 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_nt4gt"]
-resource_name = "dead"
+[sub_resource type="Animation" id="Animation_c7krn"]
+resource_name = "walk"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -291,7 +305,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"dead"]
+"values": [&"default"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -300,10 +314,10 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0966096, 0.200375, 0.296985, 0.400751, 0.500939, 0.602915, 0.699525),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.366667, 0.466667, 0.633333, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
+"values": [1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5co2e"]
@@ -318,7 +332,7 @@ _data = {
 radius = 10.5901
 
 [node name="Skeleton_Lighter" instance=ExtResource("1_l5cpn")]
-position = Vector2(1, 2)
+collision_mask = 2
 script = ExtResource("2_p5kqf")
 
 [node name="FiniteStateMachine" parent="." index="0"]
@@ -331,7 +345,8 @@ sprite_frames = SubResource("SpriteFrames_qm12q")
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(6, 1)
-shape = SubResource("RectangleShape2D_ib0pt")
+scale = Vector2(0.429368, 0.416736)
+shape = SubResource("CircleShape2D_h1qts")
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
@@ -346,6 +361,6 @@ script = ExtResource("4_p5kqf")
 metadata/_custom_type_script = "uid://b3u6lrbai0l4k"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(6.125, 10.6406)
-scale = Vector2(0.797376, 0.589988)
+position = Vector2(7.125, 9.64063)
+scale = Vector2(0.502344, 0.493724)
 shape = SubResource("CircleShape2D_00mwp")

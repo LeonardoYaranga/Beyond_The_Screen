@@ -379,6 +379,7 @@ animation = &"idle"
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(4, 1)
+scale = Vector2(0.722762, 0.669826)
 shape = SubResource("CircleShape2D_b34lw")
 
 [node name="AnimationPlayer" parent="." index="3"]
