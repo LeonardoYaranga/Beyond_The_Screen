@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://coi4d4b15jsfc"]
+[gd_scene load_steps=90 format=4 uid="uid://coi4d4b15jsfc"]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_5e0r1"]
 [ext_resource type="Texture2D" uid="uid://bm47x2eepls2t" path="res://Art/Cute_Fantasy/Cute_Fantasy/Tiles/Grass/Grass_Tiles_3.png" id="2_m6o3a"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://d288y2by864jv" path="res://Art/Cute_Fantasy/Cute_Fantasy/House/Buildings/Houses/House_5_4.png" id="19_0j4yw"]
 [ext_resource type="PackedScene" uid="uid://c2ee3jo0tcww3" path="res://Rooms/Door.tscn" id="20_7v8kk"]
 [ext_resource type="PackedScene" uid="uid://b0qsjd4mee4fl" path="res://Characters/NPC/campesino.tscn" id="22_hqe16"]
+[ext_resource type="AudioStream" uid="uid://cc811cegvrrgs" path="res://Music/calm_happy_rpgtownbackground.mp3" id="23_2wqjw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_et7i0"]
 vertices = PackedVector2Array(7.02344, 1.92188, 5.01563, 1.92188, 5.07031, 1.0625, 6.96094, 0.0859375, -1.97656, 7.13281, -1.97656, 8, -8, 8, -8, -8, 1.97656, 3.125, 8, -8, 2.95313, 1.97656, 1, 6.21875, 1, 7.07813, 8, -0.03125, 1.92188, 6.10156, 2.95313, 2.95313, 3.92188, 1.0625, 3.86719, 1.85938)
@@ -1335,3 +1336,7 @@ position = Vector2(634, 41)
 
 [node name="campesino" parent="." index="11" instance=ExtResource("22_hqe16")]
 position = Vector2(86, 266)
+
+[node name="BackgroundMusic" parent="." index="16"]
+stream = ExtResource("23_2wqjw")
+autoplay = true

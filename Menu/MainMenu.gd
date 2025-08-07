@@ -2,12 +2,20 @@ extends Control
 
 signal start_game()
 @onready var buttons_v_box = %ButtonsVBox
-# Asumiendo que el nodo TextureRect se llama "texture_rect".
 @onready var texture_rect = $TextureRect
-
+@onready var audio_stream_player = $AudioStreamPlayer
 func _ready() -> void:
 	texture_rect.modulate = Color(1, 1, 1, 0.6)
+	play_music()
 
+func stop_music() -> void:
+	audio_stream_player.stop()
+	print("MainMenu.gd: Música del menú detenida")
+
+func play_music() -> void:
+	audio_stream_player.play()
+	print("MainMenu.gd: Reproduciendo música del menú")
+	
 func _on_start_game_button_pressed() -> void:
 	print("MainMenu: Boton Start pressed")
 	start_game.emit()

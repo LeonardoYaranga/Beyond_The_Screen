@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://sb83qky6ensl"]
+[gd_scene load_steps=12 format=4 uid="uid://sb83qky6ensl"]
 
 [ext_resource type="TileSet" uid="uid://cvlp8f6by2i8t" path="res://Rooms/TexturaRoom2_1.tres" id="1_7u5xj"]
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_o8nlo"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dwnkmxsv4i127" path="res://Rooms/Objetos/compu.tscn" id="8_lok5x"]
 [ext_resource type="PackedScene" uid="uid://b5f8nnu5lafba" path="res://Rooms/Objetos/barril_toxico.tscn" id="9_o8nlo"]
 [ext_resource type="PackedScene" uid="uid://4nntj5b1hp3s" path="res://Characters/Enemy/Goblin/Goblin.tscn" id="10_xsj8a"]
+[ext_resource type="AudioStream" uid="uid://6ww481osas3f" path="res://Music/light-soundscape.wav" id="11_p7u7i"]
 
 [node name="Room2_1" instance=ExtResource("1_o8nlo")]
 
@@ -85,3 +86,7 @@ position = Vector2(643, 174)
 position = Vector2(514, 416)
 
 [node name="Goblin" parent="Enemies" index="0" instance=ExtResource("10_xsj8a")]
+position = Vector2(787, 115)
+
+[node name="BackgroundMusic" parent="." index="13"]
+stream = ExtResource("11_p7u7i")

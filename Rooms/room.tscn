@@ -27,4 +27,6 @@ script = ExtResource("1_hbclw")
 
 [node name="NPCsPositions" type="Node2D" parent="."]
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

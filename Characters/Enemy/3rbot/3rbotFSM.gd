@@ -76,11 +76,20 @@ func _get_transition() -> int:
 		states.disappear:
 			if not animation_player.is_playing():
 				print("3rbotFSM.gd: Transición de disappear a spawn")
-				return states.spawn
+				match parent.selected_action_type:
+					0:
+						print("3rbotFSM.gd: Transición a spawn")
+						return states.spawn
+					1:
+						print("3rbotFSM.gd: Transición a dive attack")
+						return states.dive_attack
+					_:
+						print("3rbotFSM.gd: Sin ataque seleccionado, volviendo a idle")
+						return states.idle
 		states.spawn:
 			if not animation_player.is_playing():
-				print("3rbotFSM.gd: Transición de spawn a dive_attack")
-				return states.dive_attack
+				print("3rbotFSM.gd: Transición de spawn a idle")
+				return states.idle
 		states.return_to_idle:
 			if not animation_player.is_playing():
 				print("3rbotFSM.gd: Transición de return_to_idle a idle")
@@ -121,13 +130,20 @@ func _exit_state(state_exited: int) -> void:
 	match state_exited:
 		states.normal_attack:
 			parent.normal_attack_hitbox.monitoring = false
+			parent.acceleration = parent.default_acceleration
+			parent.max_speed = parent.default_max_speed
+			print("3rbotFSM.gd: Restaurando acceleration:", parent.acceleration, "max_speed:", parent.max_speed)
 		states.wide_attack:
-			parent.special_sworld_1_hitbox.monitoring = false
-			parent.special_sworld_2_hitbox.monitoring = false
-			parent.special_sworld_3_hitbox.monitoring = false
-			parent.special_sworld_4_hitbox.monitoring = false
+			parent.special_sword_1_hitbox.monitoring = false
+			parent.special_sword_2_hitbox.monitoring = false
+			parent.special_sword_3_hitbox.monitoring = false
+			parent.special_sword_4_hitbox.monitoring = false
 		states.dive_attack:
-			parent.special_sworld_1_hitbox.monitoring = false
-			parent.special_sworld_2_hitbox.monitoring = false
-			parent.special_sworld_3_hitbox.monitoring = false
-			parent.special_sworld_4_hitbox.monitoring = false
+			parent.special_sword_1_hitbox.monitoring = false
+			parent.special_sword_2_hitbox.monitoring = false
+			parent.special_sword_3_hitbox.monitoring = false
+			parent.special_sword_4_hitbox.monitoring = false
+		states.disappear:
+			parent.acceleration = parent.default_acceleration
+			parent.max_speed = parent.default_max_speed
+			print("3rbotFSM.gd: Restaurando acceleration:", parent.acceleration, "max_speed:", parent.max_speed)

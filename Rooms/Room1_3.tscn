@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://bibhdx2fhxxja"]
+[gd_scene load_steps=6 format=4 uid="uid://bibhdx2fhxxja"]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_u6xyf"]
 [ext_resource type="TileSet" uid="uid://c2wi4f7i4yvtc" path="res://Rooms/forgeTilemap.tres" id="2_a17uk"]
 [ext_resource type="PackedScene" uid="uid://c2ee3jo0tcww3" path="res://Rooms/Door.tscn" id="3_s2b6h"]
 [ext_resource type="PackedScene" uid="uid://d2y4xmud5b0xy" path="res://Characters/NPC/Blacksmith.tscn" id="4_a17uk"]
+[ext_resource type="AudioStream" uid="uid://6ww481osas3f" path="res://Music/light-soundscape.wav" id="5_s2b6h"]
 
 [node name="Room_1_forge" instance=ExtResource("1_u6xyf")]
 
@@ -37,3 +38,6 @@ position = Vector2(0, -1)
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="9"]
 position = Vector2(208, 223)
+
+[node name="BackgroundMusic" parent="." index="14"]
+stream = ExtResource("5_s2b6h")

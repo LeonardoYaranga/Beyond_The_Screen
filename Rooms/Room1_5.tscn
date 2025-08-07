@@ -1480,7 +1480,7 @@ position = Vector2(158, -258)
 position = Vector2(509, 334)
 
 [node name="skeleton_seeker" parent="." index="8" instance=ExtResource("3_248om")]
-position = Vector2(-186, 296)
+position = Vector2(283, 630)
 
-[node name="PlayerSpawnPos" type="Marker2D" parent="." index="9"]
-position = Vector2(194, 802)
+[node name="PlayerSpawnPos" type="Marker2D" parent="." index="13"]
+position = Vector2(193, 821)
