@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://ywo74gnfag7y"]
+[gd_scene load_steps=18 format=3 uid="uid://ywo74gnfag7y"]
 
 [ext_resource type="PackedScene" uid="uid://buu64l6pc8rur" path="res://Characters/Enemy/enemy.tscn" id="1_mdvh4"]
 [ext_resource type="Texture2D" uid="uid://1frlpk3ofark" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Seeker/skeleton_seeker_walk.png" id="2_mfdck"]
 [ext_resource type="Script" uid="uid://cg2neolho7u4f" path="res://Characters/Enemy/Skeleton_Seeker/skeleton_seeker.gd" id="2_rh377"]
+[ext_resource type="Script" uid="uid://drpy1mpwdek08" path="res://Characters/Enemy/Skeleton_Seeker/skeletonSeekerFSM.gd" id="3_rh377"]
+[ext_resource type="Script" uid="uid://b3u6lrbai0l4k" path="res://Characters/hitbox.gd" id="5_7vtw5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rh377"]
 atlas = ExtResource("2_mfdck")
@@ -85,7 +87,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_qf8rc"]
-resource_name = "skeleton_walk"
+resource_name = "walk"
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -115,11 +117,17 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dbsy7"]
 _data = {
 &"RESET": SubResource("Animation_ck1s4"),
-&"skeleton_walk": SubResource("Animation_qf8rc")
+&"walk": SubResource("Animation_qf8rc")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rh377"]
+radius = 4.0
 
 [node name="skeleton_seeker" instance=ExtResource("1_mdvh4")]
 script = ExtResource("2_rh377")
+
+[node name="FiniteStateMachine" parent="." index="0"]
+script = ExtResource("3_rh377")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(0, -2.38419e-07)
@@ -134,3 +142,14 @@ shape = SubResource("RectangleShape2D_7vtw5")
 libraries = {
 &"": SubResource("AnimationLibrary_dbsy7")
 }
+
+[node name="Hitbox" type="Area2D" parent="." index="6"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("5_7vtw5")
+metadata/_custom_type_script = "uid://b3u6lrbai0l4k"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(4, 3)
+scale = Vector2(0.797376, 0.589988)
+shape = SubResource("CircleShape2D_rh377")
