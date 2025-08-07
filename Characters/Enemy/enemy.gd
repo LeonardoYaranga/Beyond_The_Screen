@@ -10,7 +10,9 @@ class_name Enemy
 var player: CharacterBody2D = null
 
 func _ready() -> void:
+	var parent_node = get_parent().get_parent()
 	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
+	var __2 = connect("tree_exited", Callable(parent_node, "_on_enemy_killed"))
 	update_player_reference()
 
 func update_player_reference() -> void:

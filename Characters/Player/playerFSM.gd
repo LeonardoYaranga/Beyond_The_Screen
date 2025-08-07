@@ -1,4 +1,5 @@
 extends FiniteStateMachine
+signal player_died  # Señal para notificar la muerte del jugador
 
 func _init() -> void:
 	_add_state("idle")
@@ -38,4 +39,6 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 			#parent.cancel_attack()
 		states.dead:
 			animation_player.play("dead")
+			emit_signal("player_died")
+			print("PlayerFSM.gd: Jugador murió, emitiendo player_died")
 			#parent.cancel_attack()

@@ -669,4 +669,3 @@ position = Vector2(86, 141)
 
 [node name="BackgroundMusic" parent="." index="12"]
 stream = ExtResource("13_45i1d")
-stream_paused = true

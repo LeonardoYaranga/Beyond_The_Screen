@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://6gyvhuihnost"]
+[gd_scene load_steps=9 format=3 uid="uid://6gyvhuihnost"]
 
 [ext_resource type="Script" uid="uid://m2tivhml7axd" path="res://UI.gd" id="1_e707p"]
 [ext_resource type="PackedScene" uid="uid://c0wehu0pinqks" path="res://Menu/MainMenu.tscn" id="2_f1fl4"]
 [ext_resource type="PackedScene" uid="uid://daxygoynvdyya" path="res://Menu/game_menu.tscn" id="2_jqf55"]
 [ext_resource type="Texture2D" uid="uid://d4gl37sdximtr" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/health_ui.png" id="3_jqf55"]
 [ext_resource type="Texture2D" uid="uid://cg0k0rarnwsex" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/progress bar.png" id="4_byuxr"]
+[ext_resource type="PackedScene" uid="uid://bjep60xpcbel" path="res://Ends/normal_end.tscn" id="5_d050y"]
+[ext_resource type="PackedScene" uid="uid://cl2au33kormis" path="res://Ends/good_end.tscn" id="6_jqf55"]
+[ext_resource type="PackedScene" uid="uid://dmvsjl6qge8fd" path="res://Ends/bad_end.tscn" id="6_qgmx8"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_e707p")
@@ -16,6 +19,15 @@ process_mode = 3
 [node name="MainMenu" parent="." instance=ExtResource("2_f1fl4")]
 unique_name_in_owner = true
 mouse_filter = 1
+
+[node name="GoodEndMenu" parent="." instance=ExtResource("6_jqf55")]
+unique_name_in_owner = true
+
+[node name="NormalEndMenu" parent="." instance=ExtResource("5_d050y")]
+unique_name_in_owner = true
+
+[node name="BadEndMenu" parent="." instance=ExtResource("6_qgmx8")]
+unique_name_in_owner = true
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 offset_left = 19.0
