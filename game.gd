@@ -3,7 +3,6 @@ extends Node2D
 @export var PlayerScene: PackedScene
 @export var Player2Scene: PackedScene
 @export var RoomsScene: PackedScene
-@export var startRoom: String
 @onready var ui: UI = $UI
 @onready var camera: Camera2D = $Camera2D
 
@@ -44,10 +43,9 @@ func _on_ui_start_game() -> void:
 
 func _on_ui_menu_opened() -> void:
 	get_tree().paused = true
-	print("Game.gd: Menú abierto, juego pausado")
+
 func _on_ui_menu_closed() -> void:
 	get_tree().paused = false
-	print("Game.gd: Menú cerrado, juego reanudado")
 
 func _on_ui_quit_to_menu() -> void:
 	if rooms:

@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://dwrp6oby2k24m"]
+[gd_scene load_steps=6 format=4 uid="uid://dwrp6oby2k24m"]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_4a6bb"]
 [ext_resource type="TileSet" uid="uid://ccs1t2ogd147h" path="res://Rooms/prisionTileMap.tres" id="2_8uba2"]
 [ext_resource type="TileSet" uid="uid://c2wi4f7i4yvtc" path="res://Rooms/forgeTilemap.tres" id="3_6s50o"]
 [ext_resource type="PackedScene" uid="uid://c2ee3jo0tcww3" path="res://Rooms/Door.tscn" id="4_qvant"]
-[ext_resource type="AudioStream" uid="uid://bfdj4o4x8dw7" path="res://Music/a-grim-horror-atmosphere-for-video-games-and-movies.mp3" id="5_8uba2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hldvo"]
 size = Vector2(35, 7.25)
@@ -53,6 +52,3 @@ shape = SubResource("RectangleShape2D_hldvo")
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="8"]
 position = Vector2(208, 233)
-
-[node name="BackgroundMusic" parent="." index="13"]
-stream = ExtResource("5_8uba2")
