@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://buu64l6pc8rur" path="res://Characters/Enemy/enemy.tscn" id="1_mdvh4"]
 [ext_resource type="Texture2D" uid="uid://1frlpk3ofark" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Seeker/skeleton_seeker_walk.png" id="2_mfdck"]
 [ext_resource type="Script" uid="uid://cg2neolho7u4f" path="res://Characters/Enemy/Skeleton_Seeker/skeleton_seeker.gd" id="2_rh377"]
-[ext_resource type="Script" uid="uid://drpy1mpwdek08" path="res://Characters/Enemy/Skeleton_Seeker/skeletonSeekerFSM.gd" id="3_rh377"]
+[ext_resource type="Script" path="res://Characters/Enemy/Skeleton_Seeker/skeletonSeekerFSM.gd" id="3_rh377"]
 [ext_resource type="Texture2D" uid="uid://do2d0xcqoxi0y" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Seeker/skeleton_seeker_death.png" id="4_4ribi"]
 [ext_resource type="Script" uid="uid://b3u6lrbai0l4k" path="res://Characters/hitbox.gd" id="5_7vtw5"]
 [ext_resource type="Texture2D" uid="uid://c61vwa8irq6ys" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Seeker/skeleton_skeleton_attack.png" id="5_d7wd5"]

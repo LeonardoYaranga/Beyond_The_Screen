@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://c6piofq0krms" path="res://Rooms/Rooms.tscn" id="3_fc0e3"]
 
 [node name="Game" type="Node2D"]
+scale = Vector2(0.998327, 1)
 script = ExtResource("1_feb5d")
 PlayerScene = ExtResource("2_e2o6t")
 Player2Scene = ExtResource("3_7jktm")
 RoomsScene = ExtResource("3_fc0e3")
-startRoom = "Room2_4"
+startRoom = "Room1_4"
 
 [node name="UI" parent="." instance=ExtResource("2_fc0e3")]
 

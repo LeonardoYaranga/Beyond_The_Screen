@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://buu64l6pc8rur" path="res://Characters/Enemy/enemy.tscn" id="1_l5cpn"]
 [ext_resource type="Script" uid="uid://dchjbesmy1y7h" path="res://Characters/Enemy/Skeleton_Lighter/skeleton_lighter.gd" id="2_p5kqf"]
 [ext_resource type="Texture2D" uid="uid://dpwn8piyeqnko" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Lighter/SL_walk.png" id="2_qw6qf"]
-[ext_resource type="Script" uid="uid://r758mhxvgxg4" path="res://Characters/Enemy/Skeleton_Lighter/skeletonLighterFSM.gd" id="3_00mwp"]
+[ext_resource type="Script" path="res://Characters/Enemy/Skeleton_Lighter/skeletonLighterFSM.gd" id="3_00mwp"]
 [ext_resource type="Texture2D" uid="uid://clhdex4ychgrt" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Lighter/SL_death.png" id="4_h1qts"]
 [ext_resource type="Script" uid="uid://b3u6lrbai0l4k" path="res://Characters/hitbox.gd" id="4_p5kqf"]
 [ext_resource type="Texture2D" uid="uid://clpceobvp2g2" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Lighter/SL_attack_1.png" id="6_o1gfx"]

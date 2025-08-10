@@ -16,19 +16,25 @@ signal hp_changed(new_hp)
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 
 var mov_direction: Vector2 = Vector2.ZERO
+var is_paused: bool = false  # Nueva variable para pausar el movimiento
 
 # Se ejecuta cada frame físico
 func _physics_process(_delta: float) -> void:
-	move_and_slide()
-	velocity= lerp(velocity,Vector2.ZERO,FRICTION)
+	if not is_paused:
+		move_and_slide()
+		velocity= lerp(velocity,Vector2.ZERO,FRICTION)
+	else: 
+		print("Character.gd: Is paused: ", is_paused)
 	
 func move() -> void:
-	#print("Moviendo con mov_direction:", mov_direction)
-	mov_direction = mov_direction.normalized()
-	velocity += mov_direction * acceleration
-	velocity = velocity.limit_length(max_speed)
+	if not is_paused:
+		#print("Moviendo con mov_direction:", mov_direction)
+		mov_direction = mov_direction.normalized()
+		velocity += mov_direction * acceleration
+		velocity = velocity.limit_length(max_speed)
 	
 func take_damage(dam: int , dir: Vector2, force: int) -> void:
+	if state_machine.state != state_machine.states.hurt and state_machine.state != state_machine.states.dead:
 		self.hp-= dam
 		if hp > 0:
 			state_machine.set_state(state_machine.states.hurt)

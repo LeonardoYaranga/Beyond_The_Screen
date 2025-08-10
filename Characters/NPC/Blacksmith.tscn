@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://d2y4xmud5b0xy"]
 
 [ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_637o4"]
-[ext_resource type="Script" uid="uid://cg7tledumvo1y" path="res://Characters/NPC/Blacksmith.gd" id="2_wruom"]
+[ext_resource type="Resource" uid="uid://612q0ji35t28" path="res://Dialogues/robot1Amarillo.dialogue" id="2_1ebss"]
 [ext_resource type="Texture2D" uid="uid://bqka6tgtwhpyg" path="res://Art/NPCs/Lively NPC_ blacksmith/spritesheets/idle.png" id="3_1ebss"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sam5p"]
@@ -108,7 +108,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_sam5p"]
 
 [node name="Blacksmith" instance=ExtResource("1_637o4")]
-script = ExtResource("2_wruom")
+dialogue_file = ExtResource("2_1ebss")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_p4q1j")

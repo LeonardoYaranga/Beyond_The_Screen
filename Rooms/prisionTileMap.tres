@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=34 format=3 uid="uid://ccs1t2ogd147h"]
+[gd_resource type="TileSet" load_steps=35 format=3 uid="uid://ccs1t2ogd147h"]
 
 [ext_resource type="Texture2D" uid="uid://bgmc0888idpmu" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="1_rkk5n"]
 
@@ -48,6 +48,12 @@ agent_radius = 0.0
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7ddba"]
+vertices = PackedVector2Array(8, 1.17188, -8, 0.992188, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 1.16908, -8, 0.989223)])
 agent_radius = 0.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2ydqr"]
@@ -207,8 +213,11 @@ texture = ExtResource("1_rkk5n")
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
 2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c1alk")
+3:1/next_alternative_id = 2
 3:1/0 = 0
 3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_l2nqm")
+3:1/1 = 1
+3:1/1/navigation_layer_0/polygon = SubResource("NavigationPolygon_7ddba")
 4:1/0 = 0
 5:1/0 = 0
 5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)

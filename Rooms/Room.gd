@@ -1,5 +1,6 @@
 extends Node2D
 
+class_name Room
 signal door_entered(door: Node2D)
 
 const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemy/spawn_explosion.tscn")

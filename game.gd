@@ -19,11 +19,19 @@ func _ready() -> void:
 	ui.menu_opened.connect(_on_ui_menu_opened)
 	ui.menu_closed.connect(_on_ui_menu_closed)
 	ui.quit_to_menu.connect(_on_ui_quit_to_menu)
+	
+	ui.start_game.connect(_on_ui_start_game)
+	ui.video_finished.connect(_on_ui_video_finished)
+	if rooms:
+		rooms.show_video.connect(_on_rooms_show_video)
 		
 func start_game() -> void:
 	ui.hide_all()
 	rooms = RoomsScene.instantiate()
 	add_child(rooms)
+	# Conectar show_video
+	if not rooms.show_video.is_connected(_on_rooms_show_video):
+		rooms.show_video.connect(_on_rooms_show_video)
 	# Instanciar Player
 	player = PlayerScene.instantiate()
 	initialize_player(player)
@@ -69,7 +77,16 @@ func _on_rooms_show_end_menu(death_counter: int) -> void:
 	ui.show_end_menu(death_counter)
 	get_tree().paused = false
 	print("Game.gd: Mostrando menú final, death_counter:", death_counter)
-	
+
+func _on_rooms_show_video(video_path: String, room_name: String) -> void:
+	ui.show_video(video_path)
+	print("Game.gd: Mostrando video para sala", room_name, ":", video_path)
+
+func _on_ui_video_finished() -> void:
+	if rooms:
+		rooms._on_video_finished()
+		print("Game.gd: Video terminado, notificando a Rooms")
+
 func _on_player_changed() -> void:
 	if(player):
 		remove_child(player)
@@ -97,7 +114,7 @@ func _on_player_died() -> void:
 	save_game()
 	print("Game.gd: Jugador murió, contador de muertes:", death_counter)
 	# Reiniciar sala actual
-	rooms._load_room(rooms.current_room_name)
+	#rooms._load_room(rooms.current_room_name)
 
 func save_game() -> void:
 	var save_data = {

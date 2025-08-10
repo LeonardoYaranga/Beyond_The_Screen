@@ -79,6 +79,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_t87nm"]
 radius = 3.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sdxpn"]
+radius = 4.0
+
 [sub_resource type="Animation" id="Animation_cjiim"]
 length = 0.001
 tracks/0/type = "value"
@@ -271,11 +274,7 @@ _data = {
 &"hurt": SubResource("Animation_xbh0k")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sdxpn"]
-radius = 4.0
-
 [node name="FlyingCreature" instance=ExtResource("1_masxo")]
-collision_mask = 3
 script = ExtResource("2_xbh0k")
 acceleration = 20
 max_speed = 50
@@ -291,13 +290,11 @@ position = Vector2(4, 3)
 scale = Vector2(0.621469, -0.626312)
 shape = SubResource("CircleShape2D_t87nm")
 
-[node name="AnimationPlayer" parent="." index="3"]
-libraries = {
-&"": SubResource("AnimationLibrary_xbh0k")
-}
-
-[node name="Hitbox" type="Area2D" parent="." index="6"]
-collision_layer = 4
+[node name="Hitbox" type="Area2D" parent="." index="3"]
+unique_name_in_owner = true
+position = Vector2(0, -1)
+scale = Vector2(0.965781, 1.19419)
+collision_layer = 0
 collision_mask = 2
 script = ExtResource("6_mtxhg")
 metadata/_custom_type_script = "uid://b3u6lrbai0l4k"
@@ -306,3 +303,8 @@ metadata/_custom_type_script = "uid://b3u6lrbai0l4k"
 position = Vector2(4, 3)
 scale = Vector2(0.797376, 0.589988)
 shape = SubResource("CircleShape2D_sdxpn")
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_xbh0k")
+}
