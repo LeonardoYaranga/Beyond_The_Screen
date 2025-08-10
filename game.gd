@@ -29,7 +29,7 @@ func start_game() -> void:
 	# Configurar la cámara
 	player.activate_player_camera()
 	# Cargar la sala inicial
-	rooms._load_room("Room1_5")
+	rooms._load_room("Room2_4")
 	# Despausar el juego
 	get_tree().paused = false #Esto no es necesario ya que nunca se pausa pero porsiacaso
 		#Puede servir para otro menu, como el de pausa
