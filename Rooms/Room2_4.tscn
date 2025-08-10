@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b4dmy087ehotu" path="res://Characters/NPC/encapuchado.tscn" id="8_fxvdw"]
 [ext_resource type="PackedScene" uid="uid://c2ee3jo0tcww3" path="res://Rooms/Door.tscn" id="8_jrj50"]
 [ext_resource type="PackedScene" uid="uid://b5f8nnu5lafba" path="res://Rooms/Objetos/barril_toxico.tscn" id="9_n4sfy"]
-[ext_resource type="PackedScene" uid="uid://hodv5cwqmjkb" path="res://Characters/Enemy/enemy_2_4.tscn" id="10_hyivd"]
+[ext_resource type="PackedScene" uid="uid://hodv5cwqmjkb" path="res://Characters/Enemy/MetalMonsterLila/MetalMonsterLila.tscn" id="10_hyivd"]
 [ext_resource type="AudioStream" uid="uid://dr4feygtmvvoa" path="res://Music/deep_under_background.wav" id="13_gyhlh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jrj50"]
@@ -1285,11 +1285,9 @@ position = Vector2(312, 390)
 [node name="Encapuchado" parent="NPCs" index="0" instance=ExtResource("8_fxvdw")]
 position = Vector2(17, 378)
 
-[node name="OctopusEnemy" parent="Enemies" index="0" instance=ExtResource("10_hyivd")]
-position = Vector2(654, 229)
-motion_mode = 0
-wall_min_slide_angle = 0.261799
-script = null
+[node name="MetalMonsterLila" parent="Enemies" index="0" instance=ExtResource("10_hyivd")]
+position = Vector2(633, 243)
+MAX_DISTANCE_TO_PLAYER = 100.0
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="11"]
 position = Vector2(16, 52)

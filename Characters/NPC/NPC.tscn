@@ -8,7 +8,7 @@
 
 [node name="NPC" instance=ExtResource("1_pfeas")]
 script = ExtResource("2_gmade")
-dialogue_lines = Array[String](["¡Hola, viajero!"])
+dialogue_file = null
 
 [node name="FiniteStateMachine" parent="." index="0"]
 script = ExtResource("3_gmade")

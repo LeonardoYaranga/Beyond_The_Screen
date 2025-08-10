@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dcv0lwidbgi2t" path="res://Characters/NPC/chica_cabelloRosado.tscn" id="7_mrcqe"]
 [ext_resource type="PackedScene" uid="uid://dwnkmxsv4i127" path="res://Rooms/Objetos/compu.tscn" id="8_lok5x"]
 [ext_resource type="PackedScene" uid="uid://b5f8nnu5lafba" path="res://Rooms/Objetos/barril_toxico.tscn" id="9_o8nlo"]
-[ext_resource type="PackedScene" uid="uid://4nntj5b1hp3s" path="res://Characters/Enemy/Goblin/Goblin.tscn" id="10_xsj8a"]
+[ext_resource type="PackedScene" uid="uid://hodv5cwqmjkb" path="res://Characters/Enemy/MetalMonsterLila/MetalMonsterLila.tscn" id="10_p7u7i"]
 [ext_resource type="AudioStream" uid="uid://6ww481osas3f" path="res://Music/light-soundscape.wav" id="11_p7u7i"]
 
 [node name="Room2_1" instance=ExtResource("1_o8nlo")]
@@ -85,8 +85,8 @@ position = Vector2(643, 174)
 [node name="Mini Robot" parent="NPCs" index="4" instance=ExtResource("2_6fuhs")]
 position = Vector2(514, 416)
 
-[node name="Goblin" parent="Enemies" index="0" instance=ExtResource("10_xsj8a")]
-position = Vector2(787, 115)
+[node name="MetalMonsterLila" parent="Enemies" index="0" instance=ExtResource("10_p7u7i")]
+position = Vector2(554, 158)
 
 [node name="BackgroundMusic" parent="." index="13"]
 stream = ExtResource("11_p7u7i")

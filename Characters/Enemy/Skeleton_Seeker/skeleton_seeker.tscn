@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://buu64l6pc8rur" path="res://Characters/Enemy/enemy.tscn" id="1_mdvh4"]
 [ext_resource type="Texture2D" uid="uid://1frlpk3ofark" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Seeker/skeleton_seeker_walk.png" id="2_mfdck"]
 [ext_resource type="Script" uid="uid://cg2neolho7u4f" path="res://Characters/Enemy/Skeleton_Seeker/skeleton_seeker.gd" id="2_rh377"]
-[ext_resource type="Script" uid="uid://drpy1mpwdek08" path="res://Characters/Enemy/Skeleton_Seeker/skeletonSeekerFSM.gd" id="3_rh377"]
+[ext_resource type="Script" path="res://Characters/Enemy/Skeleton_Seeker/skeletonSeekerFSM.gd" id="3_rh377"]
 [ext_resource type="Texture2D" uid="uid://do2d0xcqoxi0y" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Seeker/skeleton_seeker_death.png" id="4_4ribi"]
 [ext_resource type="Script" uid="uid://b3u6lrbai0l4k" path="res://Characters/hitbox.gd" id="5_7vtw5"]
 [ext_resource type="Texture2D" uid="uid://c61vwa8irq6ys" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Seeker/skeleton_skeleton_attack.png" id="5_d7wd5"]
@@ -173,8 +173,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vtw5"]
-size = Vector2(19, 7)
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ribi"]
 
 [sub_resource type="Animation" id="Animation_ck1s4"]
 length = 0.001
@@ -241,6 +240,22 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 4]
+
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+>>>>>>> developer
 }
 
 [sub_resource type="Animation" id="Animation_1eh2x"]
@@ -272,7 +287,11 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_qf8rc"]
 resource_name = "walk"
+<<<<<<< HEAD
 loop_mode = 2
+=======
+loop_mode = 1
+>>>>>>> developer
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -310,7 +329,10 @@ _data = {
 radius = 4.0
 
 [node name="skeleton_seeker" instance=ExtResource("1_mdvh4")]
+collision_mask = 2
 script = ExtResource("2_rh377")
+max_hp = 1
+hp = 1
 
 [node name="FiniteStateMachine" parent="." index="0"]
 script = ExtResource("3_rh377")
@@ -321,8 +343,9 @@ scale = Vector2(0.483333, 0.525)
 sprite_frames = SubResource("SpriteFrames_qf8rc")
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(-0.5, 21.5)
-shape = SubResource("RectangleShape2D_7vtw5")
+position = Vector2(-2, 12)
+scale = Vector2(0.596584, 0.500309)
+shape = SubResource("CircleShape2D_4ribi")
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
@@ -337,6 +360,6 @@ script = ExtResource("5_7vtw5")
 metadata/_custom_type_script = "uid://b3u6lrbai0l4k"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(2, 22)
-scale = Vector2(0.797376, 0.589988)
+position = Vector2(0, 13)
+scale = Vector2(1.782, 1.60114)
 shape = SubResource("CircleShape2D_rh377")

@@ -1,0 +1,133 @@
+[gd_scene load_steps=14 format=3 uid="uid://cliq6hv0trr1v"]
+
+[ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_60og2"]
+[ext_resource type="Resource" uid="uid://dmqq8qmrc8sjn" path="res://Dialogues/test.dialogue" id="2_60og2"]
+[ext_resource type="Texture2D" uid="uid://m85ntwxyaty5" path="res://Art/NPCs/Tavern_Maid/spritesheets/ellen_idle.png" id="3_qe7rj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o24d"]
+atlas = ExtResource("3_qe7rj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbsrq"]
+atlas = ExtResource("3_qe7rj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ujgl"]
+atlas = ExtResource("3_qe7rj")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxmkd"]
+atlas = ExtResource("3_qe7rj")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pxmkd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7o24d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbsrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ujgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxmkd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53gwe"]
+size = Vector2(11, 14)
+
+[sub_resource type="Animation" id="Animation_m56h1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2pf1g"]
+resource_name = "idle"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_po2my"]
+_data = {
+&"RESET": SubResource("Animation_m56h1"),
+&"idle": SubResource("Animation_2pf1g")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y2vta"]
+
+[node name="TavernMaid" instance=ExtResource("1_60og2")]
+dialogue_file = ExtResource("2_60og2")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(-1, 0)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_pxmkd")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(-2, 8)
+shape = SubResource("RectangleShape2D_53gwe")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_po2my")
+}
+
+[node name="InteractionArea" parent="." index="4"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+scale = Vector2(1.64938, 1.93986)
+shape = SubResource("CircleShape2D_y2vta")

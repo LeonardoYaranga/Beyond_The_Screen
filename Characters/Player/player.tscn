@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c3sowk1rwvpqb"]
+[gd_scene load_steps=32 format=3 uid="uid://c3sowk1rwvpqb"]
 
 [ext_resource type="PackedScene" uid="uid://dy5ak2onfmqah" path="res://Characters/character.tscn" id="1_6xdwp"]
 [ext_resource type="Script" uid="uid://hh6fxwb85bmc" path="res://Characters/Player/player.gd" id="2_cue0d"]
@@ -6,10 +6,7 @@
 [ext_resource type="Script" uid="uid://dpxffvy1clv3p" path="res://Characters/Player/playerFSM.gd" id="3_bqsbk"]
 [ext_resource type="Texture2D" uid="uid://26pvxa5ebqnt" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" id="4_r5ew0"]
 [ext_resource type="Texture2D" uid="uid://ctn1hmjnvkgat" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_spritesheet.png" id="4_xf5fp"]
-[ext_resource type="Texture2D" uid="uid://4k567obclo0e" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_sword_1.png" id="6_osktb"]
-[ext_resource type="Texture2D" uid="uid://d136m54p27h1e" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_spritesheet.png" id="7_7vev3"]
-[ext_resource type="Script" uid="uid://b3u6lrbai0l4k" path="res://Characters/hitbox.gd" id="7_klx3t"]
-[ext_resource type="AudioStream" uid="uid://burybnvrsqjde" path="res://Music/blade_slice_metal_01c.mp3" id="10_yhol4"]
+[ext_resource type="PackedScene" uid="uid://chnow80drnmtf" path="res://Scenes/Weapons/Sword.tscn" id="7_7vev3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_blwrb"]
 atlas = ExtResource("4_r5ew0")
@@ -346,167 +343,6 @@ _data = {
 &"move": SubResource("Animation_blwrb")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r5ew0"]
-radius = 1.74071
-height = 14.3837
-
-[sub_resource type="Animation" id="Animation_7vev3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.0944]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-2.35619]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SlashSprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SlashSprite2D:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D/Sprite2D/Hitbox/CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AttackSound:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_osktb"]
-resource_name = "attack"
-length = 1.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 1.24484),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.5708, 3.14159, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 1.24266),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [-2.35619, -1.5708, -0.785398, -2.35619]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SlashSprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333, 0.166667, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SlashSprite2D:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.554954),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D/Sprite2D/Hitbox/CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.112782, 0.33122),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AttackSound:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_klx3t"]
-_data = {
-&"RESET": SubResource("Animation_7vev3"),
-&"attack": SubResource("Animation_osktb")
-}
-
 [node name="Player" groups=["player"] instance=ExtResource("1_6xdwp")]
 collision_layer = 2
 collision_mask = 21
@@ -528,43 +364,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_hvtal")
 }
 
-[node name="Sword" type="Node2D" parent="." index="4"]
+[node name="Weapons" type="Node2D" parent="." index="4"]
 
-[node name="Node2D" type="Node2D" parent="Sword" index="0"]
-rotation = 2.0944
-
-[node name="Sprite2D" type="Sprite2D" parent="Sword/Node2D" index="0"]
-position = Vector2(4, -9)
-rotation = -2.35619
-texture = ExtResource("6_osktb")
-offset = Vector2(5, -4)
-
-[node name="Hitbox" type="Area2D" parent="Sword/Node2D/Sprite2D" index="0"]
-position = Vector2(-4.09632, -8.29921)
-rotation = 2.35619
-collision_layer = 0
-collision_mask = 4
-script = ExtResource("7_klx3t")
-metadata/_custom_type_script = "uid://b3u6lrbai0l4k"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Node2D/Sprite2D/Hitbox" index="0"]
-position = Vector2(-3.268, -9.66024)
-rotation = 1.56207
-shape = SubResource("CapsuleShape2D_r5ew0")
-disabled = true
-
-[node name="SlashSprite2D" type="Sprite2D" parent="Sword" index="1"]
-visible = false
-position = Vector2(18, 0)
-texture = ExtResource("7_7vev3")
-hframes = 3
-
-[node name="SwordAnimationPlayer" type="AnimationPlayer" parent="Sword" index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_klx3t")
-}
-
-[node name="AttackSound" type="AudioStreamPlayer" parent="Sword" index="3"]
-stream = ExtResource("10_yhol4")
+[node name="Sword" parent="Weapons" index="0" instance=ExtResource("7_7vev3")]
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://buu64l6pc8rur" path="res://Characters/Enemy/enemy.tscn" id="1_l5cpn"]
 [ext_resource type="Script" uid="uid://dchjbesmy1y7h" path="res://Characters/Enemy/Skeleton_Lighter/skeleton_lighter.gd" id="2_p5kqf"]
 [ext_resource type="Texture2D" uid="uid://dpwn8piyeqnko" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Lighter/SL_walk.png" id="2_qw6qf"]
-[ext_resource type="Script" uid="uid://r758mhxvgxg4" path="res://Characters/Enemy/Skeleton_Lighter/skeletonLighterFSM.gd" id="3_00mwp"]
+[ext_resource type="Script" path="res://Characters/Enemy/Skeleton_Lighter/skeletonLighterFSM.gd" id="3_00mwp"]
 [ext_resource type="Texture2D" uid="uid://clhdex4ychgrt" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Lighter/SL_death.png" id="4_h1qts"]
 [ext_resource type="Script" uid="uid://b3u6lrbai0l4k" path="res://Characters/hitbox.gd" id="4_p5kqf"]
 [ext_resource type="Texture2D" uid="uid://clpceobvp2g2" path="res://Assets/EscenarioCueva/Enemy/Skeleton_Lighter/SL_attack_1.png" id="6_o1gfx"]
@@ -194,8 +194,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ib0pt"]
-size = Vector2(9.125, 16.6406)
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1qts"]
 
 [sub_resource type="Animation" id="Animation_csmfs"]
 length = 0.001
@@ -249,6 +248,22 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
+
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+>>>>>>> developer
 }
 
 [sub_resource type="Animation" id="Animation_7rti5"]
@@ -281,6 +296,10 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_c7krn"]
 resource_name = "walk"
+<<<<<<< HEAD
+=======
+loop_mode = 1
+>>>>>>> developer
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -318,7 +337,7 @@ _data = {
 radius = 10.5901
 
 [node name="Skeleton_Lighter" instance=ExtResource("1_l5cpn")]
-position = Vector2(1, 2)
+collision_mask = 2
 script = ExtResource("2_p5kqf")
 
 [node name="FiniteStateMachine" parent="." index="0"]
@@ -331,7 +350,8 @@ sprite_frames = SubResource("SpriteFrames_qm12q")
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(6, 1)
-shape = SubResource("RectangleShape2D_ib0pt")
+scale = Vector2(0.429368, 0.416736)
+shape = SubResource("CircleShape2D_h1qts")
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
@@ -339,6 +359,7 @@ libraries = {
 }
 
 [node name="Hitbox" type="Area2D" parent="." index="6"]
+unique_name_in_owner = true
 position = Vector2(-1.125, -8.64063)
 collision_layer = 4
 collision_mask = 2
@@ -346,6 +367,6 @@ script = ExtResource("4_p5kqf")
 metadata/_custom_type_script = "uid://b3u6lrbai0l4k"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(6.125, 10.6406)
-scale = Vector2(0.797376, 0.589988)
+position = Vector2(7.125, 9.64063)
+scale = Vector2(0.502344, 0.493724)
 shape = SubResource("CircleShape2D_00mwp")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfhdbyd7e5122"]
+
+[ext_resource type="PackedScene" uid="uid://dy5ak2onfmqah" path="res://Characters/character.tscn" id="1_pfeas"]
+[ext_resource type="Script" uid="uid://xy6s8hj2xs1g" path="res://Characters/NPC/NPC.gd" id="2_gmade"]
+[ext_resource type="Script" uid="uid://c7mv6522fecm4" path="res://Characters/NPC/NPCFSM.gd" id="3_gmade"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wu4gm"]
+
+[node name="NPC" instance=ExtResource("1_pfeas")]
+script = ExtResource("2_gmade")
+dialogue_file = null
+
+[node name="FiniteStateMachine" parent="." index="0"]
+script = ExtResource("3_gmade")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_wu4gm")
+
+[node name="InteractionArea" type="Area2D" parent="." index="4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" index="0"]

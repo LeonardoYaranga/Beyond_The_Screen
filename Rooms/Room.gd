@@ -1,5 +1,6 @@
 extends Node2D
 
+class_name Room
 signal door_entered(door: Node2D)
 
 const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemy/spawn_explosion.tscn")
@@ -17,11 +18,12 @@ var num_enemies: int
 @onready var entrance: Node2D = get_node("Entrance")
 @onready var door_container: Node2D = get_node("Doors")
 @onready var enemy_positions_container: Node2D = get_node("EnemyPositions")
+@onready var enemies_container: Node2D = $Enemies
 @onready var player_detector: Area2D = get_node("PlayerDetector")
-	
+
 func _ready() -> void:
-	num_enemies = enemy_positions_container.get_child_count()
-	print("Room: num_enemies", num_enemies)
+	num_enemies = enemy_positions_container.get_child_count() + enemies_container.get_child_count()
+	print("Room.gd: num_enemies: ", num_enemies)
 	if num_enemies == 0:
 		_open_doors()
 	if not player_detector.body_entered.is_connected(_on_player_detector_body_entered):
@@ -30,7 +32,7 @@ func _ready() -> void:
 		if door.has_signal("door_entered"):
 			if not door.door_entered.is_connected(_on_door_entered):
 				door.door_entered.connect(_on_door_entered)
-			
+					
 func _on_enemy_killed() -> void:
 	num_enemies -= 1
 	if num_enemies == 0:
