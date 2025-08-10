@@ -103,4 +103,5 @@ func _on_hide() -> void:
 
 
 func get_texture() -> Texture2D:
+	print("weapon.gd: Obteniendo textura de arma: ", get_node("Node2D/Sprite2D").texture)
 	return get_node("Node2D/Sprite2D").texture

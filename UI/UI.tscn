@@ -16,19 +16,24 @@ script = ExtResource("1_e707p")
 [node name="GameMenu" parent="." instance=ExtResource("2_jqf55")]
 unique_name_in_owner = true
 process_mode = 3
+visible = false
 
 [node name="MainMenu" parent="." instance=ExtResource("2_f1fl4")]
 unique_name_in_owner = true
+visible = false
 mouse_filter = 1
 
 [node name="GoodEndMenu" parent="." instance=ExtResource("6_jqf55")]
 unique_name_in_owner = true
+visible = false
 
 [node name="NormalEndMenu" parent="." instance=ExtResource("5_d050y")]
 unique_name_in_owner = true
+visible = false
 
 [node name="BadEndMenu" parent="." instance=ExtResource("6_qgmx8")]
 unique_name_in_owner = true
+visible = false
 
 [node name="VideoPlayer" parent="." instance=ExtResource("7_qgmx8")]
 unique_name_in_owner = true
@@ -43,5 +48,22 @@ value = 23.0
 texture_over = ExtResource("3_jqf55")
 texture_progress = ExtResource("4_byuxr")
 tint_progress = Color(0.792157, 0.101961, 0.14902, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="Inventory" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
 
 [connection signal="start_game" from="MainMenu" to="." method="_on_main_menu_start_game"]

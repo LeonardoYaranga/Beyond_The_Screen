@@ -5,9 +5,9 @@ extends Character
 enum {UP, DOWN}
 var current_weapon: Node2D
 
-#signal weapon_switched(prev_index, new_index)
-#signal weapon_picked_up(weapon_texture)
-#signal weapon_droped(index)
+signal weapon_switched(prev_index, new_index)
+signal weapon_picked_up(weapon_texture)
+signal weapon_droped(index)
 
 @onready var parent: Node2D = get_parent()
 
@@ -17,8 +17,9 @@ var current_weapon: Node2D
 
 func _ready() -> void:
 	current_weapon = weapons.get_child(0)
-	
-	#emit_signal("weapon_picked_up", weapons.get_child(0).get_texture())
+	await get_tree().create_timer(0.2).timeout
+	emit_signal("weapon_picked_up", weapons.get_child(0).get_texture())
+	print("player.gd: Emitiendo senial weapon_picked_up ", weapons.get_child(0).get_texture())
 #
 	#_restore_previous_state()
 
@@ -70,11 +71,6 @@ func get_input() -> void:
 			_drop_weapon()
 			print("Tecla presionada para soltar el arma ")
 	
-	#print("Current, weapon index:",current_weapon.get_index())
-	#if event is InputEventKey and event.pressed:
-		#var key_name = event.as_text()
-		#print("Tecla presionada: ", key_name)
-	
 	current_weapon.get_input()
 
 func _switch_weapon(direction: int) -> void:
@@ -93,8 +89,7 @@ func _switch_weapon(direction: int) -> void:
 	current_weapon = weapons.get_child(index)
 	current_weapon.show()
 	#SavedData.equipped_weapon_index = index
-#
-	#emit_signal("weapon_switched", prev_index, index)
+	emit_signal("weapon_switched", prev_index, index)
 
 func pick_up_weapon(weapon: Node2D) -> void:
 	#SavedData.weapons.append(weapon.duplicate())
@@ -107,8 +102,7 @@ func pick_up_weapon(weapon: Node2D) -> void:
 	current_weapon.hide()
 	current_weapon.cancel_attack()
 	current_weapon = weapon
-
-	#emit_signal("weapon_picked_up", weapon.get_texture())
+	emit_signal("weapon_picked_up", weapon.get_texture())
 	#emit_signal("weapon_switched", prev_index, new_index)
 
 

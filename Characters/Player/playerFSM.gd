@@ -52,11 +52,11 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 			animation_player.play("move")
 		states.hurt:
 			animation_player.play("hurt")
-			#parent.cancel_attack()
+			parent.cancel_attack()
 		states.dead:
 			animation_player.play("dead")
 			emit_signal("player_died")
 			print("PlayerFSM.gd: Jugador murió, emitiendo player_died")
-			#parent.cancel_attack()
+			parent.cancel_attack()
 		states.paused:
 			animation_player.play("idle")  # Usar animación idle mientras está pausado

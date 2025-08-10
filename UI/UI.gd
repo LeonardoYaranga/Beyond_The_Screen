@@ -7,6 +7,8 @@ signal menu_closed
 signal quit_to_menu
 signal video_finished  # Nueva señal para notificar que el video terminó
 
+const INVENTORY_ITEM_SCENE: PackedScene = preload("res://UI/invetory_item.tscn")
+
 const MIN_HEALTH: int = 23
 var max_n_hp: int = 4
 
@@ -17,6 +19,7 @@ var max_n_hp: int = 4
 @onready var bad_end = %BadEndMenu
 @onready var video_player = %VideoPlayer
 @onready var health_bar: TextureProgressBar = $HealthBar
+@onready var inventory: HBoxContainer = $PanelContainer/Inventory
 
 func _ready() -> void:
 	main_menu.start_game.connect(_on_main_menu_start_game)
@@ -138,7 +141,16 @@ func initialize(player: Character) -> void:
 	_update_health_bar(100)
 	if player.has_signal("hp_changed"):
 		player.hp_changed.connect(_on_player_hp_changed)
+	if player.has_signal("weapon_switched"):
+		player.weapon_switched.connect(_on_weapon_switched)
+	if player.has_signal("weapon_picked_up"):
+		player.weapon_picked_up.connect(_on_weapon_picked_up)
+	if player.has_signal("weapon_droped"):
+		player.weapon_droped.connect(_on_weapon_droped)
+	
 	show_game()
+	
+	
 
 func _update_health_bar(new_value: int) -> void:
 	var tween: Tween = create_tween()
@@ -148,6 +160,19 @@ func _on_player_hp_changed(new_hp: Variant) -> void:
 	var new_health: int = int((100-MIN_HEALTH) *
 	 float(new_hp) / max_n_hp) + MIN_HEALTH
 	_update_health_bar(new_health)
+	
+func _on_weapon_switched(prev_index: int, new_index: int) -> void:
+	inventory.get_child(prev_index).deselect()
+	inventory.get_child(new_index).select()
+
+func _on_weapon_picked_up(weapon_texture: Texture2D) -> void:
+	print("UI.gd: Colocando textura", weapon_texture)
+	var new_inventory_item: TextureRect = INVENTORY_ITEM_SCENE.instantiate()
+	inventory.add_child(new_inventory_item)
+	new_inventory_item.initialize(weapon_texture)
+
+func _on_weapon_droped(index: int) -> void:
+	inventory.get_child(index).queue_free()
 
 func _on_main_menu_start_game() -> void:
 	print("UI: Juego iniciando")

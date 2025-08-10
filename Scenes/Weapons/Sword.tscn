@@ -450,6 +450,7 @@ libraries = {
 }
 
 [node name="AbilityIcon" parent="UI" index="0"]
+visible = false
 offset_top = 195.0
 offset_bottom = 575.0
 texture_under = ExtResource("6_10xpx")
