@@ -9,7 +9,7 @@ const ROOM_SCENES: Dictionary = {
 	"Room1_2": preload("res://Rooms/Room1_2.tscn"),  # Town (hub)
 	"Room1_3": preload("res://Rooms/Room1_3.tscn"),  # Forja
 	"Room1_4": preload("res://Rooms/Room1_4.tscn"),  # Taberna
-	"Room1_5": preload("res://Rooms/Room1_5.tscn"),  # Cueva
+	#"Room1_5": preload("res://Rooms/Room1_5.tscn"),  # Cueva
 	"Room2_1": preload("res://Rooms/Room2_1.tscn"),
 	"Room2_2": preload("res://Rooms/Room2_2.tscn"),
 	"Room2_3": preload("res://Rooms/Room2_3.tscn"),

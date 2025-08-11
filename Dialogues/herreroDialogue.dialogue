@@ -1,0 +1,23 @@
+~ start
+Herrero: [[Eh|Hola|Buen día]], joven. No te acerques demasiado, las chispas vuelan.
+Herrero: ¿Qué se te ofrece en mi forja?
+
+- Preguntar por reparaciones
+	Herrero: Estoy ocupado reparando las rejas del pueblo.
+	Herrero: La última horda de bandidos las dejó hechas trizas.
+	Herrero: Si sigues su rastro, podrías encontrarlos antes de que vuelvan.
+
+- Preguntar por la zona
+	Herrero: Conozco estas tierras como la palma de mi mano.
+	Herrero: Al este está el bosque, peligroso y lleno de bestias.
+	Herrero: Al oeste, las minas abandonadas... aunque algunos dicen que no están tan vacías.
+
+- Preguntar por rumores
+	Herrero: Escuché que en las ruinas del sur alguien ha estado buscando a alguien con una espada como tu.
+	Herrero: No sé si son cazarecompensas o algo peor.
+	Herrero: Si te importa tu pellejo, ve preparado.
+
+- Despedirse => END
+
+Herrero: Que tus pasos sean firmes y tu corazón más fuerte que el acero.
+=> END

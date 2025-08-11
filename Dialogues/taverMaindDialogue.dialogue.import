@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dmqq8qmrc8sjn"
+path="res://.godot/imported/taverMaindDialogue.dialogue-4aeedbf3fe3d97a122de10c599ab4ed7.tres"
+
+[deps]
+
+source_file="res://Dialogues/taverMaindDialogue.dialogue"
+dest_files=["res://.godot/imported/taverMaindDialogue.dialogue-4aeedbf3fe3d97a122de10c599ab4ed7.tres"]
+
+[params]
+
+defaults=true

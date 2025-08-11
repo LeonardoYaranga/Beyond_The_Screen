@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cliq6hv0trr1v"]
 
 [ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_60og2"]
-[ext_resource type="Resource" uid="uid://dmqq8qmrc8sjn" path="res://Dialogues/test.dialogue" id="2_60og2"]
+[ext_resource type="Resource" uid="uid://dmqq8qmrc8sjn" path="res://Dialogues/taverMaindDialogue.dialogue" id="2_60og2"]
 [ext_resource type="Texture2D" uid="uid://m85ntwxyaty5" path="res://Art/NPCs/Tavern_Maid/spritesheets/ellen_idle.png" id="3_qe7rj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7o24d"]
@@ -109,9 +109,6 @@ _data = {
 
 [node name="TavernMaid" instance=ExtResource("1_60og2")]
 dialogue_file = ExtResource("2_60og2")
-max_hp = 4
-acceleration = 40
-max_speed = 100
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(-1, 0)

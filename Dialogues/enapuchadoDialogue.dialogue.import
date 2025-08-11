@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://23srvq1rq3rx"
+path="res://.godot/imported/enapuchadoDialogue.dialogue-49638a645a6b3a6069c566d2c2f0d9aa.tres"
+
+[deps]
+
+source_file="res://Dialogues/enapuchadoDialogue.dialogue"
+dest_files=["res://.godot/imported/enapuchadoDialogue.dialogue-49638a645a6b3a6069c566d2c2f0d9aa.tres"]
+
+[params]
+
+defaults=true

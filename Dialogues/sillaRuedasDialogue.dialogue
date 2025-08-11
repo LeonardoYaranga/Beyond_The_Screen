@@ -1,0 +1,23 @@
+~ start
+Chico: [[Hola|Eh|Buenas]], no suelo ver caras nuevas aquí dentro.
+Chico: ¿Eres real... o solo otro fragmento de código?
+
+- Decir que eres real
+	Leo: Soy real. Estoy buscando a alguien llamado 3BOT.
+	Chico: 3BOT... ese nombre no trae nada bueno.
+	Chico: Si te mueves por este servidor, tendrás que esquivar sus cortafuegos y rastreadores.
+
+- Preguntar dónde estás
+	Chico: Este lugar es un nodo viejo, casi olvidado.
+	Chico: Aquí las reglas son raras... y los datos corrompidos a veces se mueven como si tuvieran vida propia.
+	Chico: Mantente alejado de las zonas rojas, o podrías quedar atrapado en un bucle.
+
+- Preguntar por 3BOT
+	Chico: No sé dónde está, pero dicen que controla varios servidores desde una torre de datos.
+	Chico: Si quieres encontrarlo, busca las puertas de acceso marcadas con su símbolo: tres círculos interconectados.
+	Chico: Y cuidado... cada puerta tiene su propio guardián.
+
+- Despedirse => END
+
+Chico: Buena suerte, Leo. Si caes aquí dentro, nadie fuera lo sabrá.
+=> END

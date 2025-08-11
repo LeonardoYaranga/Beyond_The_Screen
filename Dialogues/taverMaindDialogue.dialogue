@@ -1,0 +1,31 @@
+~ start
+Mesera: [[¡Bienvenido|Hola|Buenas]], viajero. ¿Buscas comida, bebida o información?
+Mesera: Puedo ofrecerte algo de cerveza... o quizás algo más interesante.
+
+- Pide una bebida
+	Mesera: Claro, aquí tienes una jarra de nuestra mejor cerveza.
+	Mesera: ¿Y qué te trae por la taberna?
+	- Hablar sobre enemigos
+		Leo: Estoy buscando a unos bandidos que se esconden por aquí.
+		Mesera: Hmm... he oído rumores de que rondan por el bosque del este.
+	- Cambiar de tema
+		Mesera: Como quieras, viajero. Pero tus ojos dicen que buscas problemas.
+
+- Preguntar por trabajo
+	Mesera: Trabajo... puede que tenga algo para ti.
+	Mesera: Unos tipos han estado molestando a los clientes afuera.
+	Mesera: Si te ocupas de ellos, quizá oigas hablar de enemigos más fuertes.
+
+- Preguntar por rumores
+	Mesera: Dicen que un guerrero misterioso pasó por aquí hace unos días.
+	Mesera: Algunos dicen que derrotó a un monstruo enorme en las montañas.
+	Mesera: ¿Interesado en saber más?
+	- Sí
+		Mesera: Entonces deberías visitar la vieja posada al norte.
+	- No
+		Mesera: Como quieras, pero la curiosidad es la que mueve a los aventureros.
+
+- Despedirse => END
+
+Mesera: Vuelve cuando quieras, viajero. Aquí siempre hay historias que contar.
+=> END

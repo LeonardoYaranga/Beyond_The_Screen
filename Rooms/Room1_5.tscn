@@ -1480,9 +1480,11 @@ position = Vector2(158, -258)
 [node name="Skeleton_Lighter" parent="Enemies" index="0" instance=ExtResource("3_wcpl2")]
 position = Vector2(509, 334)
 
+
 [node name="skeleton_seeker" parent="Enemies" index="1" instance=ExtResource("3_248om")]
 position = Vector2(283, 630)
 collision_mask = 3
+>>>>>>> developer
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="11"]
 position = Vector2(193, 821)

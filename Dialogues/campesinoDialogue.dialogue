@@ -1,0 +1,23 @@
+~ start
+Campesino: [[Hola|Buenas|Saludos]], forastero. No te había visto antes por el pueblo.
+Campesino: ¿Eres aventurero? Aquí siempre hay problemas que resolver.
+
+- Preguntar por problemas
+	Campesino: Últimamente, unos lobos salvajes han estado atacando las granjas cercanas.
+	Campesino: Si vas hacia el camino del este, ten cuidado.
+	Campesino: Algunos dicen que algo más grande los está liderando.
+
+- Preguntar por la zona
+	Campesino: Este pueblo es tranquilo, pero vivimos rodeados de peligros.
+	Campesino: Al norte hay una prision, y al sur una taverna.
+	Campesino: Si no eres cuidadoso, podrías perderte... o algo peor.
+
+- Preguntar por rumores
+	Campesino: He oído que en la taberna hay informacion que podrias necesitar.
+	Campesino: También se habla de un enemigo misterioso que busca a un heroe como tu.
+	Campesino: Puede que encuentres pistas si hablas con la mesera.
+
+- Despedirse => END
+
+Campesino: Cuídate, forastero. No todos en este pueblo son tan amables como yo.
+=> END

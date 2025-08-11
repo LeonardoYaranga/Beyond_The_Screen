@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dj8we35ijq1dd"]
 
 [ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_8x6dn"]
-[ext_resource type="Resource" uid="uid://dmqq8qmrc8sjn" path="res://Dialogues/test.dialogue" id="2_8x6dn"]
+[ext_resource type="Resource" uid="uid://ckv8kwtt4psgs" path="res://Dialogues/miniRobot2Dialogue.dialogue" id="2_8x6dn"]
 [ext_resource type="Texture2D" uid="uid://2vrhdnbgw77r" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/robot walk_gray.png" id="3_8x6dn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lxc77"]

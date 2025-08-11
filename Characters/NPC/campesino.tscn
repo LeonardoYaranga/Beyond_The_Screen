@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cimg84sy6a07y"]
+[gd_scene load_steps=14 format=3 uid="uid://b0qsjd4mee4fl"]
 
 [ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_g508c"]
 [ext_resource type="Texture2D" uid="uid://cntbnpvbfo22e" path="res://Art/NPCs/Man_Peasant/Man_Peasant.png" id="2_a7jg3"]
+[ext_resource type="Resource" uid="uid://c2vr3o4266ahe" path="res://Dialogues/campesinoDialogue.dialogue" id="2_ve2ma"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ve2ma"]
 atlas = ExtResource("2_a7jg3")
@@ -108,6 +109,7 @@ _data = {
 height = 26.0
 
 [node name="campesino" instance=ExtResource("1_g508c")]
+dialogue_file = ExtResource("2_ve2ma")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_tneog")

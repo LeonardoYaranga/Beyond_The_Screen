@@ -42,7 +42,12 @@ func start_game() -> void:
 	if not rooms.show_end_menu.is_connected(_on_rooms_show_end_menu):
 		rooms.show_end_menu.connect(_on_rooms_show_end_menu)
 	# Cargar la sala inicial
-	rooms._load_room(startRoom)
+
+	rooms._load_room("Room2_5")
+	# Despausar el juego
+	get_tree().paused = false #Esto no es necesario ya que nunca se pausa pero porsiacaso
+		#Puede servir para otro menu, como el de pausa
+
 
 	get_tree().paused = false 
 	print("Game.gd: Juego iniciado, música del menú detenida, sala", startRoom, " cargada")
