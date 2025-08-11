@@ -49,16 +49,15 @@ collision_mask = 2
 position = Vector2(208.5, 196.625)
 shape = SubResource("RectangleShape2D_hldvo")
 
-[node name="PlayerSpawnPos" type="Marker2D" parent="." index="8"]
-position = Vector2(208, 233)
-
-[node name="WarHammer2" parent="." index="14" instance=ExtResource("5_8uba2")]
-position = Vector2(265, 99)
+[node name="WarHammer" parent="." index="13" instance=ExtResource("5_8uba2")]
+position = Vector2(273, 110)
 on_floor = true
 
-[node name="WarHammer" parent="." index="15" instance=ExtResource("5_8uba2")]
-position = Vector2(266, 157)
-on_floor = true
-
-[node name="HealthPotion" parent="." index="16" instance=ExtResource("6_6s50o")]
+[node name="HealthPotion" parent="." index="14" instance=ExtResource("6_6s50o")]
 position = Vector2(535, 3)
+
+[node name="PlayerSpawnPosAlternative" parent="." index="15"]
+position = Vector2(96, 43)
+
+[node name="PlayerSpawnPos" parent="." index="16"]
+position = Vector2(208, 223)

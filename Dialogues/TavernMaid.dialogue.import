@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dmqq8qmrc8sjn"
+path="res://.godot/imported/TavernMaid.dialogue-9aa7304323eeb168fadcc28abeb89bf4.tres"
+
+[deps]
+
+source_file="res://Dialogues/TavernMaid.dialogue"
+dest_files=["res://.godot/imported/TavernMaid.dialogue-9aa7304323eeb168fadcc28abeb89bf4.tres"]
+
+[params]
+
+defaults=true

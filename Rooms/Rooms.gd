@@ -9,7 +9,7 @@ const ROOM_SCENES: Dictionary = {
 	"Room1_2": preload("res://Rooms/Room1_2.tscn"),  # Town (hub)
 	"Room1_3": preload("res://Rooms/Room1_3.tscn"),  # Forja
 	"Room1_4": preload("res://Rooms/Room1_4.tscn"),  # Taberna
-	#"Room1_5": preload("res://Rooms/Room1_5.tscn"),  # Cueva
+	"Room1_5": preload("res://Rooms/Room1_5.tscn"),  # Cueva
 	"Room2_1": preload("res://Rooms/Room2_1.tscn"),
 	"Room2_2": preload("res://Rooms/Room2_2.tscn"),
 	"Room2_3": preload("res://Rooms/Room2_3.tscn"),
@@ -17,17 +17,18 @@ const ROOM_SCENES: Dictionary = {
 	"Room2_5": preload("res://Rooms/Room2_5.tscn"),
 }
 const VIDEO_MAP: Dictionary = {
-	"Room1_1": "res://Videos/knight_room1_1.ogv",
-	"Room1_2": "res://Videos/exiting_the_cave_now_in_town.ogv",
-	"Room2_1": "res://Videos/changing_player.ogv"
+	"Room1_1": "res://Videos/World1/knight_room1_1.ogv",
+	"Room1_2": "res://Videos/World1/exiting_the_cave_now_in_town.ogv",
+	"Room1_3": "res://Videos/World1/blacksmith.ogv",
+	"Room1_5": "res://Videos/World1/Room1_5_knight_entering_to_cave.ogv",
+	"Room2_1": "res://Videos/changing_player.ogv",
+	"Room2_5": "res://Videos/World2/3rbot_preparing_for_combat.ogv"
 }
 var player: Character = null
 var current_room: Node2D = null
 var current_room_name: String = ""
 var current_music_player: AudioStreamPlayer = null
-
 var pending_room: String = ""  # Almacena la sala a cargar después del video
-var visited_rooms: Dictionary = {}  # Rastrear salas visitadas
 
 func initialize(player_node: Character) -> void:
 	player = player_node
@@ -44,27 +45,27 @@ func _load_room(room_name: String) -> void:
 			current_room.door_entered.disconnect(_on_door_entered)
 		current_room.queue_free()
 		print("Rooms.gd: Sala anterior liberada:", current_room_name)
-		
+	
 	if room_name == "end":
-		var death_counter = get_parent().death_counter  #Game.tscn is the parent of Rooms.tscn
-		print("Rooms.gd: Detectado final, emitiendo show_end_menu, death_counter:", death_counter)
+		print("Rooms.gd: Detectado final, emitiendo show_end_menu, death_counter:", GameManager.death_counter)
 		if player:
 			get_parent().remove_child(player)
 			player.queue_free()
 			player = null
 			get_parent().ui.hide_all()
 			print("Rooms.gd: Jugador eliminado y UI oculta para escena final")
-		emit_signal("show_end_menu", death_counter)
+		emit_signal("show_end_menu", GameManager.death_counter)
 		return
 	current_room_name = room_name
+	GameManager.update_last_room(current_room_name)
+	print("Rooms.gd: Actualizado last_room_visited:", GameManager.last_room_visited)
 	
 	if room_name == "Room2_1" and player and player.scene_file_path != "res://Characters/Player/player2.tscn":
 		print("Rooms.gd: Emitiendo player_changed para cambiar a Player2")
 		emit_signal("player_changed")
-		
+	
 	var video_path: String = VIDEO_MAP.get(room_name, "")
-	if video_path != "" and FileAccess.file_exists(video_path) and not visited_rooms.has(room_name):
-	#if video_path != "" and FileAccess.file_exists(video_path):
+	if video_path != "" and FileAccess.file_exists(video_path) and not GameManager.has_visited_room(room_name):
 		pause_player_if_exist(player)
 		pending_room = room_name
 		emit_signal("show_video", video_path, room_name)
@@ -77,8 +78,6 @@ func _load_room(room_name: String) -> void:
 		_load_room_async(room_name)
 		print("Rooms.gd: Transicion generica")
 		
-	visited_rooms[room_name] = true
-
 func pause_player_if_exist(player: CharacterBody2D) -> void:
 	if player:
 		var player_fsm = player.get_node("FiniteStateMachine")
@@ -142,10 +141,10 @@ func _load_room_directly(room_name: String) -> void:
 		
 func _add_room_deferred() -> void:
 	add_child(current_room)
-	if player and current_room is Node2D and current_room.has_node("PlayerSpawnPos"):
-		var spawn_pos = current_room.get_node("PlayerSpawnPos").position
+	if player and current_room is Node2D:
+		var spawn_pos = current_room.get_spawn_position() if current_room.has_method("get_spawn_position") else Vector2.ZERO
 		player.position = spawn_pos
-		player.visible = true  # Mostrar jugador al añadir la sala
+		player.visible = true
 		print("Rooms.gd: Player posicionado en:", spawn_pos)
 	# Configurar música de la sala
 	var music_player = current_room.get_node_or_null("BackgroundMusic")
@@ -166,5 +165,9 @@ func _on_door_entered(door: Node2D) -> void:
 	# Determinar a qué sala lleva la puerta
 	print("Rooms.gd: Cambiando a sala:", door.target_room)
 	if door.target_room:
-		print("Rooms.gd: Deberia estar en sala: ", door.target_room)
+		# Registrar la sala actual como visitada antes de cambiar
+		if current_room_name:
+			GameManager.add_visited_room(current_room_name)
+			print("Rooms.gd: Sala marcada como visitada:", current_room_name)
+		print("Rooms.gd: Debería estar en sala:", door.target_room)
 		_load_room(door.target_room)

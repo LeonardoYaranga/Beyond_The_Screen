@@ -240,7 +240,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 4]
-
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -255,7 +254,6 @@ tracks/2/keys = {
 "args": [],
 "method": &"queue_free"
 }]
->>>>>>> developer
 }
 
 [sub_resource type="Animation" id="Animation_1eh2x"]
@@ -287,11 +285,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_qf8rc"]
 resource_name = "walk"
-<<<<<<< HEAD
-loop_mode = 2
-=======
 loop_mode = 1
->>>>>>> developer
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

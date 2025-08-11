@@ -1,0 +1,79 @@
+~ start
+[GameManager.helped_ellen_in_town]
+Mesera: ¡Hola, viajero! Gracias por ayudarme en el pueblo, ¡eres un buen tipo!
+Mesera: ¿Buscas comida, bebida o algo más interesante?
+
+[!GameManager.helped_ellen_in_town and GameManager.talked_to_ellen_in_town]
+Mesera: Hmph, eres tú. No esperaba verte aquí después de lo del pueblo.
+Mesera: ¿Qué quieres? No tengo todo el día.
+
+[!GameManager.helped_ellen_in_town and !GameManager.talked_to_ellen_in_town]
+Mesera: Hola, forastero. ¿Buscas comida o bebida? Aquí no hay mucho más.
+
+- Pide una bebida
+	[GameManager.helped_ellen_in_town]
+	Mesera: Aquí tienes una jarra de nuestra mejor cerveza, ¡especial para ti!
+	Mesera: ¿Y qué te trae por la taberna hoy?
+	[!GameManager.helped_ellen_in_town]
+	Mesera: Aquí tienes tu cerveza. Toma y no hagas lío.
+	Mesera: ¿Qué quieres ahora?
+	- Hablar sobre enemigos
+		Leo: Estoy buscando a unos bandidos que se esconden por aquí.
+		[GameManager.helped_ellen_in_town]
+		Mesera: Hmm... he oído rumores de que rondan por el bosque del este. Ten cuidado, ¿eh?
+		[!GameManager.helped_ellen_in_town]
+		Mesera: ¿Bandidos? Algunos dicen que están en el bosque del este. No es mi problema.
+	- [GameManager.helped_ellen_in_town] Cambiar de tema
+		Leo: ¿Soy solo yo o aquí lo único que resalta eres tú?
+		do VideoSceneTransistor.play_specific_video("res://Videos/World1/tavern-maid.ogv")
+		Mesera: Jaja, viajero. Me halagas, pero tu destino parece tener problemas.
+	- [GameManager.has_spicy_food && !GameManager.completed_spicy_food_quest && GameManager.helped_ellen_in_town] Ofrecer comida picante
+		Leo: Tengo algo de comida picante, ¿quieres probarla?
+		Mesera: ¿Comida picante? ¡Venga, dámela, a ver qué tal!
+		do VideoSceneTransistor.play_specific_video("res://Videos/World1/maid_tonge.ogv")
+		Mesera: ¡Pff, esto quema! Pero... me gusta el desafío.
+		Mesera: Como agradecimiento, he oído que un herrero en el mercado tiene un martillo de guerra especial. ¡Búscalo!
+		do GameManager.set_completed_spicy_food_quest(true)
+		do GameManager.set_unlocked_warhammer(true)
+
+- Preguntar por trabajo
+	[GameManager.helped_ellen_in_town]
+	Mesera: Trabajo... puede que tenga algo para un amigo como tú.
+	Mesera: Unos tipos han estado molestando a los clientes dentro del local.
+	Mesera: Si te ocupas de ellos, quizá oigas hablar de enemigos más fuertes.
+	[!GameManager.helped_ellen_in_town]
+	Mesera: ¿Trabajo? No suelo confiar en cualquiera, pero algo hay.
+	Mesera: Unos matones están molestando en el local. Haz algo si quieres.
+	- Aceptar el encargo
+		[GameManager.helped_ellen_in_town]
+		Mesera: ¡Perfecto, viajero! Ocúpate de esos matones y vuelve a contarme.
+		do VideoSceneTransistor.play_specific_video("res://Videos/World1/maid_happy_handshake.ogv")
+		Mesera: ¡Buena suerte! Espero verte de vuelta con buenas noticias.
+		[!GameManager.helped_ellen_in_town]
+		Mesera: Bien, hazlo. Pero no esperes que te dé las gracias.
+	- Rechazar el encargo
+		Mesera: Como quieras, pero no digas que no te ofrecí algo.
+
+- Preguntar por rumores
+	[GameManager.helped_ellen_in_town]
+	Mesera: Dicen que un guerrero misterioso pasó por aquí hace unos días.
+	Mesera: Algunos dicen que derrotó a un monstruo enorme en las montañas.
+	Mesera: ¿Interesado en saber más?
+	[!GameManager.helped_ellen_in_town]
+	Mesera: ¿Rumores? No hablo mucho con desconocidos.
+	Mesera: Algo he oído de un guerrero en las montañas, pero no es mi asunto.
+	- Sí
+		[GameManager.helped_ellen_in_town]
+		Mesera: Entonces deberías visitar el viejo pozo al oeste. ¡Suerte!
+		[!GameManager.helped_ellen_in_town]
+		Mesera: Hay un viejo pozo al oeste. Ve si quieres, a mí qué.
+	- No
+		Mesera: Como quieras, pero la curiosidad es la que mueve a los aventureros.
+
+- Despedirse => END
+
+[GameManager.helped_ellen_in_town]
+Mesera: Vuelve cuando quieras, viajero. ¡Siempre es un placer verte!
+[!GameManager.helped_ellen_in_town]
+Mesera: Adiós, forastero. No hagas lío.
+=> END

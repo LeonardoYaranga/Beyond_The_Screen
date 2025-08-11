@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://6gyvhuihnost"]
+[gd_scene load_steps=12 format=3 uid="uid://6gyvhuihnost"]
 
 [ext_resource type="Script" uid="uid://m2tivhml7axd" path="res://UI/UI.gd" id="1_e707p"]
 [ext_resource type="PackedScene" uid="uid://c0wehu0pinqks" path="res://Menu/MainMenu.tscn" id="2_f1fl4"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cl2au33kormis" path="res://UI/Ends/good_end.tscn" id="6_jqf55"]
 [ext_resource type="PackedScene" uid="uid://dmvsjl6qge8fd" path="res://UI/Ends/bad_end.tscn" id="6_qgmx8"]
 [ext_resource type="PackedScene" uid="uid://cugc7tqayg72q" path="res://UI/VideoPlayer/Video_Player.tscn" id="7_qgmx8"]
+[ext_resource type="PackedScene" uid="uid://ci13elfc2cyeq" path="res://UI/credits.tscn" id="8_vx7wu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgmx8"]
 
@@ -38,6 +39,10 @@ unique_name_in_owner = true
 visible = false
 
 [node name="VideoPlayer" parent="." instance=ExtResource("7_qgmx8")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Credits" parent="." instance=ExtResource("8_vx7wu")]
 unique_name_in_owner = true
 visible = false
 
@@ -72,4 +77,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qgmx8")
 visible = false
 layout_mode = 2
 
+[connection signal="main_menu" from="GameMenu" to="." method="_on_game_menu_main_menu"]
+[connection signal="return_to_game" from="GameMenu" to="." method="_on_game_menu_return_to_game"]
+[connection signal="continue_game" from="MainMenu" to="." method="_on_main_menu_continue_game"]
+[connection signal="show_credits" from="MainMenu" to="." method="_on_main_menu_show_credits"]
 [connection signal="start_game" from="MainMenu" to="." method="_on_main_menu_start_game"]
+[connection signal="show_credits" from="GoodEndMenu" to="." method="_on_end_menu_show_credits"]
+[connection signal="show_credits" from="NormalEndMenu" to="." method="_on_end_menu_show_credits"]
+[connection signal="show_credits" from="BadEndMenu" to="." method="_on_end_menu_show_credits"]
+[connection signal="video_finished" from="VideoPlayer" to="." method="_on_video_player_video_finished"]
+[connection signal="return_to_menu" from="Credits" to="." method="_on_credits_return_to_menu"]

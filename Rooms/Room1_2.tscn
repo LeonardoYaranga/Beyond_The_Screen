@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://coi4d4b15jsfc"]
+[gd_scene load_steps=91 format=4 uid="uid://coi4d4b15jsfc"]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_5e0r1"]
 [ext_resource type="Texture2D" uid="uid://bm47x2eepls2t" path="res://Art/Cute_Fantasy/Cute_Fantasy/Tiles/Grass/Grass_Tiles_3.png" id="2_m6o3a"]
@@ -1229,7 +1229,10 @@ sources/7 = SubResource("TileSetAtlasSource_4050c")
 sources/8 = SubResource("TileSetAtlasSource_v6qjk")
 sources/9 = SubResource("TileSetAtlasSource_xej4b")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wqjw"]
+
 [node name="Room1_2" instance=ExtResource("1_5e0r1")]
+entrance_tile_atlas_coords = Vector2i(4, 14)
 
 [node name="TileMapLayer" parent="." index="0"]
 position = Vector2(-14, -40)
@@ -1246,11 +1249,7 @@ position = Vector2(-13, -5)
 tile_map_data = PackedByteArray("AAD8/woAAAADAAUAAAD9/wsAAAADAAUAAAD9/yIAAAAFABQAAAD//x0AAAAIAAUAAAABACUAAAAHABAAAAACACUAAAAIABAAAAACACYAAAAFAAYAAAAOACIAAAAIAAUAAAAPACIAAAAHAAQAAAARACAAAAAIAAQAAAAeACMAAAAFAAYAAAAmACEAAAAEAAQAAAAnACEAAAAEAAQAAAAsABoAAAAEAAQAAAD9/wIAAAAEABQAAAAtAAQAAAAHAAUAAAAtAAUAAAAHAAUAAAAhAP7/AAAIAAcAAAAiAP7/AAAGAAgAAAAYAA8AAwAAAAAAAAAYABAAAwAAAAEAAAAZAA8AAwABAAAAAAAZABAAAwABAAEAAAALAPz/BAACAAEAAAALAPv/BAACAAAAAAAMAPv/BAACAAAAAAAMAPz/BAACAAEAAAALAP3/BAACAAIAAAAMAP3/BAACAAIAAAANAPv/BAADAAAAAAANAPz/BAADAAEAAAANAP3/BAADAAIAAAAOAPv/BAACAAAAAAAOAPz/BAACAAEAAAAOAP3/BAACAAIAAAAPAPv/BAADAAAAAAAPAPz/BAADAAEAAAAPAP3/BAADAAIAAAAQAPv/BAACAAAAAAAQAPz/BAACAAEAAAAQAP3/BAACAAIAAAARAPv/BAADAAAAAAARAPz/BAADAAEAAAARAP3/BAADAAIAAAASAPv/BAACAAAAAAASAPz/BAACAAEAAAASAP3/BAACAAIAAAATAPv/BAADAAAAAAATAPz/BAADAAEAAAATAP3/BAADAAIAAAA=")
 tile_set = SubResource("TileSet_eqgbm")
 
-[node name="Aldeano" parent="." index="4" instance=ExtResource("17_m6o3a")]
-position = Vector2(342, 336)
-scale = Vector2(0.620213, 0.918764)
-
-[node name="Buildings" type="Node2D" parent="." index="5"]
+[node name="Buildings" type="Node2D" parent="." index="4"]
 
 [node name="Casa1" type="StaticBody2D" parent="Buildings" index="0"]
 position = Vector2(-226, -119)
@@ -1302,7 +1301,13 @@ region_rect = Rect2(258.5, -2, 125.5, 114)
 position = Vector2(614, 240)
 polygon = PackedVector2Array(-28, 36, 28, 36, 28, 10, 34, 7, 34, -39, 9, -63, 3, -66, -4, -66, -10, -63, -33, -40, -34, 8, -28, 10)
 
-[node name="Doors" parent="." index="7"]
+[node name="Marker2D" type="Marker2D" parent="Entrance" index="0"]
+position = Vector2(452, 404)
+
+[node name="Marker2D2" type="Marker2D" parent="Entrance" index="1"]
+position = Vector2(436, 404)
+
+[node name="Doors" parent="." index="6"]
 position = Vector2(88, 181)
 
 [node name="TavernDoor" parent="Doors" index="0" instance=ExtResource("20_7v8kk")]
@@ -1325,18 +1330,42 @@ visible = false
 position = Vector2(584, 85)
 target_room = "Room1_5"
 
-[node name="EnemyPositions" parent="." index="8"]
+[node name="EnemyPositions" parent="." index="7"]
 position = Vector2(285, 108)
 
-[node name="PlayerDetector" parent="." index="9"]
+[node name="Marker2D" type="Marker2D" parent="EnemyPositions" index="0"]
+position = Vector2(-153, 412)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemyPositions" index="1"]
+position = Vector2(139, 400)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemyPositions" index="2"]
+position = Vector2(-108, 385)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemyPositions" index="3"]
+position = Vector2(188, 406)
+
+[node name="PlayerDetector" parent="." index="8"]
 position = Vector2(61, 70)
 
-[node name="PlayerSpawnPos" type="Marker2D" parent="." index="10"]
-position = Vector2(634, 41)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
+position = Vector2(311, 388)
+scale = Vector2(12.4472, 0.610336)
+shape = SubResource("RectangleShape2D_2wqjw")
 
-[node name="campesino" parent="." index="11" instance=ExtResource("22_hqe16")]
-position = Vector2(86, 266)
+[node name="TownMaid" parent="NPCs" index="0" instance=ExtResource("17_m6o3a")]
+position = Vector2(43, 66)
+scale = Vector2(0.620213, 0.918764)
 
-[node name="BackgroundMusic" parent="." index="16"]
+[node name="campesino" parent="NPCs" index="1" instance=ExtResource("22_hqe16")]
+position = Vector2(119, 284)
+
+[node name="BackgroundMusic" parent="." index="13"]
 stream = ExtResource("23_2wqjw")
 autoplay = true
+
+[node name="PlayerSpawnPosAlternative" parent="." index="14"]
+position = Vector2(385, 276)
+
+[node name="PlayerSpawnPos" parent="." index="15"]
+position = Vector2(637, 35)

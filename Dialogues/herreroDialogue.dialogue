@@ -13,9 +13,16 @@ Herrero: ¿Qué se te ofrece en mi forja?
 	Herrero: Al oeste, las minas abandonadas... aunque algunos dicen que no están tan vacías.
 
 - Preguntar por rumores
-	Herrero: Escuché que en las ruinas del sur alguien ha estado buscando a alguien con una espada como tu.
+	Herrero: Escuché que en las ruinas del sur alguien ha estado buscando a alguien con una espada como la tuya.
 	Herrero: No sé si son cazarecompensas o algo peor.
 	Herrero: Si te importa tu pellejo, ve preparado.
+
+- [GameManager.unlocked_warhammer && !GameManager.asked_about_warhammer] Preguntar por el WarHammer
+	Herrero: ¿El WarHammer, eh? Así que la mesera te habló de él.
+	Herrero: Lo dejé en la vieja bodega, al norte del pueblo. No es fácil llegar ahí, prepárate.
+	do VideoSceneTransistor.play_specific_video("res://Videos/World1/blacksmith.ogv")
+	Herrero: No me preguntes otra vez, ya te dije dónde está.
+	do GameManager.set_asked_about_warhammer(true)
 
 - Despedirse => END
 

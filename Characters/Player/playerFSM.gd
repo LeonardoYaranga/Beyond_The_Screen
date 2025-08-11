@@ -30,8 +30,7 @@ func _get_transition() -> int:
 			if not animation_player.is_playing():
 				return states.idle
 		states.paused:
-			print("PlayerFSM.gd: Player en estado paused")
-			# No transicionamos automáticamente desde paused; el NPC controlará la salida
+			#print("PlayerFSM.gd: Player en estado paused")
 			pass
 	return -1
 	
@@ -57,4 +56,5 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 			print("PlayerFSM.gd: Jugador murió, emitiendo player_died")
 			parent.cancel_attack()
 		states.paused:
+			print("PlayerFSM.gd: Entro a estado 'paused'")
 			animation_player.play("idle")  # Usar animación idle mientras está pausado

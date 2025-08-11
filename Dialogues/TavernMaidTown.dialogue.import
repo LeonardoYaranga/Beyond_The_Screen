@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://drxu4sialvj6m"
+path="res://.godot/imported/TavernMaidTown.dialogue-d786fce71262b43ca45f976c47c081cf.tres"
+
+[deps]
+
+source_file="res://Dialogues/TavernMaidTown.dialogue"
+dest_files=["res://.godot/imported/TavernMaidTown.dialogue-d786fce71262b43ca45f976c47c081cf.tres"]
+
+[params]
+
+defaults=true

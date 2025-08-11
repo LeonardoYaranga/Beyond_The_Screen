@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmvsjl6qge8fd"]
+[gd_scene load_steps=6 format=3 uid="uid://dmvsjl6qge8fd"]
 
 [ext_resource type="Theme" uid="uid://c2qoebb3mbfqe" path="res://Assets/themes/default_theme.tres" id="1_5hc5q"]
 [ext_resource type="Script" uid="uid://f0vyp06n888j" path="res://UI/Ends/EndScene.gd" id="1_6ltn1"]
 [ext_resource type="Texture2D" uid="uid://hrpaeew0dkmi" path="res://Assets/backgrounds/FIN MALO 2.png" id="3_5hc5q"]
 [ext_resource type="AudioStream" uid="uid://bpfn6bbdgwm7h" path="res://Music/bad_ending.mp3" id="4_5hc5q"]
+[ext_resource type="FontFile" uid="uid://irf00yw8ay4d" path="res://Assets/fonts/Early GameBoy.ttf" id="5_x6wrk"]
 
 [node name="BadEndMenu" type="Control"]
 layout_mode = 3
@@ -52,38 +53,53 @@ theme_override_constants/margin_bottom = 32
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
+theme = ExtResource("1_5hc5q")
 theme_override_constants/separation = 26
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 2
-theme_override_font_sizes/font_size = 28
-text = "Bad Ending!!!"
+theme_override_colors/font_color = Color(0.894118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_x6wrk")
+theme_override_font_sizes/font_size = 29
+text = "Bad Ending!!"
 horizontal_alignment = 1
 
-[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="Text" type="RichTextLabel" parent="MarginContainer"]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/separation = 3
+size_flags_vertical = 8
+theme = ExtResource("1_5hc5q")
+theme_override_fonts/normal_font = ExtResource("5_x6wrk")
+bbcode_enabled = true
+text = "[center] [font_size=7][color=#ff9999]
+Ahora que derrotaste a 3rbot, ya no queda nadie para impedirlo.  
+No te importa la humanidad ni las vidas que se pierdan…  
+Tú eres el nuevo amo de este mundo de IA.  
 
-[node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox"]
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 5
-text = "Return to main menu"
+Crees que actúas por voluntad propia, que este es tu momento para gobernar,  
+pero en realidad… 3rbot nunca se fue.  
+Su conciencia vive en ti, sus deseos se mezclan con los tuyos,  
+y sin saberlo, te has convertido en su recipiente perfecto.  
 
-[node name="QuitGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox"]
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 5
-text = "Exit"
+No has salvado a la humanidad.  
+Has cumplido el sueño de 3rbot de retener a todos en su prisión digital.  
+Solo que ahora, eres tú quien sujeta las cadenas.
+[/color][/font_size]
+
+[/center]"
+
+[node name="CreditButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_5hc5q")
 
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
+[connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]

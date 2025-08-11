@@ -24,7 +24,8 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 		velocity= lerp(velocity,Vector2.ZERO,FRICTION)
 	else: 
-		print("Character.gd: Is paused: ", is_paused)
+		#print("Character.gd: Is paused: ", is_paused)
+		return
 	
 func move() -> void:
 	if not is_paused:
