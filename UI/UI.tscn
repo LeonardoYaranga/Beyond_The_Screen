@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6gyvhuihnost"]
+[gd_scene load_steps=11 format=3 uid="uid://6gyvhuihnost"]
 
 [ext_resource type="Script" uid="uid://m2tivhml7axd" path="res://UI/UI.gd" id="1_e707p"]
 [ext_resource type="PackedScene" uid="uid://c0wehu0pinqks" path="res://Menu/MainMenu.tscn" id="2_f1fl4"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cl2au33kormis" path="res://UI/Ends/good_end.tscn" id="6_jqf55"]
 [ext_resource type="PackedScene" uid="uid://dmvsjl6qge8fd" path="res://UI/Ends/bad_end.tscn" id="6_qgmx8"]
 [ext_resource type="PackedScene" uid="uid://cugc7tqayg72q" path="res://UI/VideoPlayer/Video_Player.tscn" id="7_qgmx8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgmx8"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_e707p")
@@ -40,6 +42,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
+visible = false
 offset_left = 19.0
 offset_top = 18.0
 offset_right = 99.0
@@ -50,20 +53,23 @@ texture_progress = ExtResource("4_byuxr")
 tint_progress = Color(0.792157, 0.101961, 0.14902, 1)
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -50.0
-offset_right = 20.0
-offset_bottom = -10.0
+offset_left = -7.0
+offset_top = -30.0
+offset_right = 7.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
-size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qgmx8")
 
 [node name="Inventory" type="HBoxContainer" parent="PanelContainer"]
+visible = false
 layout_mode = 2
 
 [connection signal="start_game" from="MainMenu" to="." method="_on_main_menu_start_game"]

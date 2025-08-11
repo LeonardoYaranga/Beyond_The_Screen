@@ -70,6 +70,11 @@ func start_dialogue(player: Node) -> void:
 	current_balloon = await DialogueManager.show_dialogue_balloon(dialogue_file, "start")
 	print("NPC: current_balloon asignado:", current_balloon)
 	
+	pause_player_if_exist(interacting_player)
+	
+	# Esperamos a dialogue_ended para limpiar
+	
+func pause_player_if_exist(interacting_player: CharacterBody2D) -> void:
 	if interacting_player:
 		var player_fsm = interacting_player.get_node("FiniteStateMachine")
 		if player_fsm:
@@ -84,8 +89,17 @@ func start_dialogue(player: Node) -> void:
 			interaction_area.monitoring = true
 			interaction_area.monitorable = true
 		return
-	# Esperamos a dialogue_ended para limpiar
-	
+		
+func restore_the_state_of_player_if_exist(interacting_player : CharacterBody2D) -> void:
+	if interacting_player:
+			var player_fsm = interacting_player.get_node("FiniteStateMachine")
+			if player_fsm:
+				var previous_state = player_fsm.previous_state if player_fsm.previous_state != -1 else player_fsm.states.idle
+				print("NPC: Restaurando estado del jugador a", previous_state)
+				player_fsm.set_state(previous_state)
+			else:
+				print("Error: No se encontró la FSM del jugador al restaurar")
+				
 func _on_dialogue_ended(_resource: DialogueResource) -> void:
 	if is_dialogue_active:
 		print("NPC: Diálogo terminado (señal dialogue_ended)")
@@ -98,14 +112,7 @@ func _on_dialogue_ended(_resource: DialogueResource) -> void:
 			interaction_area.monitorable = true
 			print("NPC: Área de interacción reactivada") 
 		# Restaurar el estado del jugador
-		if interacting_player:
-			var player_fsm = interacting_player.get_node("FiniteStateMachine")
-			if player_fsm:
-				var previous_state = player_fsm.previous_state if player_fsm.previous_state != -1 else player_fsm.states.idle
-				print("NPC: Restaurando estado del jugador a", previous_state)
-				player_fsm.set_state(previous_state)
-			else:
-				print("Error: No se encontró la FSM del jugador al restaurar")
+		restore_the_state_of_player_if_exist(interacting_player)
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

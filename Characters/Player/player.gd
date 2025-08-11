@@ -19,8 +19,8 @@ func _ready() -> void:
 	current_weapon = weapons.get_child(0)
 	await get_tree().create_timer(0.2).timeout
 	emit_signal("weapon_picked_up", weapons.get_child(0).get_texture())
-	print("player.gd: Emitiendo senial weapon_picked_up ", weapons.get_child(0).get_texture())
-#
+	#print("player.gd: Emitiendo senial weapon_picked_up ", weapons.get_child(0).get_texture())
+
 	#_restore_previous_state()
 
 #func _restore_previous_state() -> void:
@@ -148,3 +148,9 @@ func switch_camera() -> void:
 		print($Camera2D.get_class()," is current?: ", $Camera2D.is_current())
 	else:
 		print("No se encontró una Camera2D válida.")
+		
+func hide_all_UI_habilities_of_weapons() -> void:
+	for child in weapons.get_children():
+		var ui_node = child.get_node_or_null("UI")
+		if ui_node and ui_node is CanvasItem:
+			ui_node.hide()

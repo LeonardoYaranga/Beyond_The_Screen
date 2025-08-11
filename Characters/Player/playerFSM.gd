@@ -15,10 +15,8 @@ func _state_logic(_delta: float) -> void:
 	if state == states.idle or state == states.move:
 		parent.get_input()
 		parent.move()
-	#no se hace nada en paused
-	#if state == states.paused:
-		#parent.set_process(false)  # Desactiva _process
-		#parent.set_physics_process(false)  # Desactiva _physics_process 
+	if state == states.paused:
+		parent.hide_all_UI_habilities_of_weapons()
 		
 func _get_transition() -> int:
 	match state:

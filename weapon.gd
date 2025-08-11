@@ -67,7 +67,7 @@ func is_busy() -> bool:
 	return false
 
 func _on_player_detector_body_entered(body: CharacterBody2D) -> void:
-	print("weapon.gd: ", typeof(body), " - ", body)
+	#print("weapon.gd: ", typeof(body), " - ", body)
 	if body != null:
 		player_detector.set_collision_mask_value(1, false)
 		player_detector.set_collision_mask_value(2, false)
@@ -103,5 +103,5 @@ func _on_hide() -> void:
 
 
 func get_texture() -> Texture2D:
-	print("weapon.gd: Obteniendo textura de arma: ", get_node("Node2D/Sprite2D").texture)
+	#print("weapon.gd: Obteniendo textura de arma: ", get_node("Node2D/Sprite2D").texture)
 	return get_node("Node2D/Sprite2D").texture

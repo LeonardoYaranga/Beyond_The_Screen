@@ -8,7 +8,7 @@ extends Node2D
 @onready var camera: Camera2D = $Camera2D
 
 var player: Character
-var rooms: Node
+var rooms: Node2D
 var death_counter: int = 0
 const SAVE_PATH: String = "user://game_save.json"
 
@@ -22,9 +22,8 @@ func _ready() -> void:
 	
 	ui.start_game.connect(_on_ui_start_game)
 	ui.video_finished.connect(_on_ui_video_finished)
-	if rooms:
-		rooms.show_video.connect(_on_rooms_show_video)
-		
+	SceneTransistor.transition_finished.connect(_on_transition_finished)
+	
 func start_game() -> void:
 	ui.hide_all()
 	rooms = RoomsScene.instantiate()
@@ -34,11 +33,12 @@ func start_game() -> void:
 		rooms.show_video.connect(_on_rooms_show_video)
 	# Instanciar Player
 	player = PlayerScene.instantiate()
+	player.visible = false  # Ocultar jugador al inicio
 	initialize_player(player)
 	if not rooms.player_changed.is_connected(_on_player_changed):
 		rooms.player_changed.connect(_on_player_changed)
-	if not rooms.return_to_menu.is_connected(_on_ui_quit_to_menu):
-		rooms.return_to_menu.connect(_on_ui_quit_to_menu)
+	#if not rooms.return_to_menu.is_connected(_on_ui_quit_to_menu):
+		#rooms.return_to_menu.connect(_on_ui_quit_to_menu)
 	if not rooms.show_end_menu.is_connected(_on_rooms_show_end_menu):
 		rooms.show_end_menu.connect(_on_rooms_show_end_menu)
 	# Cargar la sala inicial
@@ -79,13 +79,32 @@ func _on_rooms_show_end_menu(death_counter: int) -> void:
 	print("Game.gd: Mostrando menú final, death_counter:", death_counter)
 
 func _on_rooms_show_video(video_path: String, room_name: String) -> void:
+	if player:
+		player.visible = false
+		print("Game.gd: Jugador oculto para video")
 	ui.show_video(video_path)
 	print("Game.gd: Mostrando video para sala", room_name, ":", video_path)
 
 func _on_ui_video_finished() -> void:
+	if player:
+		player.visible = true
+		#if player.has_node("Camera2D"):
+			#player.get_node("Camera2D").enabled = true
+		#print("game.gd: Returning the camera")
 	if rooms:
 		rooms._on_video_finished()
-		print("Game.gd: Video terminado, notificando a Rooms")
+		ui.show_game()
+		print("Game.gd: Video terminado, notificando a Rooms y mostrando juego")
+
+func _on_transition_finished() -> void:
+	if player:
+		player.visible = true
+	if rooms:
+		rooms._on_transition_finished()
+		#if player.has_node("Camera2D"):
+			#player.get_node("Camera2D").enabled = true
+		ui.show_game()
+		print("Game.gd: Transición terminada, notificando a Rooms y mostrando juego")
 
 func _on_player_changed() -> void:
 	if(player):
@@ -99,11 +118,16 @@ func initialize_player(new_player: Character) -> void:
 	player = new_player
 	if player:
 		add_child(player)
+		player.visible = false  # Ocultar hasta que la sala esté lista
+		#new
+		#if player.has_node("Camera2D"):
+			#player.get_node("Camera2D").enabled = false
+		#/new
 		ui.initialize(player)
 		rooms.initialize(player)
 		player.activate_player_camera()
 		player.get_node("FiniteStateMachine").player_died.connect(_on_player_died)  # Conectar señal
-		ui.show_game()
+		#ui.show_game() Llamarlo luego del video mejor
 		print("Game.gd: Jugador inicializado.")
 	else:
 		ui.hide_all()
@@ -114,7 +138,7 @@ func _on_player_died() -> void:
 	save_game()
 	print("Game.gd: Jugador murió, contador de muertes:", death_counter)
 	# Reiniciar sala actual
-	#rooms._load_room(rooms.current_room_name)
+	#rooms._load_room(rooms.current_room_name)  #hay que tener en cuenta que al jugador se lo debe reiniciar tambien
 
 func save_game() -> void:
 	var save_data = {

@@ -40,9 +40,6 @@ target_room = "Room1_2"
 [node name="Marker2D" type="Marker2D" parent="EnemyPositions" index="0"]
 position = Vector2(371, 268)
 
-[node name="Marker2D2" type="Marker2D" parent="EnemyPositions" index="1"]
-position = Vector2(442, -12)
-
 [node name="PlayerDetector" parent="." index="7"]
 position = Vector2(0, -2)
 collision_layer = 0

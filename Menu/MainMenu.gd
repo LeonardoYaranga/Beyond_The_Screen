@@ -8,7 +8,7 @@ func _ready() -> void:
 	texture_rect.modulate = Color(1, 1, 1, 0.6)
 	#play_music()
 	focus_button()
-	print("MainMenu.gd: TextureRect texture:", texture_rect.texture, "size:", texture_rect.size)
+	#print("MainMenu.gd: TextureRect texture:", texture_rect.texture, "size:", texture_rect.size)
 
 func stop_music() -> void:
 	audio_stream_player.stop()

@@ -19,6 +19,7 @@ var max_n_hp: int = 4
 @onready var bad_end = %BadEndMenu
 @onready var video_player = %VideoPlayer
 @onready var health_bar: TextureProgressBar = $HealthBar
+@onready var invetory_cotainer : PanelContainer = $PanelContainer
 @onready var inventory: HBoxContainer = $PanelContainer/Inventory
 
 func _ready() -> void:
@@ -29,64 +30,38 @@ func _ready() -> void:
 	good_end.return_to_menu.connect(_on_end_menu_return_to_menu)
 	normal_end.return_to_menu.connect(_on_end_menu_return_to_menu)
 	bad_end.return_to_menu.connect(_on_end_menu_return_to_menu)
-	#new
 	if video_player:
 		video_player.video_finished.connect(_on_video_finished)
 		print("UI.gd: VideoPlayer conectado")
 	else:
 		printerr("UI.gd: Error - No se encontró VideoPlayer")
-	#/new
 	show_main_menu()
 
 
 func show_main_menu() -> void:
+	hide_all()
 	main_menu.show()
 	main_menu.play_music()
-	game_menu.hide()
-	good_end.hide()
-	normal_end.hide()
-	bad_end.hide()
-	health_bar.hide()  # Ocultar hasta que el juego comience
-	#new
-	if video_player:
-		video_player.hide()
-	#/new
 	visible = true
 	print("UI.gd: Mostrando MainMenu, visible:",visible,"Main_menu.visible: ", main_menu.visible)
 
 func show_game_menu() -> void:
-	main_menu.hide()
+	hide_all()
 	game_menu.show()
-	good_end.hide()
-	normal_end.hide()
-	bad_end.hide()
-	health_bar.hide()
-	#new
-	if video_player:
-		video_player.hide()
-	#/new
 	visible = true
 	print("UI.gd: Mostrando GameMenu, visible:", visible)	
 
 func show_game() -> void:
-	main_menu.hide()
-	game_menu.hide()
-	good_end.hide()
-	normal_end.hide()
-	bad_end.hide()
+	hide_all()
 	health_bar.show()
-	#new
-	if video_player:
-		video_player.hide()
-	#/new
+	invetory_cotainer.show()
+	inventory.show()
 	visible = true
 	menu_closed.emit() #changed
 	print("UI.gd: Mostrando juego, visible:", visible)
 	
 func show_end_menu(death_counter: int) -> void:
-	main_menu.hide()
-	game_menu.hide()
-	health_bar.hide()
+	hide_all()
 	if death_counter < 1:
 		good_end.show()
 		good_end.play_music()
@@ -102,13 +77,9 @@ func show_end_menu(death_counter: int) -> void:
 	visible = true
 
 func show_video(video_path: String) -> void:
-	main_menu.hide()
-	game_menu.hide()
-	good_end.hide()
-	normal_end.hide()
-	bad_end.hide()
-	health_bar.hide()
+	hide_all()
 	if video_player:
+		video_player.show()
 		video_player.play_video(video_path)
 		print("UI.gd: Mostrando video:", video_path)
 	else:
@@ -123,6 +94,8 @@ func hide_all() -> void:
 	normal_end.hide()
 	bad_end.hide()
 	health_bar.hide()
+	invetory_cotainer.hide()
+	inventory.hide()
 	if video_player:
 		video_player.hide()
 	visible = false
@@ -147,11 +120,11 @@ func initialize(player: Character) -> void:
 		player.weapon_picked_up.connect(_on_weapon_picked_up)
 	if player.has_signal("weapon_droped"):
 		player.weapon_droped.connect(_on_weapon_droped)
-	
+	# Limpiar inventario anterior
+	for child in inventory.get_children():
+		child.queue_free()
 	show_game()
 	
-	
-
 func _update_health_bar(new_value: int) -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(health_bar, "value", new_value, 0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
@@ -162,17 +135,20 @@ func _on_player_hp_changed(new_hp: Variant) -> void:
 	_update_health_bar(new_health)
 	
 func _on_weapon_switched(prev_index: int, new_index: int) -> void:
-	inventory.get_child(prev_index).deselect()
-	inventory.get_child(new_index).select()
+	if inventory.get_child_count() > prev_index: #new
+		inventory.get_child(prev_index).deselect()
+	if inventory.get_child_count() > new_index: #new
+		inventory.get_child(new_index).select()
 
 func _on_weapon_picked_up(weapon_texture: Texture2D) -> void:
-	print("UI.gd: Colocando textura", weapon_texture)
 	var new_inventory_item: TextureRect = INVENTORY_ITEM_SCENE.instantiate()
 	inventory.add_child(new_inventory_item)
 	new_inventory_item.initialize(weapon_texture)
+	#print("UI.gd: Colocando textura", weapon_texture)
 
 func _on_weapon_droped(index: int) -> void:
-	inventory.get_child(index).queue_free()
+	if inventory.get_child_count() > index: #new
+		inventory.get_child(index).queue_free()
 
 func _on_main_menu_start_game() -> void:
 	print("UI: Juego iniciando")
@@ -193,4 +169,4 @@ func _on_end_menu_return_to_menu() -> void:
 func _on_video_finished() -> void:
 	print("UI.gd: Video terminado")
 	video_finished.emit()
-	show_game()
+	#show_game()

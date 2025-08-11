@@ -12,14 +12,6 @@ func _ready() -> void:
 		print("VideoPlayer: VideoStreamPlayer encontrado:", video_player.name)
 	else:
 		printerr("VideoPlayer: Error - No se encontró VideoStreamPlayer en $VideoPlayerNode")
-	if transition_rect:
-		print("VideoPlayer: TransitionRect encontrado:", transition_rect.name)
-	else:
-		printerr("VideoPlayer: Error - No se encontró TransitionRect")
-	if animation_player:
-		print("VideoPlayer: AnimationPlayer encontrado:", animation_player.name)
-	else:
-		printerr("VideoPlayer: Error - No se encontró AnimationPlayer")
 	hide()  # Ocultar por defecto
 
 func play_video(video_path: String) -> void:
@@ -33,6 +25,9 @@ func play_video(video_path: String) -> void:
 			printerr("VideoPlayer: video_player es null, no se puede asignar el stream")
 			video_finished.emit()
 			return
+		# Reiniciar el estado del VideoStreamPlayer
+		video_player.stop()
+		video_player.stream = null
 		if transition_rect and animation_player:
 			animation_player.play("FadeIn")
 			await animation_player.animation_finished
@@ -48,6 +43,7 @@ func _on_video_finished() -> void:
 	if transition_rect and animation_player:
 		animation_player.play("FadeOut")
 		await animation_player.animation_finished
+	video_player.stop()  # Asegurar que el video se detenga
 	hide()
 	print("VideoPlayer: Video terminado")
 	video_finished.emit()

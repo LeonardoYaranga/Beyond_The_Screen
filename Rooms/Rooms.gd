@@ -1,6 +1,6 @@
 extends Node2D
 signal player_changed # Nueva señal para notificar cambio de jugador
-signal return_to_menu  # We need this signal? Needs to be checked.
+
 signal show_end_menu(death_counter: int)
 signal show_video(video_path: String, room_name: String)  # Nueva señal
 
@@ -18,15 +18,17 @@ const ROOM_SCENES: Dictionary = {
 }
 const VIDEO_MAP: Dictionary = {
 	"Room1_1": "res://Videos/knight_room1_1.ogv",
+	"Room1_2": "res://Videos/exiting_the_cave_now_in_town.ogv",
 	"Room2_1": "res://Videos/changing_player.ogv"
 }
 var player: Character = null
-var current_room: Node = null
+var current_room: Node2D = null
 var current_room_name: String = ""
 var current_music_player: AudioStreamPlayer = null
 
 var pending_room: String = ""  # Almacena la sala a cargar después del video
-	
+var visited_rooms: Dictionary = {}  # Rastrear salas visitadas
+
 func initialize(player_node: Character) -> void:
 	player = player_node
 	print("Rooms.gd: Inicializado con player:", player.scene_file_path if player else "null")
@@ -40,9 +42,6 @@ func _load_room(room_name: String) -> void:
 	if current_room:
 		if current_room.has_signal("door_entered"):
 			current_room.door_entered.disconnect(_on_door_entered)
-		if current_room.has_signal("return_to_menu"):  #Is this neccesary?
-			print("Room.gd: Se va a tratar de conectar una senial 'return_to_menu' ")
-			#current_room.return_to_menu.disconnect(_on_return_to_menu)
 		current_room.queue_free()
 		print("Rooms.gd: Sala anterior liberada:", current_room_name)
 		
@@ -57,39 +56,76 @@ func _load_room(room_name: String) -> void:
 			print("Rooms.gd: Jugador eliminado y UI oculta para escena final")
 		emit_signal("show_end_menu", death_counter)
 		return
+	current_room_name = room_name
+	
+	if room_name == "Room2_1" and player and player.scene_file_path != "res://Characters/Player/player2.tscn":
+		print("Rooms.gd: Emitiendo player_changed para cambiar a Player2")
+		emit_signal("player_changed")
 		
 	var video_path: String = VIDEO_MAP.get(room_name, "")
-	if video_path != "" and FileAccess.file_exists(video_path):
-		# Pausar el juego y mostrar video como pantalla de carga
-		get_tree().paused = true
+	if video_path != "" and FileAccess.file_exists(video_path) and not visited_rooms.has(room_name):
+	#if video_path != "" and FileAccess.file_exists(video_path):
+		pause_player_if_exist(player)
 		pending_room = room_name
 		emit_signal("show_video", video_path, room_name)
-		# Cargar sala en segundo plano
 		_load_room_async(room_name)
 		print("Rooms.gd: Iniciando video como pantalla de carga para", room_name)
 	else:
-		# Cargar sala directamente
-		_load_room_directly(room_name)
-	
-	
-	
+		pause_player_if_exist(player)
+		pending_room = room_name
+		SceneTransistor.start_transition_to()
+		_load_room_async(room_name)
+		print("Rooms.gd: Transicion generica")
+		
+	visited_rooms[room_name] = true
+
+func pause_player_if_exist(player: CharacterBody2D) -> void:
+	if player:
+		var player_fsm = player.get_node("FiniteStateMachine")
+		if player_fsm:
+			print("Rooms.gd: Cambiando estado del jugador a paused")
+			player_fsm.set_state(player_fsm.states.paused)
+		else:
+			print("Rooms.gd: No se encontró la FSM del jugador")
+	else:
+		print("Rooms.gd: No hay player en rooms que poner el estado pause")
+		
+func restore_the_state_of_player_if_exist(player : CharacterBody2D) -> void:
+	if player:
+			var player_fsm = player.get_node("FiniteStateMachine")
+			if player_fsm:
+				var previous_state = player_fsm.previous_state if player_fsm.previous_state != -1 else player_fsm.states.idle
+				print("Rooms.gd: Restaurando estado del jugador a", previous_state)
+				player_fsm.set_state(previous_state)
+			else:
+				print("Rooms.gd: No se encontró la FSM del jugador al restaurar")
+	else:
+		print("Rooms.gd: No hay player en rooms que restaurar su estado")
+				
 func _load_room_async(room_name: String) -> void:
-	# Simular carga asíncrona (instanciar la sala en segundo plano)
 	if ROOM_SCENES.has(room_name):
 		current_room = ROOM_SCENES[room_name].instantiate()
 		print("Rooms.gd: Sala", room_name, "instanciada en segundo plano")
 	else:
 		printerr("Rooms.gd: Error al cargar la sala", room_name)
-		get_tree().paused = false
-		emit_signal("return_to_menu")
 		
 func _on_video_finished() -> void:
-	get_tree().paused = false
+	restore_the_state_of_player_if_exist(player)
 	if pending_room and current_room:
 		current_room_name = pending_room
 		pending_room = ""
 		call_deferred("_add_room_deferred")
 		print("Rooms.gd: Video terminado, añadiendo sala:", current_room_name)
+	else:
+		printerr("Rooms.gd: No hay sala cargada para", current_room_name)
+		
+func _on_transition_finished() -> void:
+	restore_the_state_of_player_if_exist(player)
+	if pending_room and current_room:
+		current_room_name = pending_room
+		pending_room = ""
+		call_deferred("_add_room_deferred")
+		print("Rooms.gd: Transición terminada, añadiendo sala:", current_room_name)
 	else:
 		printerr("Rooms.gd: No hay sala cargada para", current_room_name)
 		emit_signal("return_to_menu")
@@ -105,13 +141,11 @@ func _load_room_directly(room_name: String) -> void:
 		emit_signal("return_to_menu")
 		
 func _add_room_deferred() -> void:
-	if current_room_name == "Room2_1" and player and player.scene_file_path != "res://Characters/Player/player2.tscn":
-		print("Rooms.gd: Emitiendo player_changed para cambiar a Player2")
-		emit_signal("player_changed")  # Notificar cambio de jugador
 	add_child(current_room)
 	if player and current_room is Node2D and current_room.has_node("PlayerSpawnPos"):
 		var spawn_pos = current_room.get_node("PlayerSpawnPos").position
 		player.position = spawn_pos
+		player.visible = true  # Mostrar jugador al añadir la sala
 		print("Rooms.gd: Player posicionado en:", spawn_pos)
 	# Configurar música de la sala
 	var music_player = current_room.get_node_or_null("BackgroundMusic")
@@ -127,18 +161,10 @@ func _add_room_deferred() -> void:
 		print("Rooms.gd: Conectando door_entered para sala:", current_room_name)
 		if not current_room.door_entered.is_connected(_on_door_entered):
 			current_room.door_entered.connect(_on_door_entered)
-	if current_room.has_signal("return_to_menu"):  #Is this necesary?
-		print("Rooms.gd: Conectando return_to_menu para sala:", current_room_name)
-		if not current_room.return_to_menu.is_connected(_on_return_to_menu):
-			current_room.return_to_menu.connect(_on_return_to_menu)
 			
 func _on_door_entered(door: Node2D) -> void:
 	# Determinar a qué sala lleva la puerta
 	print("Rooms.gd: Cambiando a sala:", door.target_room)
 	if door.target_room:
-		print("Deberia estar en sala: ", door.target_room)
+		print("Rooms.gd: Deberia estar en sala: ", door.target_room)
 		_load_room(door.target_room)
-
-func _on_return_to_menu() -> void:  #This gonna executed?
-	print("Rooms.gd: Emitiendo return_to_menu")
-	emit_signal("return_to_menu")

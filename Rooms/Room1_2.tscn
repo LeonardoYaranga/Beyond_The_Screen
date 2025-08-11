@@ -1229,7 +1229,7 @@ sources/7 = SubResource("TileSetAtlasSource_4050c")
 sources/8 = SubResource("TileSetAtlasSource_v6qjk")
 sources/9 = SubResource("TileSetAtlasSource_xej4b")
 
-[node name="Room" instance=ExtResource("1_5e0r1")]
+[node name="Room1_2" instance=ExtResource("1_5e0r1")]
 
 [node name="TileMapLayer" parent="." index="0"]
 position = Vector2(-14, -40)
