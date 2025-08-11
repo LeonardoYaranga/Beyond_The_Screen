@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://pp2vcr1eranp"
+path="res://.godot/imported/chicoMoreno.dialogue-558c4c5df77d8804f789651de5f45180.tres"
+
+[deps]
+
+source_file="res://Dialogues/chicoMoreno.dialogue"
+dest_files=["res://.godot/imported/chicoMoreno.dialogue-558c4c5df77d8804f789651de5f45180.tres"]
+
+[params]
+
+defaults=true

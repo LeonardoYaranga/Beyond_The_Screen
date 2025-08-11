@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://gcn0hca1ksca"
+path="res://.godot/imported/smokerDialogue.dialogue-5e65e15292212e9bab8d48b31f2d2893.tres"
+
+[deps]
+
+source_file="res://Dialogues/smokerDialogue.dialogue"
+dest_files=["res://.godot/imported/smokerDialogue.dialogue-5e65e15292212e9bab8d48b31f2d2893.tres"]
+
+[params]
+
+defaults=true

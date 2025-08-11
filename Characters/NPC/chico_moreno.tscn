@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://daj5s8jlgxcl8"]
+[gd_scene load_steps=15 format=3 uid="uid://daj5s8jlgxcl8"]
 
 [ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_iv0lr"]
+[ext_resource type="Resource" uid="uid://pp2vcr1eranp" path="res://Dialogues/chicoMoreno.dialogue" id="2_ivjuc"]
 [ext_resource type="Texture2D" uid="uid://bltieixf0sg2e" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/Biker_idle.png" id="2_ko640"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivjuc"]
@@ -136,6 +137,7 @@ _data = {
 radius = 38.0526
 
 [node name="ChicoMoreno" instance=ExtResource("1_iv0lr")]
+dialogue_file = ExtResource("2_ivjuc")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(0, 2.38419e-07)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7tles64pm52d"]
+[gd_scene load_steps=14 format=3 uid="uid://c7tles64pm52d"]
 
 [ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_ba6qr"]
+[ext_resource type="Resource" uid="uid://dkkyaqhnodjew" path="res://Dialogues/sillaRuedasDialogue.dialogue" id="2_5gcy0"]
 [ext_resource type="Texture2D" uid="uid://bx4a3dvd63rcr" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/SillaRuedas.png" id="2_vm768"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gcy0"]
@@ -96,6 +97,7 @@ _data = {
 radius = 25.02
 
 [node name="SillaRuedas" instance=ExtResource("1_ba6qr")]
+dialogue_file = ExtResource("2_5gcy0")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(-6.5, -7)

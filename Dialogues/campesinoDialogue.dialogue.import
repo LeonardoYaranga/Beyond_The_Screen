@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c2vr3o4266ahe"
+path="res://.godot/imported/campesinoDialogue.dialogue-4d1f4532705cc528b5e72a07b5909827.tres"
+
+[deps]
+
+source_file="res://Dialogues/campesinoDialogue.dialogue"
+dest_files=["res://.godot/imported/campesinoDialogue.dialogue-4d1f4532705cc528b5e72a07b5909827.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,21 @@
+~ start
+ChicoMoreno: [[Hey|¿Qué tal?|Hola]], veo que andas perdido por aquí.
+ChicoMoreno: Este lugar no es fácil para cualquiera, pero yo conozco algunos atajos.
+
+- Preguntar por 3BOT
+	Leo: Estoy buscando a 3BOT, ¿sabes dónde puedo encontrarlo?
+	ChicoMoreno: 3BOT es un problema para todos nosotros.
+	ChicoMoreno: Últimamente se ha estado moviendo por las zonas altas del servidor, donde nadie se atreve a ir.
+
+- Pedir ayuda para avanzar
+	ChicoMoreno: Si quieres pasar sin problemas, puedo darte un mapa con las rutas seguras.
+	ChicoMoreno: Pero te advierto, esas rutas están llenas de trampas y sistemas de defensa.
+
+- Preguntar por el lugar
+	ChicoMoreno: Este sector es conocido como “La Malla Oscura”.
+	ChicoMoreno: Aquí la información corre rápida, pero también los virus.
+
+- Despedirse => END
+
+ChicoMoreno: Cuídate ahí fuera, Leo. No todos los datos que ves son reales.
+=> END

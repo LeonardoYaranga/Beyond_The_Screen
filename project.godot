@@ -108,7 +108,7 @@ ui_active_ability={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/test.dialogue", "res://Dialogues/robot1Amarillo.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogues/robot1Amarillo.dialogue", "res://Dialogues/campesinoDialogue.dialogue", "res://Dialogues/herreroDialogue.dialogue", "res://Dialogues/sillaRuedasDialogue.dialogue", "res://Dialogues/miniRobot2Dialogue.dialogue", "res://Dialogues/miniRobotDialogue.dialogue", "res://Dialogues/miniRobot3Dialogue.dialogue", "res://Dialogues/smokerDialogue.dialogue", "res://Dialogues/enapuchadoDialogue.dialogue", "res://Dialogues/chicoMoreno.dialogue", "res://Dialogues/taverMaindDialogue.dialogue")
 
 [layer_names]
 

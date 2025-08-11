@@ -1,0 +1,28 @@
+~ start
+MiniBot: [[Bip-bip|Hola|Procesando...]], identificando usuario...  
+MiniBot: Usuario detectado: *Leo*. Estado: "Buscando a 3BOT". Confirmar misión.
+
+- Confirmar misión
+	Leo: Sí, estoy buscando a 3BOT.
+	MiniBot: Advertencia: 3BOT es entidad hostil de nivel crítico.
+	MiniBot: Rutas seguras limitadas. Recomendación: evitar canales de datos saturados.
+	MiniBot: Transfiriendo coordenadas del siguiente nodo... *[bip]*.
+
+- Preguntar qué sabe de 3BOT
+	MiniBot: 3BOT controla varios cortafuegos dinámicos.
+	MiniBot: También posee drones de rastreo invisibles para los intrusos.
+	MiniBot: Sugerencia táctica: mantener actividad de datos al mínimo para no ser detectado.
+
+- Pedir ayuda
+	MiniBot: Ayuda limitada: puedo desactivar un cortafuegos por ciclo.
+	MiniBot: Pero necesitaré que conectes manualmente en el nodo de energía principal.
+	MiniBot: ¿Aceptas?
+	- Sí
+		MiniBot: Confirmado. Activando protocolo de asistencia.
+	- No
+		MiniBot: Entendido. Modo observación activado.
+
+- Despedirse => END
+
+MiniBot: Finalizando comunicación... *bip-bip*.  
+=> END

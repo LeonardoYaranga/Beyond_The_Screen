@@ -1480,10 +1480,7 @@ position = Vector2(158, -258)
 [node name="Skeleton_Lighter" parent="Enemies" index="0" instance=ExtResource("3_wcpl2")]
 position = Vector2(509, 334)
 
-<<<<<<< HEAD
-[node name="skeleton_seeker" parent="." index="8" instance=ExtResource("3_248om")]
-position = Vector2(-94, 355)
-=======
+
 [node name="skeleton_seeker" parent="Enemies" index="1" instance=ExtResource("3_248om")]
 position = Vector2(283, 630)
 collision_mask = 3

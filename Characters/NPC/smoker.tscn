@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://byuhfkprgxf1c"]
+[gd_scene load_steps=16 format=3 uid="uid://byuhfkprgxf1c"]
 
 [ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_p7ymv"]
+[ext_resource type="Resource" uid="uid://gcn0hca1ksca" path="res://Dialogues/smokerDialogue.dialogue" id="2_qpk5w"]
 [ext_resource type="Texture2D" uid="uid://scniebnyb51y" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/smoker.png" id="2_xlcti"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qpk5w"]
@@ -110,6 +111,7 @@ _data = {
 radius = 22.0
 
 [node name="Smoker" instance=ExtResource("1_p7ymv")]
+dialogue_file = ExtResource("2_qpk5w")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(-5, -5.5)
