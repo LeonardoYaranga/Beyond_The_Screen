@@ -1,15 +1,14 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://c2qoebb3mbfqe"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://c2qoebb3mbfqe"]
 
 [ext_resource type="FontFile" uid="uid://irf00yw8ay4d" path="res://Assets/fonts/Early GameBoy.ttf" id="1_xpsm5"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_se787"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xpsm5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q7npb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6ceh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpsm5"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2l176"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awvjm"]
 
@@ -17,7 +16,7 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qw5sh"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2l176"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_se787"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2n7n"]
 
@@ -25,22 +24,37 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0g0id"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpsm5"]
+bg_color = Color(0.5881, 0.52521, 0.678986, 1)
+
 [resource]
 default_font = ExtResource("1_xpsm5")
 default_font_size = 16
 Button/colors/font_color = Color(1, 1, 1, 1)
-Button/colors/font_focus_color = Color(0, 0.976471, 0, 1)
+Button/colors/font_focus_color = Color(0.697252, 0.151206, 0.0508235, 1)
 Button/colors/font_hover_color = Color(0.749216, 0.641299, 0.0103978, 1)
-Button/colors/font_pressed_color = Color(0.0323026, 0.0909961, 0.320332, 1)
+Button/colors/font_pressed_color = Color(0.0548053, 0.560041, 0, 1)
 Button/colors/icon_normal_color = Color(0.324829, 0.288636, 0.78577, 1)
-Button/styles/disabled = SubResource("StyleBoxEmpty_se787")
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 2
+Button/constants/line_spacing = 5
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 16
+Button/styles/disabled = SubResource("StyleBoxEmpty_xpsm5")
 Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_q7npb")
 Button/styles/focus = SubResource("StyleBoxEmpty_i6ceh")
-Button/styles/hover = SubResource("StyleBoxFlat_xpsm5")
+Button/styles/hover = SubResource("StyleBoxEmpty_2l176")
 Button/styles/hover_mirrored = SubResource("StyleBoxEmpty_awvjm")
 Button/styles/hover_pressed = SubResource("StyleBoxEmpty_3gavf")
 Button/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qw5sh")
-Button/styles/normal = SubResource("StyleBoxEmpty_2l176")
+Button/styles/normal = SubResource("StyleBoxEmpty_se787")
 Button/styles/normal_mirrored = SubResource("StyleBoxEmpty_l2n7n")
 Button/styles/pressed = SubResource("StyleBoxEmpty_23s0g")
 Button/styles/pressed_mirrored = SubResource("StyleBoxEmpty_0g0id")
+HBoxContainer/constants/separation = 4
+Label/constants/outline_size = 5
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/constants/outline_size = 5
+RichTextLabel/styles/background = SubResource("StyleBoxFlat_xpsm5")
+VBoxContainer/colors/Color = Color(0.352162, 0.10262, 0.101701, 1)
+VBoxContainer/constants/separation = 4

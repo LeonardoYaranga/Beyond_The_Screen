@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://612q0ji35t28"
+path="res://.godot/imported/robot1Amarillo.dialogue-6741534909c90376151f04c741d5b36e.tres"
+
+[deps]
+
+source_file="res://Dialogues/robot1Amarillo.dialogue"
+dest_files=["res://.godot/imported/robot1Amarillo.dialogue-6741534909c90376151f04c741d5b36e.tres"]
+
+[params]
+
+defaults=true

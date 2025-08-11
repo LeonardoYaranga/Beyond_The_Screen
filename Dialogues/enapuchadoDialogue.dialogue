@@ -1,0 +1,40 @@
+~ start
+Encapuchado: [[¿Quién va?|¿Qué quieres?|Habla rápido]], no tengo todo el día.
+Encapuchado: Este lugar, Sweet Home, no es lo que parece... demasiados secretos ocultos en sus datos.
+=> help
+
+~ help
+- Preguntar por 3BOT
+	Leo: Estoy buscando a 3BOT. ¿Lo has visto?
+	Encapuchado: 3BOT... ese nombre provoca miedo incluso aquí.
+	Encapuchado: Se dice que anda buscando algo poderoso, algo que podría cambiar todo.
+	=> help
+
+- Preguntar qué es Sweet Home
+	Encapuchado: Sweet Home es un refugio para programas perdidos y virus olvidados.
+	Encapuchado: Pero no todos aquí son amigables. Mejor que andes con cuidado.
+	=> help
+
+- Preguntar por peligros
+	Encapuchado: Los guardianes de Sweet Home no toleran intrusos.
+	Encapuchado: Si te descubren, tendrás que pelear o desaparecer para siempre.
+	=> help
+
+- Pedir consejo
+	Encapuchado: Consejo mío: no confíes en nadie aquí, ni siquiera en ti mismo.
+	Encapuchado: Y si ves una puerta con símbolos rojos, evita pasar por ahí.
+	=> help
+
+- Demostrar su poder
+	=> poder
+
+- Despedirse
+	Encapuchado: Vuelve solo si estás listo para enfrentar lo que Sweet Home realmente es.
+	=> END
+
+~ poder
+Encapuchado: ¿Quieres ver el verdadero poder que recorre Sweet Home?
+Encapuchado: Todo lo que temes aquí... yo lo controlo.
+do VideoSceneTransistor.play_specific_video("res://Videos/World2/encapuchado_anime_appearance.ogv")
+Encapuchado: Pero incluso mi fuerza no basta contra 3BOT. Ten cuidado, viajero.
+=> help

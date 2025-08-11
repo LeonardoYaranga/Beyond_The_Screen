@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl2au33kormis"]
+
+[ext_resource type="Theme" uid="uid://c2qoebb3mbfqe" path="res://Assets/themes/default_theme.tres" id="1_2s0l0"]
+[ext_resource type="Script" uid="uid://f0vyp06n888j" path="res://UI/Ends/EndScene.gd" id="1_xsspv"]
+[ext_resource type="Texture2D" uid="uid://bvpb6pbhvx1m4" path="res://Assets/backgrounds/FIN BUENO.png" id="3_2s0l0"]
+[ext_resource type="AudioStream" uid="uid://ccoq5y13ggu6k" path="res://Music/good_ending.wav" id="4_2s0l0"]
+[ext_resource type="FontFile" uid="uid://irf00yw8ay4d" path="res://Assets/fonts/Early GameBoy.ttf" id="4_5hs0p"]
+
+[node name="GoodEndMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 51.0
+offset_top = 4.0
+offset_right = 51.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xsspv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -4.0
+offset_right = -52.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.158178, 0.0179533, 0.12357, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998452
+anchor_bottom = 0.960473
+offset_left = -51.0
+offset_top = -1.0
+offset_right = -50.2567
+offset_bottom = 9.67233
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.998452, 0.960473)
+texture = ExtResource("3_2s0l0")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -2.0
+offset_right = -52.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_2s0l0")
+theme_override_constants/separation = 26
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_5hs0p")
+theme_override_font_sizes/font_size = 29
+text = "Good Ending!"
+horizontal_alignment = 1
+
+[node name="Text" type="RichTextLabel" parent="MarginContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("1_2s0l0")
+theme_override_fonts/normal_font = ExtResource("4_5hs0p")
+bbcode_enabled = true
+text = "[center]
+[font_size=7][color=#cccccc]
+Como te demoraste poco, lograste salvar al mundo,
+liberando a todos los que estaban bajo el control de la IA.  
+Aquellos que permanecían atrapados usando los cascos VR  
+fueron liberados…  
+Has salvado a [b]todo el mundo[/b].
+[/color][/font_size]
+[/center]"
+
+[node name="CreditButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2s0l0")
+
+[connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]

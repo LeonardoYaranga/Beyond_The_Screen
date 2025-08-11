@@ -1,17 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://btgvgyjddcunf"]
+[gd_scene load_steps=6 format=3 uid="uid://btgvgyjddcunf"]
 
 [ext_resource type="Script" uid="uid://6pe8wt51ir6y" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://c3sowk1rwvpqb" path="res://Characters/Player/player.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://6gyvhuihnost" path="res://UI/UI.tscn" id="2_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://53ug83lrc6ta" path="res://Characters/Player/player_2.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://c6piofq0krms" path="res://Rooms/Rooms.tscn" id="3_fc0e3"]
 
 [node name="Game" type="Node2D"]
+scale = Vector2(0.998327, 1)
 script = ExtResource("1_feb5d")
 PlayerScene = ExtResource("2_e2o6t")
+Player2Scene = ExtResource("3_7jktm")
 RoomsScene = ExtResource("3_fc0e3")
+start_room = "Room1_3"
 
 [node name="UI" parent="." instance=ExtResource("2_fc0e3")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(242, 138)
+scale = Vector2(0.941252, 1.52759)
 
+[connection signal="continue_game" from="UI" to="." method="_on_ui_continue_game"]
+[connection signal="menu_closed" from="UI" to="." method="_on_ui_menu_closed"]
+[connection signal="menu_opened" from="UI" to="." method="_on_ui_menu_opened"]
+[connection signal="quit_to_menu" from="UI" to="." method="_on_ui_quit_to_menu"]
 [connection signal="start_game" from="UI" to="." method="_on_ui_start_game"]
+[connection signal="video_finished" from="UI" to="." method="_on_ui_video_finished"]

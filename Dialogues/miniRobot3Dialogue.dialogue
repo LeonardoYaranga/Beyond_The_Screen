@@ -1,0 +1,27 @@
+~ start
+MiniBot2: [[Atención|Alerta|Hola]], detectando actividad inusual en este nodo.
+MiniBot2: Los datos aquí son inestables y pueden afectar tu misión.
+
+- Decir que buscas a 3BOT
+	Leo: Estoy buscando a 3BOT. ¿Sabes algo de él?
+	MiniBot2: 3BOT es una entidad peligrosa que manipula estos datos.
+	MiniBot2: Se recomienda precaución extrema al avanzar.
+
+- Preguntar por amenazas
+	MiniBot2: He detectado rastreadores y programas hostiles rondando cerca.
+	MiniBot2: Mantén tus sistemas en modo sigiloso para evitar ser detectado.
+
+- Pedir ayuda
+	MiniBot2: Puedo activar un escaneo para detectar enemigos en un radio cercano.
+	MiniBot2: Pero solo puedo hacerlo una vez cada ciclo. ¿Quieres que lo active?
+
+	- Sí
+		MiniBot2: Escaneo activado... enemigos detectados a 25 metros.
+		MiniBot2: Procede con cuidado.
+	- No
+		MiniBot2: Entendido. Mantente alerta por ti mismo.
+
+- Despedirse => END
+
+MiniBot2: Cuida tu integridad, Leo. El servidor no perdona errores.
+=> END

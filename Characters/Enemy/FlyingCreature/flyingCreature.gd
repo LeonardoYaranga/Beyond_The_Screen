@@ -1,6 +1,11 @@
 extends Enemy
 
-@onready var hitbox: Area2D = get_node("Hitbox")
+@onready var hitbox: Hitbox = %Hitbox
 
 func _process(_delta: float) -> void:
-	hitbox.knockback_direction = velocity.normalized()
+	if is_instance_valid(hitbox):
+		#print("flyingCreature.gd: valid hitbox")
+		hitbox.knockback_direction = velocity.normalized()
+	else:
+		print("flyingCreature.gd: Not valid hitbox")
+	

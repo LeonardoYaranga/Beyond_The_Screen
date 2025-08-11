@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dkkyaqhnodjew"
+path="res://.godot/imported/sillaRuedasDialogue.dialogue-406cb99b89808d5c1b89978835b2234a.tres"
+
+[deps]
+
+source_file="res://Dialogues/sillaRuedasDialogue.dialogue"
+dest_files=["res://.godot/imported/sillaRuedasDialogue.dialogue-406cb99b89808d5c1b89978835b2234a.tres"]
+
+[params]
+
+defaults=true

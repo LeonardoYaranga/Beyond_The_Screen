@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=4 uid="uid://mssul1qevxux"]
+[gd_scene load_steps=9 format=4 uid="uid://mssul1qevxux"]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_rrso0"]
 [ext_resource type="TileSet" uid="uid://cofocmu7ryqme" path="res://Rooms/tavernTileMap.tres" id="2_f8qx3"]
 [ext_resource type="TileSet" uid="uid://c2wi4f7i4yvtc" path="res://Rooms/forgeTilemap.tres" id="3_srmf6"]
 [ext_resource type="PackedScene" uid="uid://c2ee3jo0tcww3" path="res://Rooms/Door.tscn" id="4_uhug5"]
 [ext_resource type="PackedScene" uid="uid://cliq6hv0trr1v" path="res://Characters/NPC/TavernMaid.tscn" id="5_f8qx3"]
+[ext_resource type="AudioStream" uid="uid://dfs6drnjy60w8" path="res://Music/khiva-live-music-in-a-restaurant.wav" id="6_srmf6"]
+[ext_resource type="PackedScene" uid="uid://bsx6jcm3rflt6" path="res://Rooms/Objetos/health_potion.tscn" id="7_uhug5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srmf6"]
 
 [node name="Room_1_Tavern" instance=ExtResource("1_rrso0")]
 
@@ -32,7 +36,55 @@ tile_set = ExtResource("3_srmf6")
 position = Vector2(366, -8)
 target_room = "Room1_2"
 
-[node name="TavernMaid" parent="." index="8" instance=ExtResource("5_f8qx3")]
+[node name="Marker2D" type="Marker2D" parent="EnemyPositions" index="0"]
+position = Vector2(-47, 456)
 
-[node name="PlayerSpawnPos" type="Marker2D" parent="." index="10"]
-position = Vector2(369, 33)
+[node name="Marker2D2" type="Marker2D" parent="EnemyPositions" index="1"]
+position = Vector2(784, 461)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemyPositions" index="2"]
+position = Vector2(69, 388)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemyPositions" index="3"]
+position = Vector2(686, 507)
+
+[node name="Marker2D5" type="Marker2D" parent="EnemyPositions" index="4"]
+position = Vector2(-18, 309)
+
+[node name="Marker2D6" type="Marker2D" parent="EnemyPositions" index="5"]
+position = Vector2(841, 341)
+
+[node name="Marker2D7" type="Marker2D" parent="EnemyPositions" index="6"]
+position = Vector2(227, 520)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
+position = Vector2(555, 316)
+rotation = -0.523598
+scale = Vector2(7.41332, 1.89052)
+shape = SubResource("RectangleShape2D_srmf6")
+
+[node name="TavernMaid" parent="NPCs" index="0" instance=ExtResource("5_f8qx3")]
+position = Vector2(0, 17)
+scale = Vector2(0.75, 0.75)
+
+[node name="BackgroundMusic" parent="." index="13"]
+stream = ExtResource("6_srmf6")
+volume_db = -0.1
+
+[node name="PlayerSpawnPosAlternative" parent="." index="14"]
+position = Vector2(396, 35)
+
+[node name="PlayerSpawnPos" parent="." index="15"]
+position = Vector2(353, 35)
+
+[node name="HealthPotion" parent="." index="16" instance=ExtResource("7_uhug5")]
+position = Vector2(169, -81)
+
+[node name="HealthPotion2" parent="." index="17" instance=ExtResource("7_uhug5")]
+position = Vector2(602, 17)
+
+[node name="HealthPotion3" parent="." index="18" instance=ExtResource("7_uhug5")]
+position = Vector2(312, 450)
+
+[node name="HealthPotion" parent="HealthPotion3" index="2" instance=ExtResource("7_uhug5")]
+position = Vector2(211, 54)

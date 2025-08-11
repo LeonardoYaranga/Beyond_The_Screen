@@ -1,0 +1,41 @@
+~ start
+Herrero: [[Eh|Hola|Buen día]], joven. No te acerques demasiado, las chispas vuelan.
+Herrero: ¿Qué se te ofrece en mi forja?
+=> help
+
+~ help
+- Preguntar por reparaciones
+	Herrero: Estoy ocupado reparando las rejas del pueblo.
+	Herrero: La última horda de bandidos las dejó hechas trizas.
+	Herrero: Si sigues su rastro, podrías encontrarlos antes de que vuelvan.
+	=> help
+
+- Preguntar por la zona
+	Herrero: Conozco estas tierras como la palma de mi mano.
+	Herrero: Al este está el bosque, peligroso y lleno de bestias.
+	Herrero: Al oeste, las minas abandonadas... aunque algunos dicen que no están tan vacías.
+	=> help
+
+- Preguntar por rumores
+	Herrero: Escuché que en las ruinas del sur alguien ha estado buscando a alguien con una espada como la tuya.
+	Herrero: No sé si son cazarecompensas o algo peor.
+	Herrero: Si te importa tu pellejo, ve preparado.
+	=> help
+
+- Preguntar por el WarHammer
+	if GameManager.unlocked_warhammer == true and GameManager.asked_about_warhammer == false
+		=> warhammer
+	else
+		=> help
+
+- Despedirse
+	Herrero: Que tus pasos sean firmes y tu corazón más fuerte que el acero.
+	=> END
+
+~ warhammer
+Herrero: ¿El WarHammer, eh? Así que la mesera te habló de él.
+Herrero: Lo dejé en la vieja bodega, al norte del pueblo. No es fácil llegar ahí, prepárate.
+do VideoSceneTransistor.play_specific_video("res://Videos/World1/blacksmith.ogv")
+Herrero: No me preguntes otra vez, ya te dije dónde está.
+do GameManager.set_asked_about_warhammer(true)
+=> help

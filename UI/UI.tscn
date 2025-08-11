@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://6gyvhuihnost"]
+[gd_scene load_steps=12 format=3 uid="uid://6gyvhuihnost"]
 
-[ext_resource type="Script" uid="uid://m2tivhml7axd" path="res://UI.gd" id="1_e707p"]
+[ext_resource type="Script" uid="uid://m2tivhml7axd" path="res://UI/UI.gd" id="1_e707p"]
 [ext_resource type="PackedScene" uid="uid://c0wehu0pinqks" path="res://Menu/MainMenu.tscn" id="2_f1fl4"]
 [ext_resource type="PackedScene" uid="uid://daxygoynvdyya" path="res://Menu/game_menu.tscn" id="2_jqf55"]
 [ext_resource type="Texture2D" uid="uid://d4gl37sdximtr" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/health_ui.png" id="3_jqf55"]
 [ext_resource type="Texture2D" uid="uid://cg0k0rarnwsex" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/progress bar.png" id="4_byuxr"]
+[ext_resource type="PackedScene" uid="uid://bjep60xpcbel" path="res://UI/Ends/normal_end.tscn" id="5_d050y"]
+[ext_resource type="PackedScene" uid="uid://cl2au33kormis" path="res://UI/Ends/good_end.tscn" id="6_jqf55"]
+[ext_resource type="PackedScene" uid="uid://dmvsjl6qge8fd" path="res://UI/Ends/bad_end.tscn" id="6_qgmx8"]
+[ext_resource type="PackedScene" uid="uid://cugc7tqayg72q" path="res://UI/VideoPlayer/Video_Player.tscn" id="7_qgmx8"]
+[ext_resource type="PackedScene" uid="uid://ci13elfc2cyeq" path="res://UI/credits.tscn" id="8_vx7wu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgmx8"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_e707p")
@@ -12,12 +19,35 @@ script = ExtResource("1_e707p")
 [node name="GameMenu" parent="." instance=ExtResource("2_jqf55")]
 unique_name_in_owner = true
 process_mode = 3
+visible = false
 
 [node name="MainMenu" parent="." instance=ExtResource("2_f1fl4")]
 unique_name_in_owner = true
+visible = false
 mouse_filter = 1
 
+[node name="GoodEndMenu" parent="." instance=ExtResource("6_jqf55")]
+unique_name_in_owner = true
+visible = false
+
+[node name="NormalEndMenu" parent="." instance=ExtResource("5_d050y")]
+unique_name_in_owner = true
+visible = false
+
+[node name="BadEndMenu" parent="." instance=ExtResource("6_qgmx8")]
+unique_name_in_owner = true
+visible = false
+
+[node name="VideoPlayer" parent="." instance=ExtResource("7_qgmx8")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Credits" parent="." instance=ExtResource("8_vx7wu")]
+unique_name_in_owner = true
+visible = false
+
 [node name="HealthBar" type="TextureProgressBar" parent="."]
+visible = false
 offset_left = 19.0
 offset_top = 18.0
 offset_right = 99.0
@@ -27,4 +57,33 @@ texture_over = ExtResource("3_jqf55")
 texture_progress = ExtResource("4_byuxr")
 tint_progress = Color(0.792157, 0.101961, 0.14902, 1)
 
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -30.0
+offset_right = 7.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qgmx8")
+
+[node name="Inventory" type="HBoxContainer" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+
+[connection signal="main_menu" from="GameMenu" to="." method="_on_game_menu_main_menu"]
+[connection signal="return_to_game" from="GameMenu" to="." method="_on_game_menu_return_to_game"]
+[connection signal="continue_game" from="MainMenu" to="." method="_on_main_menu_continue_game"]
+[connection signal="show_credits" from="MainMenu" to="." method="_on_main_menu_show_credits"]
 [connection signal="start_game" from="MainMenu" to="." method="_on_main_menu_start_game"]
+[connection signal="show_credits" from="GoodEndMenu" to="." method="_on_end_menu_show_credits"]
+[connection signal="show_credits" from="NormalEndMenu" to="." method="_on_end_menu_show_credits"]
+[connection signal="show_credits" from="BadEndMenu" to="." method="_on_end_menu_show_credits"]
+[connection signal="video_finished" from="VideoPlayer" to="." method="_on_video_player_video_finished"]
+[connection signal="return_to_menu" from="Credits" to="." method="_on_credits_return_to_menu"]

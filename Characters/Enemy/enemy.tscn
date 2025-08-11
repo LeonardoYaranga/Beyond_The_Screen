@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://buu64l6pc8rur"]
+[gd_scene load_steps=3 format=3 uid="uid://buu64l6pc8rur"]
 
 [ext_resource type="PackedScene" uid="uid://dy5ak2onfmqah" path="res://Characters/character.tscn" id="1_bxjv2"]
+[ext_resource type="Script" uid="uid://bm7hy77m7qb58" path="res://Characters/Enemy/enemy.gd" id="2_kmuhc"]
 
 [node name="Enemy" instance=ExtResource("1_bxjv2")]
 collision_layer = 4
 collision_mask = 5
-script = null
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("2_kmuhc")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(3, 2)
@@ -15,5 +18,8 @@ wait_time = 0.5
 autostart = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="5"]
+path_desired_distance = 25.0
+avoidance_enabled = true
+debug_enabled = true
 
 [connection signal="timeout" from="PathTimer" to="." method="_on_path_timer_timeout"]

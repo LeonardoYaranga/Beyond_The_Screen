@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bfcvx3wvloi8k"
+path="res://.godot/imported/young_cyborg.dialogue-5300f1ba4fcfc5de79ff8dd0507cfb5e.tres"
+
+[deps]
+
+source_file="res://Dialogues/young_cyborg.dialogue"
+dest_files=["res://.godot/imported/young_cyborg.dialogue-5300f1ba4fcfc5de79ff8dd0507cfb5e.tres"]
+
+[params]
+
+defaults=true

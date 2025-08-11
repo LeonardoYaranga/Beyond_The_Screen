@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://d4dhwe0q08lnl"
+path="res://.godot/imported/pinkGirl.dialogue-110b098bb93068ea29685ef45cc1ab88.tres"
+
+[deps]
+
+source_file="res://Dialogues/pinkGirl.dialogue"
+dest_files=["res://.godot/imported/pinkGirl.dialogue-110b098bb93068ea29685ef45cc1ab88.tres"]
+
+[params]
+
+defaults=true

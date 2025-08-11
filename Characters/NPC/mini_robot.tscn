@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dsexcioh0qw86"]
 
 [ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_hk1mw"]
-[ext_resource type="Script" uid="uid://csgyge5d2p7gp" path="res://Characters/NPC/mini_robot.gd" id="2_fxgl4"]
+[ext_resource type="Resource" uid="uid://dlw24ddk6uuge" path="res://Dialogues/miniRobotDialogue.dialogue" id="2_fxgl4"]
 [ext_resource type="Texture2D" uid="uid://cxjanwf832xho" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/robot walk.png" id="2_pk32g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxgl4"]
@@ -138,7 +138,7 @@ _data = {
 radius = 20.025
 
 [node name="Mini Robot" instance=ExtResource("1_hk1mw")]
-script = ExtResource("2_fxgl4")
+dialogue_file = ExtResource("2_fxgl4")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(-4.76837e-07, 9.53674e-07)
