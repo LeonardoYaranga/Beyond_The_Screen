@@ -69,7 +69,7 @@ func start_dialogue(player: Node) -> void:
 	# Iniciar el diálogo con Dialogue Manager
 	current_balloon = await DialogueManager.show_dialogue_balloon(dialogue_file, "start")
 	print("NPC: current_balloon asignado:", current_balloon)
-	
+	GameManager.is_in_dialogue = true
 	pause_player_if_exist(interacting_player)
 	
 	# Esperamos a dialogue_ended para limpiar
@@ -113,6 +113,7 @@ func _on_dialogue_ended(_resource: DialogueResource) -> void:
 			print("NPC: Área de interacción reactivada") 
 		# Restaurar el estado del jugador
 		restore_the_state_of_player_if_exist(interacting_player)
+		GameManager.is_in_dialogue = false
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

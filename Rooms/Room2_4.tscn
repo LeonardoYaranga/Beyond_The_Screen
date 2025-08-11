@@ -1289,8 +1289,19 @@ position = Vector2(17, 378)
 position = Vector2(633, 243)
 MAX_DISTANCE_TO_PLAYER = 100.0
 
-[node name="PlayerSpawnPos" type="Marker2D" parent="." index="11"]
-position = Vector2(16, 52)
+[node name="MetalMonsterLila3" parent="Enemies" index="1" instance=ExtResource("10_hyivd")]
+position = Vector2(770, 26)
+MAX_DISTANCE_TO_PLAYER = 100.0
 
-[node name="BackgroundMusic" parent="." index="12"]
+[node name="MetalMonsterLila2" parent="Enemies" index="2" instance=ExtResource("10_hyivd")]
+position = Vector2(637, 438)
+MAX_DISTANCE_TO_PLAYER = 100.0
+
+[node name="BackgroundMusic" parent="." index="11"]
 stream = ExtResource("13_gyhlh")
+
+[node name="PlayerSpawnPosAlternative" parent="." index="12"]
+position = Vector2(448, 466)
+
+[node name="PlayerSpawnPos" parent="." index="13"]
+position = Vector2(23, 52)

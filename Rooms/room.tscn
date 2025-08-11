@@ -18,6 +18,8 @@ script = ExtResource("1_hbclw")
 [node name="EnemyPositions" type="Node2D" parent="."]
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="AnimatedObjects" type="Node2D" parent="."]
 

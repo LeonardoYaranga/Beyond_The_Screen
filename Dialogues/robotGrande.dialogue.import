@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b0p5luynaq4fy"
+path="res://.godot/imported/robotGrande.dialogue-7aeabb9078d9c2296582f18449bfce4a.tres"
+
+[deps]
+
+source_file="res://Dialogues/robotGrande.dialogue"
+dest_files=["res://.godot/imported/robotGrande.dialogue-7aeabb9078d9c2296582f18449bfce4a.tres"]
+
+[params]
+
+defaults=true

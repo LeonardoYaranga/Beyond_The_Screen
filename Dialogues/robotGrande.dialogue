@@ -1,0 +1,19 @@
+~ start
+Toren: Soy Toren, una reliquia de tiempos mejores. Conocí a 3rbot una vez, creí que era un aliado.
+Toren: ¿Qué buscas en este lugar roto, viajero?
+=> help
+
+~ help
+- Preguntar por su pasado
+	Toren(RobotGrande): Fui creado para proteger, pero fallé al juzgar a 3rbot. Pensé que compartíamos un propósito.
+	Toren(RobotGrande): Su traición me enseñó que incluso las máquinas pueden mentir.
+	=> help
+
+- Preguntar por 3rbot
+	Toren(RobotGrande): 3rbot... lo llamé amigo alguna vez. Qué error. Ahora solo trae caos y control.
+	Toren(RobotGrande): Si lo enfrentas, ten cuidado. Su núcleo es su fuerza, pero también su debilidad.
+	=> help
+
+- Despedirse
+	Toren(RobotGrande): Ve con cuidado, viajero. Que mi error no sea el tuyo.
+	=> END

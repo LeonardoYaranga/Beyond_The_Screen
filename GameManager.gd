@@ -1,5 +1,6 @@
 extends Node
-
+# Variables globales usables
+var is_in_dialogue: bool = false
 # Variables globales
 var death_counter: int = 0
 var visited_rooms: Dictionary = {}  # Rastrear salas visitadas string -> bool
@@ -15,11 +16,15 @@ var asked_about_warhammer: bool = false  # Indica si ya preguntaste por el WarHa
 var helped_ellen_in_town: bool = false  # Indica si ayudaste a Ellen en el pueblo
 var talked_to_ellen_in_town: bool = false  # Indica si ya interactuaste con Ellen en el pueblo
 
+# PinkGirl interaction in World 2
+var asked_pink_girl_3rbot: bool = false  # Indica si ya preguntaste a la chica de pelo rosa por 3rbot
+#Chica Silla de ruedas
+var asked_brown_girl_recognition: bool = false  # Indica si ya preguntaste a la chica morena sobre reconocerla
 const SAVE_PATH: String = "user://game_save.json"
 
 func _ready() -> void:
 	load_game()
-	print("GameManager: Inicializado, death_counter:", death_counter, "visited_rooms:", visited_rooms, "last_room_visited:", last_room_visited, "has_spicy_food:", has_spicy_food, "unlocked_warhammer:", unlocked_warhammer, "completed_spicy_food_quest:", completed_spicy_food_quest, "helped_ellen_in_town:", helped_ellen_in_town, "talked_to_ellen_in_town:", talked_to_ellen_in_town, "asked_about_warhammer:", asked_about_warhammer)
+	print("GameManager: Inicializado, death_counter:", death_counter, "visited_rooms:", visited_rooms, "last_room_visited:", last_room_visited, "has_spicy_food:", has_spicy_food, "unlocked_warhammer:", unlocked_warhammer, "completed_spicy_food_quest:", completed_spicy_food_quest, "helped_ellen_in_town:", helped_ellen_in_town, "talked_to_ellen_in_town:", talked_to_ellen_in_town, "asked_about_warhammer:", asked_about_warhammer, "asked_pink_girl_3rbot:", asked_pink_girl_3rbot, " asked_brown_girl_recognition = ", asked_brown_girl_recognition )
 
 func increment_death_counter() -> void:
 	death_counter += 1
@@ -70,6 +75,16 @@ func set_asked_about_warhammer(value: bool) -> void:
 	save_game()
 	print("GameManager: asked_about_warhammer actualizado:", asked_about_warhammer)
 
+func set_asked_pink_girl_3rbot(value: bool) -> void:
+	asked_pink_girl_3rbot = value
+	save_game()
+	print("GameManager: asked_pink_girl_3rbot actualizado:", asked_pink_girl_3rbot)
+
+func set_asked_brown_girl_recognition(value: bool) -> void:
+	asked_brown_girl_recognition = value
+	save_game()
+	print("GameManager: asked_brown_girl_recognition actualizado:", asked_brown_girl_recognition)
+
 func save_game() -> void:
 	var save_data = {
 		"death_counter": death_counter,
@@ -80,7 +95,9 @@ func save_game() -> void:
 		"completed_spicy_food_quest": completed_spicy_food_quest,
 		"helped_ellen_in_town": helped_ellen_in_town,
 		"talked_to_ellen_in_town": talked_to_ellen_in_town,
-		"asked_about_warhammer": asked_about_warhammer
+		"asked_about_warhammer": asked_about_warhammer,
+		"asked_pink_girl_3rbot": asked_pink_girl_3rbot,
+		"asked_brown_girl_recognition": asked_brown_girl_recognition
 	}
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file:
@@ -111,7 +128,9 @@ func load_game() -> void:
 					helped_ellen_in_town = json.get("helped_ellen_in_town", false)
 					talked_to_ellen_in_town = json.get("talked_to_ellen_in_town", false)
 					asked_about_warhammer = json.get("asked_about_warhammer", false)
-					print("GameManager: Juego cargado, death_counter:", death_counter, "visited_rooms:", visited_rooms, "last_room_visited:", last_room_visited, "has_spicy_food:", has_spicy_food, "unlocked_warhammer:", unlocked_warhammer, "completed_spicy_food_quest:", completed_spicy_food_quest, "helped_ellen_in_town:", helped_ellen_in_town, "talked_to_ellen_in_town:", talked_to_ellen_in_town, "asked_about_warhammer:", asked_about_warhammer)
+					asked_pink_girl_3rbot = json.get("asked_pink_girl_3rbot", false)
+					asked_brown_girl_recognition = json.get("asked_brown_girl_recognition", false)
+					print("GameManager: Juego cargado, death_counter:", death_counter, "visited_rooms:", visited_rooms, "last_room_visited:", last_room_visited, "has_spicy_food:", has_spicy_food, "unlocked_warhammer:", unlocked_warhammer, "completed_spicy_food_quest:", completed_spicy_food_quest, "helped_ellen_in_town:", helped_ellen_in_town, "talked_to_ellen_in_town:", talked_to_ellen_in_town, "asked_about_warhammer:", asked_about_warhammer, "asked_pink_girl_3rbot:", asked_pink_girl_3rbot, "asked_brown_girl_recognition:", asked_brown_girl_recognition)				
 				else:
 					printerr("GameManager: Formato JSON inválido en", SAVE_PATH)
 					reset_game()
@@ -132,4 +151,6 @@ func reset_game() -> void:
 	helped_ellen_in_town = false
 	talked_to_ellen_in_town = false
 	asked_about_warhammer = false
+	asked_pink_girl_3rbot = false
+	asked_brown_girl_recognition = false
 	save_game()

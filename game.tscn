@@ -12,7 +12,7 @@ script = ExtResource("1_feb5d")
 PlayerScene = ExtResource("2_e2o6t")
 Player2Scene = ExtResource("3_7jktm")
 RoomsScene = ExtResource("3_fc0e3")
-start_room = "Room1_2"
+start_room = "Room1_3"
 
 [node name="UI" parent="." instance=ExtResource("2_fc0e3")]
 

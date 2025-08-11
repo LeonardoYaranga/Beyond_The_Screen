@@ -167,3 +167,6 @@ func spawn() -> void:
 func get_distance_to_player() -> float:
 	#print("3rbot.gd: Consultando distance_to_player:", distance_to_player)
 	return distance_to_player
+	
+func animation_after_defeat_3rbot() -> void:
+	VideoSceneTransistor.play_specific_video("res://Videos/World2/finally_defeated_3rbot.ogv")

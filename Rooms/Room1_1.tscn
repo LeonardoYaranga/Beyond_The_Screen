@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://dwrp6oby2k24m"]
+[gd_scene load_steps=7 format=4 uid="uid://dwrp6oby2k24m"]
 
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_4a6bb"]
 [ext_resource type="TileSet" uid="uid://ccs1t2ogd147h" path="res://Rooms/prisionTileMap.tres" id="2_8uba2"]
 [ext_resource type="TileSet" uid="uid://c2wi4f7i4yvtc" path="res://Rooms/forgeTilemap.tres" id="3_6s50o"]
 [ext_resource type="PackedScene" uid="uid://c2ee3jo0tcww3" path="res://Rooms/Door.tscn" id="4_qvant"]
-[ext_resource type="PackedScene" uid="uid://bvjvv8pxatir6" path="res://Scenes/Weapons/WarHammer.tscn" id="5_8uba2"]
 [ext_resource type="PackedScene" uid="uid://bsx6jcm3rflt6" path="res://Rooms/Objetos/health_potion.tscn" id="6_6s50o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hldvo"]
@@ -42,22 +41,16 @@ position = Vector2(371, 268)
 
 [node name="PlayerDetector" parent="." index="7"]
 position = Vector2(0, -2)
-collision_layer = 0
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
 position = Vector2(208.5, 196.625)
 shape = SubResource("RectangleShape2D_hldvo")
 
-[node name="WarHammer" parent="." index="13" instance=ExtResource("5_8uba2")]
-position = Vector2(273, 110)
-on_floor = true
-
-[node name="HealthPotion" parent="." index="14" instance=ExtResource("6_6s50o")]
+[node name="HealthPotion" parent="." index="13" instance=ExtResource("6_6s50o")]
 position = Vector2(535, 3)
 
-[node name="PlayerSpawnPosAlternative" parent="." index="15"]
+[node name="PlayerSpawnPosAlternative" parent="." index="14"]
 position = Vector2(96, 43)
 
-[node name="PlayerSpawnPos" parent="." index="16"]
+[node name="PlayerSpawnPos" parent="." index="15"]
 position = Vector2(208, 223)

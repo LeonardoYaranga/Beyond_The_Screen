@@ -63,6 +63,7 @@ func show_game() -> void:
 	visible = true
 	menu_closed.emit() #changed
 	print("UI.gd: Mostrando juego, visible:", visible)
+	
 func show_credits() -> void:
 	hide_all()
 	SceneTransistor.change_scene_to_file()
@@ -117,8 +118,11 @@ func _input(event: InputEvent) -> void:
 		if game_menu.visible:
 			show_game()
 		else:
-			show_game_menu()
-			menu_opened.emit()
+			if !GameManager.is_in_dialogue:
+				show_game_menu()
+				menu_opened.emit()
+			else: 
+				print("UI.gd: no se puede pausar, Esta en dialogo")
 
 func initialize(player: Character) -> void:
 	max_n_hp = player.hp

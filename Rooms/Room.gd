@@ -88,7 +88,7 @@ func _spawn_enemies() -> void:
 		else:
 			enemy = ENEMY_SCENES.GOBLIN.instantiate()
 			
-		enemy.position = enemy_position.position 
+		enemy.position = enemy_position.global_position 
 		call_deferred("add_child", enemy)
 		
 		var spawn_explosion: AnimatedSprite2D = SPAWN_EXPLOSION_SCENE.instantiate()
@@ -125,3 +125,4 @@ func get_spawn_position() -> Vector2:
 	else:
 		printerr("Room.gd: No se encontró PlayerSpawnPos ni PlayerSpawnPosAlternative")
 		return Vector2.ZERO
+		

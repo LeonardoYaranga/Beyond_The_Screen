@@ -1,9 +1,20 @@
 ~ start
-[!GameManager.talked_to_ellen_in_town]
+Ellen: [[Hola|Eh|Buenas]], no suelo ver caras nuevas aquí dentro.
+Ellen: ¿En qué puedo ayudarte, viajero?
+=> help
+
+~ help
+if GameManager.talked_to_ellen_in_town == false
+	=> first_meeting
+else
+	if GameManager.talked_to_ellen_in_town == true and GameManager.helped_ellen_in_town == false
+		=> not_helped
+	else
+		=> helped
+
+~ first_meeting
 Ellen: ¡Oh, eres tú, viajero! No esperaba verte por el pueblo.
 Ellen: Tengo un problema... unos tipos están causando alboroto cerca de mi casa. ¿Podrías ayudarme?
-
-[!GameManager.talked_to_ellen_in_town]
 - Ayudarla
 	Leo: Claro, Ellen, déjame ocuparme de esos tipos. ¿Dónde están?
 	Ellen: ¡Gracias, viajero! Están cerca del mercado, al sur. Ten cuidado.
@@ -12,31 +23,26 @@ Ellen: Tengo un problema... unos tipos están causando alboroto cerca de mi casa
 	do GameManager.set_helped_ellen_in_town(true)
 	do GameManager.set_talked_to_ellen_in_town(true)
 	=> END
-
-[!GameManager.talked_to_ellen_in_town]
 - No ayudarla
 	Leo: Lo siento, Ellen, pero deberías resolver tus propios problemas.
 	Ellen: Hmph, qué amable... Supongo que no todos los viajeros son héroes.
 	do GameManager.set_talked_to_ellen_in_town(true)
 	=> END
 
-[GameManager.talked_to_ellen_in_town and !GameManager.helped_ellen_in_town]
+~ not_helped
 Ellen: ¿Otra vez tú? No tengo mucho que decirte después de lo del pueblo.
 - Hablar
 	Ellen: Si necesitas algo, busca a otra persona. No estoy de humor.
-	=> END
+	=> help
 - Despedirse
 	Ellen: Hmph, sigue tu camino, viajero.
 	=> END
 
-[GameManager.talked_to_ellen_in_town and GameManager.helped_ellen_in_town]
+~ helped
 Ellen: ¡Hola, viajero! Me alegra verte después de tu ayuda en el pueblo.
 - Hablar
 	Ellen: Si necesitas algo, ya sabes dónde encontrarme en la taberna.
-	=> END
+	=> help
 - Despedirse
 	Ellen: ¡Hasta pronto, viajero! Gracias otra vez.
 	=> END
-
-Ellen: Bai, bai.
-=> END

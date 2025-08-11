@@ -1591,9 +1591,12 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(7),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(6.16667, 7),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"animation_after_defeat_3rbot"
+}, {
 "args": [],
 "method": &"queue_free"
 }]
@@ -2629,7 +2632,6 @@ position = Vector2(-2, -48)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_yneep")
 animation = &"normal_move"
-frame = 1
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(-2, 4)

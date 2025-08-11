@@ -1,0 +1,21 @@
+~ start
+Cyborg: Soy Kael, un cyborg. No hablo mucho, así que di lo que quieres.
+Cyborg: ¿Qué haces en estas ruinas?
+=> help
+
+~ help
+- Preguntar por él
+	Cyborg: No hay mucho que contar. Fui humano alguna vez, ahora soy esto.
+	Cyborg: Vivo para detener máquinas como 3rbot. Eso es todo lo que necesitas saber.
+	=> help
+
+- Preguntar por 3rbot
+	Cyborg: 3rbot... una abominación. Controla estas tierras, corrompe todo.
+	Cyborg: No merece existir. Si lo enfrentas, apunta a su núcleo, pero no será fácil.
+	do VideoSceneTransistor.play_specific_video("res://Videos/World2/young_android.ogv")
+	Cyborg: No me hagas perder el tiempo. ¿Vas a detenerlo o no?
+	=> help
+
+- Despedirse
+	Cyborg: Vete. No tengo nada más para ti.
+	=> END
