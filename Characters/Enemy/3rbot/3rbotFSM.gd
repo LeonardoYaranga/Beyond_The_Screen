@@ -13,7 +13,6 @@ func _init() -> void:
 	_add_state("hurt")
 	_add_state("dead")
 
-
 func _ready() -> void:
 	set_state(states.idle)
 
@@ -129,20 +128,29 @@ func _exit_state(state_exited: int) -> void:
 	#print("3rbotFSM.gd: Saliendo de estado:", state_exited)
 	match state_exited:
 		states.normal_attack:
-			parent.normal_attack_hitbox.monitoring = false
+			if parent.normal_attack_hitbox:
+				parent.normal_attack_hitbox.monitoring = false
 			parent.acceleration = parent.default_acceleration
 			parent.max_speed = parent.default_max_speed
 			#print("3rbotFSM.gd: Restaurando acceleration:", parent.acceleration, "max_speed:", parent.max_speed)
 		states.wide_attack:
-			parent.special_sword_1_hitbox.monitoring = false
-			parent.special_sword_2_hitbox.monitoring = false
-			parent.special_sword_3_hitbox.monitoring = false
-			parent.special_sword_4_hitbox.monitoring = false
+			if parent.special_sword_1_hitbox.monitoring:
+				parent.special_sword_1_hitbox.monitoring = false
+			if parent.special_sword_2_hitbox.monitoring:
+				parent.special_sword_2_hitbox.monitoring = false
+			if parent.special_sword_3_hitbox:
+				parent.special_sword_3_hitbox.monitoring = false
+			if parent.special_sword_4_hitbox:
+				parent.special_sword_4_hitbox.monitoring = false
 		states.dive_attack:
-			parent.special_sword_1_hitbox.monitoring = false
-			parent.special_sword_2_hitbox.monitoring = false
-			parent.special_sword_3_hitbox.monitoring = false
-			parent.special_sword_4_hitbox.monitoring = false
+			if parent.special_sword_1_hitbo:
+				parent.special_sword_1_hitbox.monitoring = false
+			if parent.special_sword_2_hitbox:
+				parent.special_sword_2_hitbox.monitoring = false
+			if parent.special_sword_3_hitbox:
+				parent.special_sword_3_hitbox.monitoring = false
+			if parent.special_sword_4_hitbox:
+				parent.special_sword_4_hitbox.monitoring = false
 		states.disappear:
 			parent.acceleration = parent.default_acceleration
 			parent.max_speed = parent.default_max_speed

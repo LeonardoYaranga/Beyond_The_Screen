@@ -111,6 +111,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_isrxs")
 }
 
+[node name="InteractionArea" parent="." index="4"]
+collision_layer = 0
+collision_mask = 2
+
 [node name="CollisionShape2D" parent="InteractionArea" index="0"]
 position = Vector2(-11, 1)
 shape = SubResource("CircleShape2D_2njgv")

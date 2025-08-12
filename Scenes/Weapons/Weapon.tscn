@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b4nr888jtvwug"]
 
-[ext_resource type="Script" path="res://weapon.gd" id="1_hj41p"]
-[ext_resource type="Shader" path="res://Characters/Player/White.gdshader" id="2_ku3nf"]
+[ext_resource type="Script" uid="uid://lgm5b7ywwh1a" path="res://weapon.gd" id="1_hj41p"]
+[ext_resource type="Shader" uid="uid://crxpiiwa3p65q" path="res://Characters/Player/White.gdshader" id="2_ku3nf"]
 [ext_resource type="Script" uid="uid://lf061rivsi3h" path="res://Scenes/Weapons/WeaponHitbox.gd" id="4_6iqx6"]
 [ext_resource type="Script" uid="uid://dsbib1cjfvdvg" path="res://Scenes/Weapons/UIHabilityIcon.gd" id="4_hj41p"]
 [ext_resource type="Texture2D" uid="uid://qi5mmjajlne3" path="res://Art/19+Icons/white.png" id="5_ku3nf"]
@@ -55,6 +55,7 @@ lifetime = 0.6
 process_material = SubResource("ParticleProcessMaterial_0sdxs")
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 position = Vector2(-1, -1)

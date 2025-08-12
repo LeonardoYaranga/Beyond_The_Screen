@@ -325,8 +325,10 @@ radius = 4.0
 [node name="skeleton_seeker" instance=ExtResource("1_mdvh4")]
 collision_mask = 2
 script = ExtResource("2_rh377")
-max_hp = 1
-hp = 1
+max_hp = 2
+hp = 2
+acceleration = 50
+max_speed = 120
 
 [node name="FiniteStateMachine" parent="." index="0"]
 script = ExtResource("3_rh377")

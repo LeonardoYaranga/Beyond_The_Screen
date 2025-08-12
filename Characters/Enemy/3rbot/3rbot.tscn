@@ -2619,8 +2619,8 @@ script = ExtResource("2_4mb70")
 MAX_DISTANCE_TO_PLAYER = 300.0
 MIN_DISTANCE_TO_ATTACK = 40.0
 ATTACK_SPEED_CHANGE_FACTOR = 0.3
-max_hp = 2
-hp = 2
+max_hp = 10
+hp = 10
 acceleration = 50
 max_speed = 120
 

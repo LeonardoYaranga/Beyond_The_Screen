@@ -276,6 +276,8 @@ _data = {
 
 [node name="FlyingCreature" instance=ExtResource("1_masxo")]
 script = ExtResource("2_xbh0k")
+max_hp = 3
+hp = 3
 acceleration = 20
 max_speed = 50
 

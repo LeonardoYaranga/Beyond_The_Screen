@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b4nr888jtvwug" path="res://Scenes/Weapons/Weapon.tscn" id="1_l8vww"]
 [ext_resource type="Texture2D" uid="uid://d136m54p27h1e" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_spritesheet.png" id="2_6nwni"]
 [ext_resource type="Texture2D" uid="uid://4k567obclo0e" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_sword_1.png" id="2_a54vs"]
-[ext_resource type="Shader" path="res://Characters/Player/White.gdshader" id="2_y2h4v"]
+[ext_resource type="Shader" uid="uid://crxpiiwa3p65q" path="res://Characters/Player/White.gdshader" id="2_y2h4v"]
 [ext_resource type="AudioStream" uid="uid://burybnvrsqjde" path="res://Music/blade_slice_metal_01c.mp3" id="3_akyv1"]
 [ext_resource type="Animation" uid="uid://dvd3mdtrke3dm" path="res://Scenes/Weapons/Sword/attack.res" id="5_10xpx"]
 [ext_resource type="Texture2D" uid="uid://dtvqx1hors2pp" path="res://Art/19+Icons/swingB.png" id="6_10xpx"]

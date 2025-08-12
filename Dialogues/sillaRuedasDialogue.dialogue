@@ -1,36 +1,48 @@
 ~ start
 Chica: [[Hola|Eh|Buenas]], no suelo ver caras nuevas aquí dentro.
 Chica: ¿Eres real... o solo otro fragmento de código?
+=> help
 
+~ help
 - Decir que eres real
 	Leo: Soy real. Estoy buscando a alguien llamado 3rbot.
 	Chica: 3rbot... ese nombre no trae nada bueno.
 	Chica: Si te mueves por este servidor, tendrás que esquivar sus cortafuegos y rastreadores.
+	=> help
 
 - Preguntar dónde estás
 	Chica: Este lugar es un nodo viejo, casi olvidado.
 	Chica: Aquí las reglas son raras... y los datos corrompidos a veces se mueven como si tuvieran vida propia.
 	Chica: Mantente alejado de las zonas rojas, o podrías quedar atrapado en un bucle.
+	=> help
 
 - Preguntar por 3rbot
 	Chica: No sé dónde está, pero dicen que controla varios servidores desde una torre de datos.
 	Chica: Si quieres encontrarlo, busca las puertas de acceso marcadas con su símbolo: tres círculos interconectados.
 	Chica: Y cuidado... cada puerta tiene su propio guardián.
+	=> help
 
-if GameManager.asked_brown_girl_recognition == false
-	- Yo te conozco
-		Leo: Espera... yo te conozco. ¿De dónde eres?
-		Chica: ¿Conocerme? Puede ser... quizá fuimos vecinos en nuestra otra vida.
-		Chica: Este servidor no es más que una simulación rota. A veces siento que todos estamos atrapados aquí.
-		do VideoSceneTransistor.play_specific_video("res://Videos/World2/chica_morena_silla_de_ruedas_en_recepcion.ogv")
-		Chica: Si me conoces, tal vez tú también perteneces a otro lugar.
-		do GameManager.set_asked_brown_girl_recognition(true)
-else
-	- Hablar de algo extraño
-		Chica: Hay gente aquí que está... bugeada. Repiten lo mismo, como si el código estuviera roto.
-		Chica: A veces recuerdo cosas raras, como caminar por un parque. Pero ahora estoy aquí, en esta silla.
-		Chica: ¿Qué es real, Leo?
+- Hablar de reconocimiento
+	if GameManager.asked_brown_girl_recognition == false
+		=> recognition
+	else
+		=> strange
 
 - Despedirse
 	Chica: Buena suerte, Leo. Si caes aquí dentro, nadie fuera lo sabrá.
 	=> END
+
+~ recognition
+Leo: Espera... yo te conozco. ¿De dónde eres?
+Chica: ¿Conocerme? Puede ser... quizá fuimos vecinos en nuestra otra vida.
+Chica: Este servidor no es más que una simulación rota. A veces siento que todos estamos atrapados aquí.
+do VideoSceneTransistor.play_specific_video("res://Videos/World2/chica_morena_silla_de_ruedas_en_recepcion.ogv")
+Chica: Si me conoces, tal vez tú también perteneces a otro lugar.
+do GameManager.set_asked_brown_girl_recognition(true)
+=> help
+
+~ strange
+Chica: Hay gente aquí que está... bugeada. Repiten lo mismo, como si el código estuviera roto.
+Chica: A veces recuerdo cosas raras, como caminar por un parque. Pero ahora estoy aquí, en esta silla.
+Chica: ¿Qué es real, Leo?
+=> help

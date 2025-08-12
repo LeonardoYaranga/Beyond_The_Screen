@@ -20,6 +20,5 @@ autostart = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="5"]
 path_desired_distance = 25.0
 avoidance_enabled = true
-debug_enabled = true
 
 [connection signal="timeout" from="PathTimer" to="." method="_on_path_timer_timeout"]

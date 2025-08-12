@@ -697,6 +697,7 @@ position = Vector2(130, 292)
 [node name="BackgroundMusic" parent="." index="19"]
 stream = ExtResource("23_2wqjw")
 autoplay = true
+bus = &"Music"
 
 [node name="PlayerSpawnPosAlternative" parent="." index="20"]
 position = Vector2(385, 276)
