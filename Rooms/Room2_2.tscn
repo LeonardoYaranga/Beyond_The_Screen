@@ -650,19 +650,19 @@ position = Vector2(265, 327)
 position = Vector2(382, -81)
 target_room = "Room2_3"
 
-[node name="RobotGrande" parent="NPCs" index="0" instance=ExtResource("6_0cmvp")]
-position = Vector2(386, 445)
-dialogue_file = ExtResource("9_2sta4")
-
-[node name="SillaRuedas" parent="NPCs" index="1" instance=ExtResource("7_we1jx")]
+[node name="SillaRuedas" parent="NPCs" index="0" instance=ExtResource("7_we1jx")]
 position = Vector2(258, 128)
 
-[node name="Mini Robot celeste" parent="NPCs" index="2" instance=ExtResource("6_oaymm")]
+[node name="Mini Robot celeste" parent="NPCs" index="1" instance=ExtResource("6_oaymm")]
 position = Vector2(648, 55)
 dialogue_file = ExtResource("11_45i1d")
 
-[node name="Mini Robot" parent="NPCs" index="3" instance=ExtResource("8_45i1d")]
+[node name="Mini Robot" parent="NPCs" index="2" instance=ExtResource("8_45i1d")]
 position = Vector2(360, 182)
+
+[node name="RobotGrande" parent="NPCs" index="3" instance=ExtResource("6_0cmvp")]
+position = Vector2(391, 455)
+dialogue_file = ExtResource("9_2sta4")
 
 [node name="BackgroundMusic" parent="." index="11"]
 stream = ExtResource("13_45i1d")

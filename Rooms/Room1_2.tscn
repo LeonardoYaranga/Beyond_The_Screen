@@ -707,5 +707,5 @@ position = Vector2(637, 35)
 [node name="HealthPotion" parent="." index="22" instance=ExtResource("25_57is1")]
 position = Vector2(281, -37)
 
-[node name="HealthPotion" parent="HealthPotion" index="2" instance=ExtResource("25_57is1")]
-position = Vector2(-263, 548)
+[node name="HealthPotion2" parent="." index="23" instance=ExtResource("25_57is1")]
+position = Vector2(18, 531)

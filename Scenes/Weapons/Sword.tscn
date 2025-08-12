@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b4nr888jtvwug" path="res://Scenes/Weapons/Weapon.tscn" id="1_l8vww"]
 [ext_resource type="Texture2D" uid="uid://d136m54p27h1e" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_spritesheet.png" id="2_6nwni"]
 [ext_resource type="Texture2D" uid="uid://4k567obclo0e" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_sword_1.png" id="2_a54vs"]
-[ext_resource type="Shader" uid="uid://crxpiiwa3p65q" path="res://Characters/Player/White.gdshader" id="2_y2h4v"]
+[ext_resource type="Shader" path="res://Characters/Player/White.gdshader" id="2_y2h4v"]
 [ext_resource type="AudioStream" uid="uid://burybnvrsqjde" path="res://Music/blade_slice_metal_01c.mp3" id="3_akyv1"]
 [ext_resource type="Animation" uid="uid://dvd3mdtrke3dm" path="res://Scenes/Weapons/Sword/attack.res" id="5_10xpx"]
 [ext_resource type="Texture2D" uid="uid://dtvqx1hors2pp" path="res://Art/19+Icons/swingB.png" id="6_10xpx"]
@@ -14,6 +14,7 @@ shader = ExtResource("2_y2h4v")
 shader_parameter/active = false
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akyv1"]
+radius = 8.71497
 height = 20.0
 
 [sub_resource type="Animation" id="Animation_y2h4v"]
@@ -260,7 +261,7 @@ tracks/7/path = NodePath("Node2D/Sprite2D/Hitbox/CollisionShape2D:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.366667),
+"times": PackedFloat32Array(0, 0.0090737, 0.437957),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -429,7 +430,8 @@ material = SubResource("ShaderMaterial_bnj5o")
 texture = ExtResource("2_a54vs")
 
 [node name="CollisionShape2D" parent="Node2D/Sprite2D/Hitbox" index="0"]
-scale = Vector2(-0.143834, 0.566112)
+position = Vector2(-0.984344, -15.2654)
+scale = Vector2(-0.24718, 0.722355)
 shape = SubResource("CapsuleShape2D_akyv1")
 
 [node name="ChargeParticles" parent="Node2D/Sprite2D" index="1"]

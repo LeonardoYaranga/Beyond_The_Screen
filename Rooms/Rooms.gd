@@ -60,7 +60,7 @@ func _load_room(room_name: String) -> void:
 	GameManager.update_last_room(current_room_name)
 	print("Rooms.gd: Actualizado last_room_visited:", GameManager.last_room_visited)
 	
-	if room_name == "Room2_1" and player and player.scene_file_path != "res://Characters/Player/player2.tscn":
+	if room_name == "Room2_1" or room_name == "Room2_2" or room_name == "Room2_3" or room_name == "Room2_4" or room_name == "Room2_5" and player and player.scene_file_path != "res://Characters/Player/player2.tscn":
 		print("Rooms.gd: Emitiendo player_changed para cambiar a Player2")
 		emit_signal("player_changed")
 	

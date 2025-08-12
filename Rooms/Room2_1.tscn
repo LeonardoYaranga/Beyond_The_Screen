@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://sb83qky6ensl"]
+[gd_scene load_steps=14 format=4 uid="uid://sb83qky6ensl"]
 
 [ext_resource type="TileSet" uid="uid://cvlp8f6by2i8t" path="res://Rooms/TexturaRoom2_1.tres" id="1_7u5xj"]
 [ext_resource type="PackedScene" uid="uid://q34ohw0soigc" path="res://Rooms/room.tscn" id="1_o8nlo"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c2ee3jo0tcww3" path="res://Rooms/Door.tscn" id="2_xsj8a"]
 [ext_resource type="PackedScene" uid="uid://daj5s8jlgxcl8" path="res://Characters/NPC/chico_moreno.tscn" id="4_fgt44"]
 [ext_resource type="PackedScene" uid="uid://b6mae5h3wffui" path="res://Characters/NPC/mini_robot3.tscn" id="4_gtmq6"]
-[ext_resource type="Resource" uid="uid://d4dhwe0q08lnl" path="res://Dialogues/pinkGirl.dialogue" id="7_d24dh"]
 [ext_resource type="PackedScene" uid="uid://dcv0lwidbgi2t" path="res://Characters/NPC/chica_cabelloRosado.tscn" id="7_mrcqe"]
 [ext_resource type="PackedScene" uid="uid://dwnkmxsv4i127" path="res://Rooms/Objetos/compu.tscn" id="8_lok5x"]
 [ext_resource type="Resource" uid="uid://d0gfe1gt74427" path="res://Dialogues/miniRobot3Dialogue.dialogue" id="9_d24dh"]
@@ -84,8 +83,7 @@ position = Vector2(444, 439)
 position = Vector2(459, 439)
 
 [node name="ChicaRosado" parent="NPCs" index="0" instance=ExtResource("7_mrcqe")]
-position = Vector2(216, -61)
-dialogue_file = ExtResource("7_d24dh")
+position = Vector2(224, -59)
 
 [node name="ChicoMoreno" parent="NPCs" index="1" instance=ExtResource("4_fgt44")]
 position = Vector2(171, 203)

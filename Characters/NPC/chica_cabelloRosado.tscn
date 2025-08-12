@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcv0lwidbgi2t"]
+[gd_scene load_steps=14 format=3 uid="uid://dcv0lwidbgi2t"]
 
 [ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_fr50d"]
 [ext_resource type="Texture2D" uid="uid://b5itwk4ncgrwm" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/Punk_idle.png" id="2_2njgv"]
+[ext_resource type="Resource" uid="uid://d4dhwe0q08lnl" path="res://Dialogues/pinkGirl.dialogue" id="2_skj66"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_skj66"]
 atlas = ExtResource("2_2njgv")
@@ -39,8 +40,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fr50d"]
-size = Vector2(17, 10)
+[sub_resource type="CircleShape2D" id="CircleShape2D_skj66"]
 
 [sub_resource type="Animation" id="Animation_w1q8g"]
 length = 0.001
@@ -95,14 +95,16 @@ _data = {
 radius = 26.0768
 
 [node name="ChicaRosado" instance=ExtResource("1_fr50d")]
+dialogue_file = ExtResource("2_skj66")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_o4ghc")
 frame = 1
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(-9.5, 14)
-shape = SubResource("RectangleShape2D_fr50d")
+position = Vector2(-10, 13)
+scale = Vector2(0.682838, 0.649903)
+shape = SubResource("CircleShape2D_skj66")
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {

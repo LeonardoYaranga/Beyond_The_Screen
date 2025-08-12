@@ -94,9 +94,9 @@ func restore_the_state_of_player_if_exist(interacting_player : CharacterBody2D) 
 	if interacting_player:
 			var player_fsm = interacting_player.get_node("FiniteStateMachine")
 			if player_fsm:
-				var previous_state = player_fsm.previous_state if player_fsm.previous_state != -1 else player_fsm.states.idle
-				print("NPC: Restaurando estado del jugador a", previous_state)
-				player_fsm.set_state(previous_state)
+			
+				print("NPC: Restaurando estado del jugador a estado idle")
+				player_fsm.set_state(player_fsm.states.idle)
 			else:
 				print("Error: No se encontró la FSM del jugador al restaurar")
 				
@@ -120,6 +120,8 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 		can_interact = true
 		interacting_player = body
 		print("Player cerca de", name, "Presiona 'E' para interactuar, body:", body.name)
+		# Restaurar el estado del jugador
+		restore_the_state_of_player_if_exist(interacting_player)
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):

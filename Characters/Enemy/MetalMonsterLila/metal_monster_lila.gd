@@ -5,12 +5,12 @@ extends Enemy
 
 var distance_to_player: float = INF
 
-@onready var hitbox: Area2D = $Hitbox
+@onready var hitbox: Area2D = %Hitbox
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
 	super._ready()  # Llama a _ready de Enemy.gd
-	hitbox.monitoring = false
+	#hitbox.monitoring = false
 
 func _on_path_timer_timeout() -> void:
 	if is_instance_valid(player):
@@ -24,4 +24,5 @@ func _on_path_timer_timeout() -> void:
 
 func attack() -> void:
 	mov_direction = Vector2.ZERO
-	hitbox.monitoring = true
+	#if hitbox:
+		#hitbox.monitoring = true

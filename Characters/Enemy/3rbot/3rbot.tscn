@@ -2632,6 +2632,7 @@ position = Vector2(-2, -48)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_yneep")
 animation = &"normal_move"
+frame = 1
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(-2, 4)
@@ -2660,7 +2661,7 @@ stream = ExtResource("6_iwvsl")
 [node name="HitboxBody" type="Area2D" parent="." index="9"]
 position = Vector2(-2, 1)
 scale = Vector2(3.65411, 3.15995)
-collision_layer = 4
+collision_layer = 0
 collision_mask = 2
 script = ExtResource("6_lcn5k")
 knockback_force = 350

@@ -55,6 +55,7 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 			animation_player.play("dead")
 
 func _exit_state(state_exited: int) -> void:
-	match state_exited:
-		states.attack:
-			parent.hitbox.monitoring = false
+	#match state_exited:
+		#states.attack:
+			#parent.hitbox.monitoring = false
+	return

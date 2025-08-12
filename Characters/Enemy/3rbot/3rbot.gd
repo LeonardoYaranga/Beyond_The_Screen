@@ -26,12 +26,18 @@ var default_max_speed: float
 
 func _ready() -> void:
 	super._ready()
-	hitbox_body.monitoring = true
-	normal_attack_hitbox.monitoring = false
-	special_sword_1_hitbox.monitoring = false
-	special_sword_2_hitbox.monitoring = false
-	special_sword_3_hitbox.monitoring = false
-	special_sword_4_hitbox.monitoring = false
+	if hitbox_body:
+		hitbox_body.monitoring = true
+	if normal_attack_hitbox:
+		normal_attack_hitbox.monitoring = false
+	if special_sword_1_hitbox:
+		special_sword_1_hitbox.monitoring = false
+	if special_sword_2_hitbox:
+		special_sword_2_hitbox.monitoring = false
+	if special_sword_3_hitbox:
+		special_sword_3_hitbox.monitoring = false
+	if special_sword_4_hitbox:
+		special_sword_4_hitbox.monitoring = false
 	attack_timer.wait_time = 1.5
 	attack_timer.start()
 	cannot_move_delay_timer.wait_time = 0.5
@@ -41,12 +47,18 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var normalized_velocity = velocity.normalized()
-	hitbox_body.knockback_direction = normalized_velocity
-	normal_attack_hitbox.knockback_direction = normalized_velocity
-	special_sword_1_hitbox.knockback_direction = normalized_velocity
-	special_sword_2_hitbox.knockback_direction = normalized_velocity
-	special_sword_3_hitbox.knockback_direction = normalized_velocity
-	special_sword_4_hitbox.knockback_direction = normalized_velocity
+	if hitbox_body:
+		hitbox_body.knockback_direction = normalized_velocity
+	if normal_attack_hitbox:
+		normal_attack_hitbox.knockback_direction = normalized_velocity
+	if special_sword_1_hitbox:
+		special_sword_1_hitbox.knockback_direction = normalized_velocity
+	if special_sword_2_hitbox:
+		special_sword_2_hitbox.knockback_direction = normalized_velocity
+	if special_sword_3_hitbox:
+		special_sword_3_hitbox.knockback_direction = normalized_velocity
+	if special_sword_4_hitbox:
+		special_sword_4_hitbox.knockback_direction = normalized_velocity
 	#print("3rbot.gd _process: Estado actual:", state_machine.state, "mov_direction:", mov_direction)
 
 func _on_path_timer_timeout() -> void:
@@ -130,7 +142,8 @@ func normal_attack() -> void:
 	acceleration = default_acceleration * ATTACK_SPEED_CHANGE_FACTOR
 	max_speed = default_max_speed * ATTACK_SPEED_CHANGE_FACTOR
 	normal_move()
-	normal_attack_hitbox.monitoring = true
+	if normal_attack_hitbox:
+		normal_attack_hitbox.monitoring = true
 
 
 func _on_cannot_move_delay_timer_timeout() -> void:
@@ -147,18 +160,26 @@ func _on_attack_timer_timeout() -> void:
 func wide_attack() -> void:
 	#print("3rbot.gd: Ejecutando wide_attack()")
 	mov_direction = Vector2.ZERO
-	special_sword_1_hitbox.monitoring = true
-	special_sword_2_hitbox.monitoring = true
-	special_sword_3_hitbox.monitoring = true
-	special_sword_4_hitbox.monitoring = true
+	if special_sword_1_hitbox:
+		special_sword_1_hitbox.monitoring = true
+	if special_sword_2_hitbox:
+		special_sword_2_hitbox.monitoring = true
+	if special_sword_3_hitbox:
+		special_sword_3_hitbox.monitoring = true
+	if special_sword_4_hitbox:
+		special_sword_4_hitbox.monitoring = true
 
 func dive_attack() -> void:
 	#print("3rbot.gd: Ejecutando dive_attack()")
 	mov_direction = Vector2.ZERO
-	special_sword_1_hitbox.monitoring = true
-	special_sword_2_hitbox.monitoring = true
-	special_sword_3_hitbox.monitoring = true
-	special_sword_4_hitbox.monitoring = true
+	if special_sword_1_hitbox:
+		special_sword_1_hitbox.monitoring = true
+	if special_sword_2_hitbox:
+		special_sword_2_hitbox.monitoring = true
+	if special_sword_3_hitbox:
+		special_sword_3_hitbox.monitoring = true
+	if special_sword_4_hitbox:
+		special_sword_4_hitbox.monitoring = true
 
 func spawn() -> void:
 	#print("3rbot.gd: Ejecutando spawn()")

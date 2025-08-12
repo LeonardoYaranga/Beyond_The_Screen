@@ -1373,14 +1373,10 @@ position = Vector2(294, 70)
 [node name="Marker2D2" type="Marker2D" parent="EnemyPositions" index="1"]
 position = Vector2(401, 271)
 
-[node name="PlayerDetector" parent="." index="6"]
-collision_layer = 0
-collision_mask = 2
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
-position = Vector2(423, 185)
+position = Vector2(89, 187)
 rotation = 1.57079
-scale = Vector2(2.5266, 1.05368)
+scale = Vector2(12.1664, 0.996311)
 shape = SubResource("RectangleShape2D_h3go8")
 
 [node name="Fuego" parent="AnimatedObjects" index="0" instance=ExtResource("6_8c3r3")]

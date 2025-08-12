@@ -533,6 +533,7 @@ libraries = {
 }
 
 [node name="Hitbox" type="Area2D" parent="." index="6"]
+unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("5_skakg")

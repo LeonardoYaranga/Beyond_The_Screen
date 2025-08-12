@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bvjvv8pxatir6"]
 
 [ext_resource type="PackedScene" uid="uid://b4nr888jtvwug" path="res://Scenes/Weapons/Weapon.tscn" id="1_tu0u5"]
-[ext_resource type="Shader" uid="uid://crxpiiwa3p65q" path="res://Characters/Player/White.gdshader" id="2_h4otq"]
+[ext_resource type="Shader" path="res://Characters/Player/White.gdshader" id="2_h4otq"]
 [ext_resource type="Texture2D" uid="uid://dfqa0ryo2iq7e" path="res://Art/MoreWeapons/Hammer.png" id="2_xx4nl"]
 [ext_resource type="Texture2D" uid="uid://re36ivad3boa" path="res://Art/19+Icons/swingW.png" id="4_ivoen"]
 
@@ -10,7 +10,8 @@ resource_local_to_scene = true
 shader = ExtResource("2_h4otq")
 shader_parameter/active = false
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h4otq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4otq"]
+size = Vector2(20, 16.7204)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tu0u5"]
 
@@ -184,10 +185,10 @@ tracks/4/path = NodePath("Node2D/Sprite2D:material:shader_parameter/active")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.0666667, 0.666667, 0.672412),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [false, true, false, false]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -196,7 +197,7 @@ tracks/5/path = NodePath("Node2D/Sprite2D/Hitbox/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.4),
+"times": PackedFloat32Array(0, 0.0285266, 0.666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -419,9 +420,9 @@ damage = 2
 knockback_force = 300
 
 [node name="CollisionShape2D" parent="Node2D/Sprite2D/Hitbox" index="0"]
-position = Vector2(-3.72488, -14.4196)
-scale = Vector2(-0.450216, 0.251181)
-shape = SubResource("CircleShape2D_h4otq")
+position = Vector2(-2.86313, -14.3223)
+scale = Vector2(0.545631, -0.4602)
+shape = SubResource("RectangleShape2D_h4otq")
 
 [node name="ChargeParticles" parent="Node2D/Sprite2D" index="1"]
 emitting = false
@@ -437,4 +438,5 @@ libraries = {
 }
 
 [node name="AbilityIcon" parent="UI" index="0"]
+visible = false
 texture_under = ExtResource("4_ivoen")
