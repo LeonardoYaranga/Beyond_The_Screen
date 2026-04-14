@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci13elfc2cyeq"]
+
+[ext_resource type="Script" uid="uid://c80vn7dgd2070" path="res://UI/credits.gd" id="1_kk2ga"]
+[ext_resource type="FontFile" uid="uid://irf00yw8ay4d" path="res://Assets/fonts/Early GameBoy.ttf" id="1_ng644"]
+[ext_resource type="Texture2D" uid="uid://cwutcujo6nm2q" path="res://LogoStrain.png" id="2_uuuvy"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kk2ga")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0575887, 0.051885, 0.280381, 1)
+
+[node name="Margin" type="MarginContainer" parent="Background"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -151.0
+offset_top = 31.0
+offset_right = 149.0
+offset_bottom = 431.0
+grow_horizontal = 2
+scale = Vector2(0.548854, 0.476053)
+
+[node name="Text" type="RichTextLabel" parent="Background/Margin"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_ng644")
+bbcode_enabled = true
+text = "[center][b][color=#ff4d4d]Beyond The Screen[/color][/b][/center]
+[center][i][color=#66ffcc]¡Rompe la Simulación, Encuentra la Verdad![/color][/i][/center]
+[center]──────────────────────────────[/center]
+
+[b][color=#4da6ff]Equipo Principal[/color][/b]
+[color=#66ff66]Leonardo Yaranga[/color] - Programador, Diseñador
+[color=#66ff66]Joel Rivera[/color] - Programador, Guionista
+[color=#ff99cc]Lindsay Barrionuevo[/color] - Diseñadora
+[color=#66ccff]Alexander Bedón[/color] - Programador
+[color=#ffcc66]Silvia Añasco[/color] - Guionista, Diseñadora
+
+[center]──────────────────────────────[/center]
+[b][color=#ff4d4d]Música y Sonido[/color][/b]
+[color=#ffcccc]\"A Grim Horror Atmosphere For Video Games And Movies\"[/color] - Universfield  
+  [color=#999999](CC BY 4.0) https://freesound.org/s/702863/[/color]
+
+[color=#ffcccc]\"Khiva Live Music in a Restaurant\"[/color] - selcukartut  
+  [color=#999999](CC0) https://freesound.org/s/686050/[/color]
+
+[color=#ffcccc]\"Forging\"[/color] - adamcreeper  
+  [color=#999999](CC0) https://freesound.org/s/780503/[/color]
+
+[color=#ffcccc]\"deep_under.wav\"[/color] - poots  
+  [color=#999999](CC BY 4.0) https://freesound.org/s/123093/[/color]
+
+[color=#ffcccc]\"Blade_Slice_Metal_01c\"[/color] - Artninja  
+  [color=#999999](CC BY 4.0) https://freesound.org/s/777075/[/color]
+
+[center]──────────────────────────────[/center]
+[b][color=#ff66cc]IA y Herramientas[/color][/b]
+[color=#ffccff]Grok[/color] - Asistencia en código y  asistencia creativa  
+[color=#ffccff]WAN AI[/color] - Videos cortos con IA  
+[color=#ffccff]Leonardo.ai[/color] - Generación de imágenes  
+[color=#ffccff]Bing AI Image Creator[/color] - Imágenes  
+[color=#ffccff]ChatGPT[/color] - Asistencia en código y diseño narrativo  
+[color=#ffccff]Anime AI Generator[/color] (HuggingFace) - Ilustraciones
+
+[center]──────────────────────────────[/center]
+[b][color=#66ffcc]Agradecimientos Especiales[/color][/b]
+Basado en el trabajo de [url=https://github.com/MateuSai/Godot-Roguelike-Tutorial]Godot Roguelike Tutorial[/url] por [url=https://www.youtube.com/@matinator9185]Matinator9185[/url]  
+Recursos adicionales de [url=https://itch.io/]itch.io[/url]
+
+[center][i][color=#4da6ff]Gracias por jugar :3 [/color][/i][/center]"
+
+[node name="LogoStrain" type="Sprite2D" parent="Background/Margin"]
+position = Vector2(493.756, 220.564)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_uuuvy")
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

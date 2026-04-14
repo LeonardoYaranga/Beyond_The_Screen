@@ -3,8 +3,8 @@ extends Control
 signal return_to_game()
 signal main_menu()
 
-@onready var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
-@onready var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
+@onready var SFX_BUS_ID = AudioServer.get_bus_index("SFX") #SFX
+@onready var MUSIC_BUS_ID = AudioServer.get_bus_index("Music") #Music
 @onready var buttons_v_box = %ButtonsVBox
 @onready var music_slider = %MusicSlider
 @onready var sfx_slider = %SFXSlider

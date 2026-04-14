@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0wehu0pinqks"]
+[gd_scene load_steps=5 format=3 uid="uid://c0wehu0pinqks"]
 
 [ext_resource type="Theme" uid="uid://c2qoebb3mbfqe" path="res://Assets/themes/default_theme.tres" id="1_e1xpn"]
 [ext_resource type="Script" uid="uid://dp3mxnevf2y6e" path="res://Menu/MainMenu.gd" id="2_swd6r"]
 [ext_resource type="Texture2D" uid="uid://ciilf6px4fnda" path="res://Assets/backgrounds/main_menu.png" id="3_tma8a"]
+[ext_resource type="AudioStream" uid="uid://byj7esc4vetaw" path="res://Music/calm-background-music.mp3" id="4_tpenk"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -71,21 +72,47 @@ layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
 focus_neighbor_top = NodePath("../QuitGameButton")
-focus_neighbor_bottom = NodePath("../QuitGameButton")
+focus_neighbor_bottom = NodePath("../ContinueGameButton")
 focus_next = NodePath("../QuitGameButton")
+focus_previous = NodePath("../ContinueGameButton")
+text = "New Game"
+
+[node name="ContinueGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+focus_neighbor_top = NodePath("../StartGameButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../StartGameButton")
+focus_previous = NodePath("../CreditsButton")
+text = "Continue
+"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+focus_neighbor_top = NodePath("../ContinueGameButton")
+focus_neighbor_bottom = NodePath("../QuitGameButton")
+focus_next = NodePath("../ContinueGameButton")
 focus_previous = NodePath("../QuitGameButton")
-text = "Start Game"
+text = "Credits"
 
 [node name="QuitGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
-focus_neighbor_top = NodePath("../StartGameButton")
+focus_neighbor_top = NodePath("../CreditsButton")
 focus_neighbor_bottom = NodePath("../StartGameButton")
-focus_next = NodePath("../StartGameButton")
+focus_next = NodePath("../CreditsButton")
 focus_previous = NodePath("../StartGameButton")
 text = "Exit"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tpenk")
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/QuitGameButton" to="." method="_on_quit_button_pressed"]

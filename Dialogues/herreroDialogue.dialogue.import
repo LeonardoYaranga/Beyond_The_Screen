@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://btvgpt0sil86l"
+path="res://.godot/imported/herreroDialogue.dialogue-fa56cb78274282713645b5ff4aea5db1.tres"
+
+[deps]
+
+source_file="res://Dialogues/herreroDialogue.dialogue"
+dest_files=["res://.godot/imported/herreroDialogue.dialogue-fa56cb78274282713645b5ff4aea5db1.tres"]
+
+[params]
+
+defaults=true

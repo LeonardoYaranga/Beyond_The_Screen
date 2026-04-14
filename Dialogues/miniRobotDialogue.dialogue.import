@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dlw24ddk6uuge"
+path="res://.godot/imported/miniRobotDialogue.dialogue-ae4f4a874e9aaaaa29fc08f6517d3144.tres"
+
+[deps]
+
+source_file="res://Dialogues/miniRobotDialogue.dialogue"
+dest_files=["res://.godot/imported/miniRobotDialogue.dialogue-ae4f4a874e9aaaaa29fc08f6517d3144.tres"]
+
+[params]
+
+defaults=true

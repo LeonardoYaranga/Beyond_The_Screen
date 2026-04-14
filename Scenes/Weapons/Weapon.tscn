@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4nr888jtvwug"]
+
+[ext_resource type="Script" uid="uid://lgm5b7ywwh1a" path="res://weapon.gd" id="1_hj41p"]
+[ext_resource type="Shader" uid="uid://crxpiiwa3p65q" path="res://Characters/Player/White.gdshader" id="2_ku3nf"]
+[ext_resource type="Script" uid="uid://lf061rivsi3h" path="res://Scenes/Weapons/WeaponHitbox.gd" id="4_6iqx6"]
+[ext_resource type="Script" uid="uid://dsbib1cjfvdvg" path="res://Scenes/Weapons/UIHabilityIcon.gd" id="4_hj41p"]
+[ext_resource type="Texture2D" uid="uid://qi5mmjajlne3" path="res://Art/19+Icons/white.png" id="5_ku3nf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_js5am"]
+resource_local_to_scene = true
+shader = ExtResource("2_ku3nf")
+shader_parameter/active = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0sdxs"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+angular_velocity_min = 9.99998
+angular_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 40.0
+tangential_accel_max = 80.0
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_hj41p")
+
+[node name="Node2D" type="Node2D" parent="."]
+rotation = 2.0944
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+material = SubResource("ShaderMaterial_js5am")
+position = Vector2(4, -9)
+rotation = -2.35619
+offset = Vector2(5, -4)
+
+[node name="Hitbox" type="Area2D" parent="Node2D/Sprite2D"]
+position = Vector2(-2.1214, -17.6777)
+rotation = 2.61798
+collision_layer = 8
+collision_mask = 20
+script = ExtResource("4_6iqx6")
+knockback_force = 200
+metadata/_custom_type_script = "uid://b3u6lrbai0l4k"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Sprite2D/Hitbox"]
+position = Vector2(-0.18937, -15.1266)
+rotation = 1.309
+scale = Vector2(-0.86449, 3.51466)
+disabled = true
+
+[node name="ChargeParticles" type="GPUParticles2D" parent="Node2D/Sprite2D"]
+amount = 15
+lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_0sdxs")
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+position = Vector2(-1, -1)
+collision_layer = 40
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CoolDownTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("4_hj41p")
+
+[node name="AbilityIcon" type="TextureProgressBar" parent="UI"]
+offset_left = 14.0
+offset_top = 197.0
+offset_right = 394.0
+offset_bottom = 577.0
+scale = Vector2(0.15, 0.15)
+fill_mode = 8
+texture_progress = ExtResource("5_ku3nf")
+tint_progress = Color(0.0666667, 0.0431373, 0.0470588, 0.258824)
+
+[connection signal="area_entered" from="Node2D/Sprite2D/Hitbox" to="Node2D/Sprite2D/Hitbox" method="_on_area_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="timeout" from="CoolDownTimer" to="." method="_on_cool_down_timer_timeout"]

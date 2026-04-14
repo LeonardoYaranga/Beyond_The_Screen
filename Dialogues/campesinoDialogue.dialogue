@@ -1,0 +1,37 @@
+~ start
+Campesino: ¿Qué quieres, forastero? Aquí no hay nada interesante para los de tu clase.
+Campesino: Mejor sigue tu camino y déjame en paz.
+
+- Preguntar por el pueblo
+	Campesino: Es un lugar tranquilo, o lo era antes de que llegaran tipos como tú.
+	Campesino: Hay un mercado al sur y una taberna al norte. Eso es todo lo que necesitas saber.
+	- Insistir sobre el pueblo
+		Campesino: ¡Ya te dije lo que hay! No me hagas perder el tiempo.
+		do VideoSceneTransistor.play_specific_video("res://Videos/World1/villager.ogv")
+		Campesino: ...
+		Campesino: Si tanto quieres saber, pregunta en la taberna. Pero no vengas a molestarme otra vez.
+	- Aceptar y seguir => END
+
+- Preguntar por bandidos
+	Campesino: ¿Bandidos? No sé nada de bandidos. No me metas en tus problemas.
+	- Insistir sobre bandidos
+		Campesino: ¡Te dije que no sé nada! ¿Eres sordo o qué?
+		do VideoSceneTransistor.play_specific_video("res://Videos/World1/villager.ogv")
+		Campesino: ...
+		Campesino: Si buscas problemas, ve al bosque del este. Pero no me culpes si no vuelves.
+	- Aceptar y seguir => END
+
+- Preguntar por rumores
+	Campesino: No me gustan los chismes. Los rumores solo traen problemas.
+	Campesino: Si quieres historias, ve a la taberna o al mercado.
+	- Insistir sobre rumores
+		Campesino: ¡Maldita sea, forastero! ¿No entiendes que no quiero hablar?
+		do VideoSceneTransistor.play_specific_video("res://Videos/World1/villager.ogv")
+		Campesino: ...
+		Campesino: Algunos dicen que hay algo raro en el viejo pozo al oeste. Ahora déjame en paz.
+	- Aceptar y seguir => END
+
+- Despedirse => END
+
+Campesino: Hmph. No vuelvas a molestarme a menos que traigas algo útil.
+=> END

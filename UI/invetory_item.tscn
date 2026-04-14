@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyenqsep8nfk8"]
+
+[ext_resource type="Texture2D" uid="uid://dfqa0ryo2iq7e" path="res://Art/MoreWeapons/Hammer.png" id="1_dgthr"]
+[ext_resource type="Script" uid="uid://rstyjgmphobr" path="res://UI/invetory_item.gd" id="2_8y2a2"]
+
+[node name="InvetoryItem" type="TextureRect"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_dgthr")
+stretch_mode = 5
+script = ExtResource("2_8y2a2")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+editor_only = false

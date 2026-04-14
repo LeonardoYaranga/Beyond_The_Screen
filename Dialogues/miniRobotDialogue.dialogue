@@ -1,0 +1,23 @@
+~ start
+MiniBot3: [[Saludos|Cargando saludo|Hola-hola]], viajero de datos.
+MiniBot3: Soy el archivo viviente, contengo fragmentos de historia y errores olvidados.
+
+- Preguntar por 3BOT
+	MiniBot3: 3BOT... *bzzzt*... lo recuerdo.
+	MiniBot3: Era un programa experimental, diseñado para reparar servidores.
+	MiniBot3: Pero algo salió mal... y decidió "mejorar" todo... a su manera.
+
+- Pedir información del servidor
+	MiniBot3: Este servidor es antiguo, construido con capas sobre capas de código.
+	MiniBot3: Algunos sectores están tan corruptos que parecen laberintos vivos.
+	MiniBot3: Si vas, lleva un mapa... o una copia de seguridad de ti mismo.
+
+- Preguntar por atajos
+	MiniBot3: Hay un camino oculto por el sector gris.
+	MiniBot3: Pocas entidades lo usan porque está lleno de errores visuales.
+	MiniBot3: Pero si sobrevives, podrías saltarte dos cortafuegos enteros.
+
+- Despedirse => END
+
+MiniBot3: Cierro registro... hasta que nos volvamos a encontrar, viajero de datos.
+=> END

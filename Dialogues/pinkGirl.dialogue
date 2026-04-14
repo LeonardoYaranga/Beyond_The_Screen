@@ -1,0 +1,39 @@
+~ start
+Chica: Hola, viajero. No pareces de por aquí. Soy Val, y estas tierras no son para los débiles.
+Chica: ¿Qué buscas en este lugar olvidado?
+=> help
+
+~ help
+- Preguntar por la zona
+	Chica: Esto es el World 2, un lugar roto. Las ruinas al norte están llenas de máquinas corruptas.
+	Chica: Ten cuidado, no todo lo que brilla es un tesoro.
+	=> start
+- Preguntar por rumores
+	Chica: Hay historias raras por aquí. Gente que actúa como si estuviera... bugeada, atrapada en loops.
+	Chica: No sé qué los controla, pero no es natural. Mantén los ojos abiertos.
+	=> start
+- Preguntar por 3rbot
+	if GameManager.asked_pink_girl_3rbot == false
+		=> erbot
+	else
+		=> extranio
+- Despedirse
+	Chica: Cuídate por estos rumbos, viajero. No todos son tan fuertes como yo.
+	=> END
+
+~ erbot
+Leo: Sé que enfrentaré a 3rbot. ¿Sabes algo que pueda ayudarme a derrotarlo?
+Chica: ¿3rbot? Ese maldito montón de chatarra... No muchos se atreven a nombrarlo.
+Chica: Tiene un núcleo en su pecho, su punto débil. Pero está protegido por un campo de energía.
+Chica: Si logras desactivar sus drones primero, el campo caerá. ¡Prométeme que lo destruirás!
+Leo: Lo juro, Val. Con esto, 3rbot no tendrá oportunidad.
+do VideoSceneTransistor.play_specific_video("res://Videos/World2/pink_girl_aparreance.ogv")
+Chica: ...Tal vez tú puedas lograrlo. Hay algo en ti, viajero. No me decepciones.
+do GameManager.set_asked_pink_girl_3rbot(true)
+=> start
+
+~ extranio
+Chica: A veces recuerdo cosas raras... como bailar ballet en un escenario, con luces suaves.
+Chica: Pero ahora soy esto, una luchadora. No sé por qué cambió mi vida, pero no me arrepiento.
+Chica: ¿Tú tienes recuerdos que no encajan, viajero?
+=> start

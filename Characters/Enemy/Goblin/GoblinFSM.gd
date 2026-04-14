@@ -13,6 +13,7 @@ func _ready() -> void:
 	
 	
 func _state_logic(_delta: float) -> void:
+	
 	if state == states.move:
 		parent.chase()
 		parent.move()

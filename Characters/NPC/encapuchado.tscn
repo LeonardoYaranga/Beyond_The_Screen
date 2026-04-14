@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4dmy087ehotu"]
+[gd_scene load_steps=14 format=3 uid="uid://b4dmy087ehotu"]
 
 [ext_resource type="PackedScene" uid="uid://bfhdbyd7e5122" path="res://Characters/NPC/NPC.tscn" id="1_h6laf"]
+[ext_resource type="Resource" uid="uid://23srvq1rq3rx" path="res://Dialogues/enapuchadoDialogue.dialogue" id="2_pyi5b"]
 [ext_resource type="Texture2D" uid="uid://dhkc27eibgm4k" path="res://Assets/NPCs-MiniJefes/NPCs-Level2/encapuchado.png" id="2_qssn5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pyi5b"]
@@ -42,6 +43,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbq48"]
 size = Vector2(22, 38)
 
+[sub_resource type="Animation" id="Animation_546xi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="Animation" id="Animation_4756p"]
 resource_name = "idle"
 length = 0.7
@@ -71,21 +87,6 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_546xi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wvssr"]
 _data = {
 &"RESET": SubResource("Animation_546xi"),
@@ -97,6 +98,7 @@ radius = 39.0
 height = 78.0
 
 [node name="Encapuchado" instance=ExtResource("1_h6laf")]
+dialogue_file = ExtResource("2_pyi5b")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_svnot")
@@ -110,6 +112,10 @@ shape = SubResource("RectangleShape2D_kbq48")
 libraries = {
 &"": SubResource("AnimationLibrary_wvssr")
 }
+
+[node name="InteractionArea" parent="." index="4"]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="InteractionArea" index="0"]
 position = Vector2(-5, 1)
