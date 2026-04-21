@@ -1,6 +1,35 @@
 # Beyond_The_Screen
 
+### MainScreen
+![MainScreen](Assets/Screenshots/MainScreen.png)
 
+### PauseScreen
+![PauseScreen](Assets/Screenshots/PauseScreen.png)
+
+## Fragmentos del juego
+
+Algunos momentos destacados del juego. Se puede hacer click en el GIF para dirigirte al video.
+
+### TownInteraction
+[![TownInteraction](Assets/Screenshots/TownInteraction/TownInteraction.gif)](Assets/Screenshots/TownInteraction/TownInteraction.mp4)
+
+### TakingPotionInTown
+[![TakingPotionInTown](Assets/Screenshots/TakingPotionInTown/TakingPotionInTown.gif)]
+
+### Restaurant
+[![Restaurant](Assets/Screenshots/Restaurant/Restaurant.gif)](Assets/Screenshots/Restaurant/Restaurant.mp4)
+
+### blacksmithing
+[![blacksmithing](Assets/Screenshots/blacksmithing/blacksmithing.gif)](Assets/Screenshots/blacksmithing/blacksmithing.mp4)
+
+### Cavern
+[![Cavern](Assets/Screenshots/Cavern/Cavern.gif)](Assets/Screenshots/Cavern/Cavern.mp4)
+
+### CharacterTransition
+[![CharacterTransition](Assets/Screenshots/CharacterTransition/CharacterTransition.gif)](Assets/Screenshots/CharacterTransition/CharacterTransition.mp4)
+
+### BossFight
+[![BossFight](Assets/Screenshots/BossFight/BossFight.gif)](Assets/Screenshots/BossFight/BossFight.mp4)
 
 ## Recursos Usados
 
