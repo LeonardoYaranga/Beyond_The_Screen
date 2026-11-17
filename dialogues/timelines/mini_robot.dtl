@@ -1,0 +1,21 @@
+label start
+mini_bot: <Saludos/Cargando saludo/Hola-hola>, viajero de datos.
+mini_bot: Soy el archivo viviente, contengo fragmentos de historia y errores olvidados.
+
+- Preguntar por 3BOT
+	mini_bot: 3BOT... *bzzzt*... lo recuerdo.
+	mini_bot: Era un programa experimental, diseñado para reparar servidores.
+	mini_bot: Pero algo salió mal... y decidió "mejorar" todo... a su manera.
+- Pedir información del servidor
+	mini_bot: Este servidor es antiguo, construido con capas sobre capas de código.
+	mini_bot: Algunos sectores están tan corruptos que parecen laberintos vivos.
+	mini_bot: Si vas, lleva un mapa... o una copia de seguridad de ti mismo.
+- Preguntar por atajos
+	mini_bot: Hay un camino oculto por el sector gris.
+	mini_bot: Pocas entidades lo usan porque está lleno de errores visuales.
+	mini_bot: Pero si sobrevives, podrías saltarte dos cortafuegos enteros.
+- Despedirse
+	[end_timeline]
+
+mini_bot: Cierro registro... hasta que nos volvamos a encontrar, viajero de datos.
+[end_timeline]

@@ -1,0 +1,35 @@
+label start
+encapuchado: <¿Quién va?/¿Qué quieres?/Habla rápido>, no tengo todo el día.
+encapuchado: Este lugar, Sweet Home, no es lo que parece... demasiados secretos ocultos en sus datos.
+jump help
+
+label help
+- Preguntar por 3BOT
+	leo: Estoy buscando a 3BOT. ¿Lo has visto?
+	encapuchado: 3BOT... ese nombre provoca miedo incluso aquí.
+	encapuchado: Se dice que anda buscando algo poderoso, algo que podría cambiar todo.
+	jump help
+- Preguntar qué es Sweet Home
+	encapuchado: Sweet Home es un refugio para programas perdidos y virus olvidados.
+	encapuchado: Pero no todos aquí son amigables. Mejor que andes con cuidado.
+	jump help
+- Preguntar por peligros
+	encapuchado: Los guardianes de Sweet Home no toleran intrusos.
+	encapuchado: Si te descubren, tendrás que pelear o desaparecer para siempre.
+	jump help
+- Pedir consejo
+	encapuchado: Consejo mío: no confíes en nadie aquí, ni siquiera en ti mismo.
+	encapuchado: Y si ves una puerta con símbolos rojos, evita pasar por ahí.
+	jump help
+- Demostrar su poder
+	jump poder
+- Despedirse
+	encapuchado: Vuelve solo si estás listo para enfrentar lo que Sweet Home realmente es.
+	[end_timeline]
+
+label poder
+encapuchado: ¿Quieres ver el verdadero poder que recorre Sweet Home?
+encapuchado: Todo lo que temes aquí... yo lo controlo.
+do DialogicBridge.play_dialogue_video("res://assets/videos/world_2/encapuchado_anime_appearance.ogv")
+encapuchado: Pero incluso mi fuerza no basta contra 3BOT. Ten cuidado, viajero.
+jump help

@@ -1,0 +1,88 @@
+label start
+if GameManager.helped_ellen_in_town == true:
+	ellen: ¡Hola, viajero! Gracias por ayudarme en el pueblo, ¡eres un buen tipo!
+	ellen: ¿Buscas comida, bebida o algo más interesante?
+elif GameManager.talked_to_ellen_in_town == true and GameManager.helped_ellen_in_town == false:
+	ellen: Hmph, eres tú. No esperaba verte aquí después de lo del pueblo.
+	ellen: ¿Qué quieres? No tengo todo el día.
+else:
+	ellen: Hola, forastero. ¿Buscas comida o bebida? Aquí no hay mucho más.
+jump help
+
+label help
+- Pide una bebida
+	if GameManager.helped_ellen_in_town == true:
+		ellen: Aquí tienes una jarra de nuestra mejor cerveza, ¡especial para ti!
+		ellen: ¿Y qué te trae por la taberna hoy?
+	else:
+		ellen: Aquí tienes tu cerveza. Toma y no hagas lío.
+		ellen: ¿Qué quieres ahora?
+	- Hablar sobre enemigos
+		leo: Estoy buscando a unos bandidos que se esconden por aquí.
+		if GameManager.helped_ellen_in_town == true:
+			ellen: Hmm... he oído rumores de que rondan por el bosque del este. Ten cuidado, ¿eh?
+		else:
+			ellen: ¿Bandidos? Algunos dicen que están en el bosque del este. No es mi problema.
+		jump help
+	- Cambiar de tema [if GameManager.helped_ellen_in_town == true]
+		jump cambiar_tema
+	- Ofrecer comida picante [if GameManager.completed_spicy_food_quest == false and GameManager.helped_ellen_in_town == true]
+		jump comida_picante
+- Preguntar por trabajo
+	if GameManager.helped_ellen_in_town == true:
+		ellen: Trabajo... puede que tenga algo para un amigo como tú.
+		ellen: Unos tipos han estado molestando a los clientes dentro del local.
+		ellen: Si te ocupas de ellos, quizá oigas hablar de enemigos más fuertes.
+	else:
+		ellen: ¿Trabajo? No suelo confiar en cualquiera, pero algo hay.
+		ellen: Unos matones están molestando en el local. Haz algo si quieres.
+	- Aceptar el encargo
+		if GameManager.helped_ellen_in_town == true:
+			ellen: ¡Perfecto, viajero! Ocúpate de esos matones y vuelve a contarme.
+			do DialogicBridge.play_dialogue_video("res://assets/videos/world_1/maid_happy_handshake.ogv")
+			ellen: ¡Buena suerte! Espero verte de vuelta con buenas noticias.
+		else:
+			ellen: Bien, hazlo. Pero no esperes que te dé las gracias.
+		jump help
+	- Rechazar el encargo
+		ellen: Como quieras, pero no digas que no te ofrecí algo.
+		jump help
+- Preguntar por rumores
+	if GameManager.helped_ellen_in_town == true:
+		ellen: Dicen que un guerrero misterioso pasó por aquí hace unos días.
+		ellen: Algunos dicen que derrotó a un monstruo enorme en las montañas.
+		ellen: ¿Interesado en saber más?
+	else:
+		ellen: ¿Rumores? No hablo mucho con desconocidos.
+		ellen: Algo he oído de un guerrero en las montañas, pero no es mi asunto.
+	- Sí
+		if GameManager.helped_ellen_in_town == true:
+			ellen: Entonces deberías visitar el viejo pozo al oeste. ¡Suerte!
+		else:
+			ellen: Hay un viejo pozo al oeste. Ve si quieres, a mí qué.
+		jump help
+	- No
+		ellen: Como quieras, pero la curiosidad es la que mueve a los aventureros.
+		jump help
+- Despedirse
+	if GameManager.helped_ellen_in_town == true:
+		ellen: Vuelve cuando quieras, viajero. ¡Siempre es un placer verte!
+	else:
+		ellen: Adiós, forastero. No hagas lío.
+	[end_timeline]
+
+label cambiar_tema
+leo: ¿Soy solo yo o aquí lo único que resalta eres tú?
+do DialogicBridge.play_dialogue_video("res://assets/videos/world_1/tavern_maid.ogv")
+ellen: Jaja, viajero. Me halagas, pero tu destino parece tener problemas.
+jump help
+
+label comida_picante
+leo: Tengo algo de comida picante, ¿quieres probarla?
+ellen: ¿Comida picante? ¡Venga, dámela, a ver qué tal!
+do DialogicBridge.play_dialogue_video("res://assets/videos/world_1/maid_tonge.ogv")
+ellen: ¡Pff, esto quema! Pero... me gusta el desafío.
+ellen: Como agradecimiento, he oído que un herrero en el mercado tiene un martillo de guerra especial. ¡Búscalo!
+do GameManager.set_completed_spicy_food_quest(true)
+do GameManager.set_unlocked_warhammer(true)
+jump help

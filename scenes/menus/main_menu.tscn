@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://c0wehu0pinqks"]
+
+[ext_resource type="Theme" uid="uid://c2qoebb3mbfqe" path="res://assets/themes/default_theme.tres" id="1_e1xpn"]
+[ext_resource type="Script" uid="uid://dp3mxnevf2y6e" path="res://scenes/menus/main_menu.gd" id="2_swd6r"]
+[ext_resource type="Texture2D" uid="uid://ciilf6px4fnda" path="res://assets/art/game/backgrounds/main_menu.png" id="3_tma8a"]
+[ext_resource type="AudioStream" uid="uid://byj7esc4vetaw" path="res://assets/audio/music/calm_background_music.mp3" id="4_tpenk"]
+
+[node name="MainMenu" type="Control" unique_id=1939852461]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_e1xpn")
+script = ExtResource("2_swd6r")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=546895128]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0131977, 0.0815072, 0.181812, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=85181769]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_tma8a")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1178325466]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1881829843]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 36
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1121567268]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 44
+text = "Beyond the screen"
+horizontal_alignment = 1
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=856428345]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=422720641]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+focus_neighbor_top = NodePath("../QuitGameButton")
+focus_neighbor_bottom = NodePath("../ContinueGameButton")
+focus_next = NodePath("../QuitGameButton")
+focus_previous = NodePath("../ContinueGameButton")
+text = "New Game"
+
+[node name="ContinueGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=2009618256]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+focus_neighbor_top = NodePath("../StartGameButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../StartGameButton")
+focus_previous = NodePath("../CreditsButton")
+text = "Continue
+"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=1347585181]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+focus_neighbor_top = NodePath("../ContinueGameButton")
+focus_neighbor_bottom = NodePath("../QuitGameButton")
+focus_next = NodePath("../ContinueGameButton")
+focus_previous = NodePath("../QuitGameButton")
+text = "Credits"
+
+[node name="QuitGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=878883857]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+focus_neighbor_top = NodePath("../CreditsButton")
+focus_neighbor_bottom = NodePath("../StartGameButton")
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../StartGameButton")
+text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1869462123]
+stream = ExtResource("4_tpenk")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/QuitGameButton" to="." method="_on_quit_button_pressed"]

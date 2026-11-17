@@ -1,0 +1,21 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "c_leo",
+&"color": Color(0.2, 0.7, 1, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "",
+&"description": "Protagonista",
+&"display_name": "Leo",
+&"mirror": false,
+&"nicknames": ["Leo"],
+&"offset": Vector2(0, 0),
+&"portraits": {},
+&"scale": 1.0
+}

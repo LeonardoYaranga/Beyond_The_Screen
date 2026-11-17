@@ -1,35 +1,35 @@
 # Beyond_The_Screen
 
 ### MainScreen
-![MainScreen](Assets/Screenshots/MainScreen.png)
+![MainScreen](docs/screenshots/main_screen.png)
 
 ### PauseScreen
-![PauseScreen](Assets/Screenshots/PauseScreen.png)
+![PauseScreen](docs/screenshots/pause_screen.png)
 
 ## Fragmentos del juego
 
 Algunos momentos destacados del juego. Se puede hacer click en el GIF para dirigirte al video.
 
 ### TownInteraction
-[![TownInteraction](Assets/Screenshots/TownInteraction/TownInteraction.gif)](Assets/Screenshots/TownInteraction/TownInteraction.mp4)
+[![TownInteraction](docs/screenshots/town_interaction/town_interaction.gif)](docs/screenshots/town_interaction/town_interaction.mp4)
 
 ### TakingPotionInTown
-[![TakingPotionInTown](Assets/Screenshots/TakingPotionInTown/TakingPotionInTown.gif)]
+[![TakingPotionInTown](docs/screenshots/taking_potion_in_town/taking_potion_in_town.gif)]
 
 ### Restaurant
-[![Restaurant](Assets/Screenshots/Restaurant/Restaurant.gif)](Assets/Screenshots/Restaurant/Restaurant.mp4)
+[![Restaurant](docs/screenshots/restaurant/restaurant.gif)](docs/screenshots/restaurant/restaurant.mp4)
 
 ### blacksmithing
-[![blacksmithing](Assets/Screenshots/blacksmithing/blacksmithing.gif)](Assets/Screenshots/blacksmithing/blacksmithing.mp4)
+[![blacksmithing](docs/screenshots/blacksmithing/blacksmithing.gif)](docs/screenshots/blacksmithing/blacksmithing.mp4)
 
 ### Cavern
-[![Cavern](Assets/Screenshots/Cavern/Cavern.gif)](Assets/Screenshots/Cavern/Cavern.mp4)
+[![Cavern](docs/screenshots/cavern/cavern.gif)](docs/screenshots/cavern/cavern.mp4)
 
 ### CharacterTransition
-[![CharacterTransition](Assets/Screenshots/CharacterTransition/CharacterTransition.gif)](Assets/Screenshots/CharacterTransition/CharacterTransition.mp4)
+[![CharacterTransition](docs/screenshots/character_transition/character_transition.gif)](docs/screenshots/character_transition/character_transition.mp4)
 
 ### BossFight
-[![BossFight](Assets/Screenshots/BossFight/BossFight.gif)](Assets/Screenshots/BossFight/BossFight.mp4)
+[![BossFight](docs/screenshots/boss_fight/boss_fight.gif)](docs/screenshots/boss_fight/boss_fight.mp4)
 
 ## Recursos Usados
 

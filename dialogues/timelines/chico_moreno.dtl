@@ -1,0 +1,19 @@
+label start
+chico_moreno: <Hey/¿Qué tal?/Hola>, veo que andas perdido por aquí.
+chico_moreno: Este lugar no es fácil para cualquiera, pero yo conozco algunos atajos.
+
+- Preguntar por 3BOT
+	leo: Estoy buscando a 3BOT, ¿sabes dónde puedo encontrarlo?
+	chico_moreno: 3BOT es un problema para todos nosotros.
+	chico_moreno: Últimamente se ha estado moviendo por las zonas altas del servidor, donde nadie se atreve a ir.
+- Pedir ayuda para avanzar
+	chico_moreno: Si quieres pasar sin problemas, puedo darte un mapa con las rutas seguras.
+	chico_moreno: Pero te advierto, esas rutas están llenas de trampas y sistemas de defensa.
+- Preguntar por el lugar
+	chico_moreno: Este sector es conocido como "La Malla Oscura".
+	chico_moreno: Aquí la información corre rápida, pero también los virus.
+- Despedirse
+	[end_timeline]
+
+chico_moreno: Cuídate ahí fuera, Leo. No todos los datos que ves son reales.
+[end_timeline]

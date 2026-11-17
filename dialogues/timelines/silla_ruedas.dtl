@@ -1,0 +1,43 @@
+label start
+silla_ruedas: <Hola/Eh/Buenas>, no suelo ver caras nuevas aquí dentro.
+silla_ruedas: ¿Eres real... o solo otro fragmento de código?
+jump help
+
+label help
+- Decir que eres real
+	leo: Soy real. Estoy buscando a alguien llamado 3rbot.
+	silla_ruedas: 3rbot... ese nombre no trae nada bueno.
+	silla_ruedas: Si te mueves por este servidor, tendrás que esquivar sus cortafuegos y rastreadores.
+	jump help
+- Preguntar dónde estás
+	silla_ruedas: Este lugar es un nodo viejo, casi olvidado.
+	silla_ruedas: Aquí las reglas son raras... y los datos corrompidos a veces se mueven como si tuvieran vida propia.
+	silla_ruedas: Mantente alejado de las zonas rojas, o podrías quedar atrapado en un bucle.
+	jump help
+- Preguntar por 3rbot
+	silla_ruedas: No sé dónde está, pero dicen que controla varios servidores desde una torre de datos.
+	silla_ruedas: Si quieres encontrarlo, busca las puertas de acceso marcadas con su símbolo: tres círculos interconectados.
+	silla_ruedas: Y cuidado... cada puerta tiene su propio guardián.
+	jump help
+- Hablar de reconocimiento [if GameManager.asked_brown_girl_recognition == false]
+	jump recognition
+- Hablar de recuerdos extraños [if GameManager.asked_brown_girl_recognition == true]
+	jump strange
+- Despedirse
+	silla_ruedas: Buena suerte, Leo. Si caes aquí dentro, nadie fuera lo sabrá.
+	[end_timeline]
+
+label recognition
+leo: Espera... yo te conozco. ¿De dónde eres?
+silla_ruedas: ¿Conocerme? Puede ser... quizá fuimos vecinos en nuestra otra vida.
+silla_ruedas: Este servidor no es más que una simulación rota. A veces siento que todos estamos atrapados aquí.
+do DialogicBridge.play_dialogue_video("res://assets/videos/world_2/chica_morena_silla_de_ruedas_en_recepcion.ogv")
+silla_ruedas: Si me conoces, tal vez tú también perteneces a otro lugar.
+do GameManager.set_asked_brown_girl_recognition(true)
+jump help
+
+label strange
+silla_ruedas: Hay gente aquí que está... bugeada. Repiten lo mismo, como si el código estuviera roto.
+silla_ruedas: A veces recuerdo cosas raras, como caminar por un parque. Pero ahora estoy aquí, en esta silla.
+silla_ruedas: ¿Qué es real, Leo?
+jump help

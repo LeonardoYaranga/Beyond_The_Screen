@@ -1,0 +1,38 @@
+label start
+val: Hola, viajero. No pareces de por aquí. Soy Val, y estas tierras no son para los débiles.
+val: ¿Qué buscas en este lugar olvidado?
+jump help
+
+label help
+- Preguntar por la zona
+	val: Esto es el World 2, un lugar roto. Las ruinas al norte están llenas de máquinas corruptas.
+	val: Ten cuidado, no todo lo que brilla es un tesoro.
+	jump help
+- Preguntar por rumores
+	val: Hay historias raras por aquí. Gente que actúa como si estuviera... bugeada, atrapada en loops.
+	val: No sé qué los controla, pero no es natural. Mantén los ojos abiertos.
+	jump help
+- Preguntar por 3rbot [if GameManager.asked_pink_girl_3rbot == false]
+	jump erbot
+- Preguntar por recuerdos extraños [if GameManager.asked_pink_girl_3rbot == true]
+	jump extranio
+- Despedirse
+	val: Cuídate por estos rumbos, viajero. No todos son tan fuertes como yo.
+	[end_timeline]
+
+label erbot
+leo: Sé que enfrentaré a 3rbot. ¿Sabes algo que pueda ayudarme a derrotarlo?
+val: ¿3rbot? Ese maldito montón de chatarra... No muchos se atreven a nombrarlo.
+val: Tiene un núcleo en su pecho, su punto débil. Pero está protegido por un campo de energía.
+val: Si logras desactivar sus drones primero, el campo caerá. ¡Prométeme que lo destruirás!
+leo: Lo juro, Val. Con esto, 3rbot no tendrá oportunidad.
+do DialogicBridge.play_dialogue_video("res://assets/videos/world_2/pink_girl_aparreance.ogv")
+val: ...Tal vez tú puedas lograrlo. Hay algo en ti, viajero. No me decepciones.
+do GameManager.set_asked_pink_girl_3rbot(true)
+jump help
+
+label extranio
+val: A veces recuerdo cosas raras... como bailar ballet en un escenario, con luces suaves.
+val: Pero ahora soy esto, una luchadora. No sé por qué cambió mi vida, pero no me arrepiento.
+val: ¿Tú tienes recuerdos que no encajan, viajero?
+jump help

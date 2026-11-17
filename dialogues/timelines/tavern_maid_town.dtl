@@ -1,0 +1,47 @@
+label start
+ellen: <Hola/Eh/Buenas>, no suelo ver caras nuevas aquí dentro.
+ellen: ¿En qué puedo ayudarte, viajero?
+jump help
+
+label help
+if GameManager.talked_to_ellen_in_town == false:
+	jump first_meeting
+elif GameManager.talked_to_ellen_in_town == true and GameManager.helped_ellen_in_town == false:
+	jump not_helped
+else:
+	jump helped
+
+label first_meeting
+ellen: ¡Oh, eres tú, viajero! No esperaba verte por el pueblo.
+ellen: Tengo un problema... unos tipos están causando alboroto cerca de mi casa. ¿Podrías ayudarme?
+- Ayudarla
+	leo: Claro, Ellen, déjame ocuparme de esos tipos. ¿Dónde están?
+	ellen: ¡Gracias, viajero! Están cerca del mercado, al sur. Ten cuidado.
+	do DialogicBridge.play_dialogue_video("res://assets/videos/world_1/ellen_in_tavern_in_town_farewell.ogv")
+	ellen: Has sido muy bueno conmigo. Pásate por la taberna si necesitas ayuda, ¡te estaré esperando!
+	do GameManager.set_helped_ellen_in_town(true)
+	do GameManager.set_talked_to_ellen_in_town(true)
+	[end_timeline]
+- No ayudarla
+	leo: Lo siento, Ellen, pero deberías resolver tus propios problemas.
+	ellen: Hmph, qué amable... Supongo que no todos los viajeros son héroes.
+	do GameManager.set_talked_to_ellen_in_town(true)
+	[end_timeline]
+
+label not_helped
+ellen: ¿Otra vez tú? No tengo mucho que decirte después de lo del pueblo.
+- Hablar
+	ellen: Si necesitas algo, busca a otra persona. No estoy de humor.
+	jump help
+- Despedirse
+	ellen: Hmph, sigue tu camino, viajero.
+	[end_timeline]
+
+label helped
+ellen: ¡Hola, viajero! Me alegra verte después de tu ayuda en el pueblo.
+- Hablar
+	ellen: Si necesitas algo, ya sabes dónde encontrarme en la taberna.
+	jump help
+- Despedirse
+	ellen: ¡Hasta pronto, viajero! Gracias otra vez.
+	[end_timeline]

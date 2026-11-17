@@ -1,0 +1,21 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "c_kael",
+&"color": Color(0.2, 0.8, 0.8, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "",
+&"description": "Cyborg en World 2",
+&"display_name": "Kael",
+&"mirror": false,
+&"nicknames": ["Cyborg", "Kael"],
+&"offset": Vector2(0, 0),
+&"portraits": {},
+&"scale": 1.0
+}

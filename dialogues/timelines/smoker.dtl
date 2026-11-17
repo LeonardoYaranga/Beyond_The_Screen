@@ -1,0 +1,21 @@
+label start
+smoker: <Hey/Qué pasa/Ey>, veo que no eres de por aquí, ¿eh?
+smoker: Ando siempre con este cigarro digital... ayuda a calmar los bugs del sistema.
+
+- Preguntar qué sabe de 3BOT
+	leo: Estoy buscando a un tal 3BOT. ¿Lo conoces?
+	smoker: 3BOT... ese tipo es un fantasma en la red, un virus con ganas de controlarlo todo.
+	smoker: Si quieres cazarlo, tendrás que meterte en zonas bien oscuras y olvidadas del servidor.
+- Preguntar por la zona
+	smoker: Aquí cerca hay un sector que llaman "El Pantano de Datos".
+	smoker: Está lleno de archivos corruptos y programas basura que te pueden dejar colgado.
+	smoker: Pero también esconde rutas que pocos usan... si sabes cómo moverte.
+- Pedir consejo para avanzar
+	smoker: Mi consejo, pequeño intruso, es que no confíes en las rutas directas.
+	smoker: Los atajos son para los valientes, pero también para los muertos.
+	smoker: Mantén tu sistema estable y los ojos abiertos.
+- Despedirse
+	[end_timeline]
+
+smoker: Nos vemos en la red, Leo. Y cuidado con los bugs que no puedes ver.
+[end_timeline]

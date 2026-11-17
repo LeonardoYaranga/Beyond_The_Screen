@@ -1,0 +1,19 @@
+label start
+kael: Soy Kael, un cyborg. No hablo mucho, así que di lo que quieres.
+kael: ¿Qué haces en estas ruinas?
+jump help
+
+label help
+- Preguntar por él
+	kael: No hay mucho que contar. Fui humano alguna vez, ahora soy esto.
+	kael: Vivo para detener máquinas como 3rbot. Eso es todo lo que necesitas saber.
+	jump help
+- Preguntar por 3rbot
+	kael: 3rbot... una abominación. Controla estas tierras, corrompe todo.
+	kael: No merece existir. Si lo enfrentas, apunta a su núcleo, pero no será fácil.
+	do DialogicBridge.play_dialogue_video("res://assets/videos/world_2/young_android.ogv")
+	kael: No me hagas perder el tiempo. ¿Vas a detenerlo o no?
+	jump help
+- Despedirse
+	kael: Vete. No tengo nada más para ti.
+	[end_timeline]

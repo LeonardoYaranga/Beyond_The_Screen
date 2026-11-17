@@ -1,0 +1,34 @@
+label start
+herrero: <Eh/Hola/Buen día>, joven. No te acerques demasiado, las chispas vuelan.
+herrero: ¿Qué se te ofrece en mi forja?
+jump help
+
+label help
+- Preguntar por reparaciones
+	herrero: Estoy ocupado reparando las rejas del pueblo.
+	herrero: La última horda de bandidos las dejó hechas trizas.
+	herrero: Si sigues su rastro, podrías encontrarlos antes de que vuelvan.
+	jump help
+- Preguntar por la zona
+	herrero: Conozco estas tierras como la palma de mi mano.
+	herrero: Al este está el bosque, peligroso y lleno de bestias.
+	herrero: Al oeste, las minas abandonadas... aunque algunos dicen que no están tan vacías.
+	jump help
+- Preguntar por rumores
+	herrero: Escuché que en las ruinas del sur alguien ha estado buscando a alguien con una espada como la tuya.
+	herrero: No sé si son cazarecompensas o algo peor.
+	herrero: Si te importa tu pellejo, ve preparado.
+	jump help
+- Preguntar por el WarHammer [if GameManager.unlocked_warhammer == true and GameManager.asked_about_warhammer == false]
+	jump warhammer
+- Despedirse
+	herrero: Que tus pasos sean firmes y tu corazón más fuerte que el acero.
+	[end_timeline]
+
+label warhammer
+herrero: ¿El WarHammer, eh? Así que la mesera te habló de él.
+herrero: Lo dejé en la vieja bodega, al norte del pueblo. No es fácil llegar ahí, prepárate.
+do DialogicBridge.play_dialogue_video("res://assets/videos/world_1/blacksmith.ogv")
+herrero: No me preguntes otra vez, ya te dije dónde está.
+do GameManager.set_asked_about_warhammer(true)
+jump help

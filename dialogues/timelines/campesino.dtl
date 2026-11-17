@@ -1,0 +1,38 @@
+label start
+campesino: ¿Qué quieres, forastero? Aquí no hay nada interesante para los de tu clase.
+campesino: Mejor sigue tu camino y déjame en paz.
+
+- Preguntar por el pueblo
+	campesino: Es un lugar tranquilo, o lo era antes de que llegaran tipos como tú.
+	campesino: Hay un mercado al sur y una taberna al norte. Eso es todo lo que necesitas saber.
+	- Insistir sobre el pueblo
+		campesino: ¡Ya te dije lo que hay! No me hagas perder el tiempo.
+		do DialogicBridge.play_dialogue_video("res://assets/videos/world_1/villager.ogv")
+		campesino: ...
+		campesino: Si tanto quieres saber, pregunta en la taberna. Pero no vengas a molestarme otra vez.
+	- Aceptar y seguir
+		[end_timeline]
+- Preguntar por bandidos
+	campesino: ¿Bandidos? No sé nada de bandidos. No me metas en tus problemas.
+	- Insistir sobre bandidos
+		campesino: ¡Te dije que no sé nada! ¿Eres sordo o qué?
+		do DialogicBridge.play_dialogue_video("res://assets/videos/world_1/villager.ogv")
+		campesino: ...
+		campesino: Si buscas problemas, ve al bosque del este. Pero no me culpes si no vuelves.
+	- Aceptar y seguir
+		[end_timeline]
+- Preguntar por rumores
+	campesino: No me gustan los chismes. Los rumores solo traen problemas.
+	campesino: Si quieres historias, ve a la taberna o al mercado.
+	- Insistir sobre rumores
+		campesino: ¡Maldita sea, forastero! ¿No entiendes que no quiero hablar?
+		do DialogicBridge.play_dialogue_video("res://assets/videos/world_1/villager.ogv")
+		campesino: ...
+		campesino: Algunos dicen que hay algo raro en el viejo pozo al oeste. Ahora déjame en paz.
+	- Aceptar y seguir
+		[end_timeline]
+- Despedirse
+	[end_timeline]
+
+campesino: Hmph. No vuelvas a molestarme a menos que traigas algo útil.
+[end_timeline]

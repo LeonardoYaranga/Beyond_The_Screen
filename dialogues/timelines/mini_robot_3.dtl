@@ -1,0 +1,24 @@
+label start
+mini_bot: <Atención/Alerta/Hola>, detectando actividad inusual en este nodo.
+mini_bot: Los datos aquí son inestables y pueden afectar tu misión.
+
+- Decir que buscas a 3BOT
+	leo: Estoy buscando a 3BOT. ¿Sabes algo de él?
+	mini_bot: 3BOT es una entidad peligrosa que manipula estos datos.
+	mini_bot: Se recomienda precaución extrema al avanzar.
+- Preguntar por amenazas
+	mini_bot: He detectado rastreadores y programas hostiles rondando cerca.
+	mini_bot: Mantén tus sistemas en modo sigiloso para evitar ser detectado.
+- Pedir ayuda
+	mini_bot: Puedo activar un escaneo para detectar enemigos en un radio cercano.
+	mini_bot: Pero solo puedo hacerlo una vez cada ciclo. ¿Quieres que lo active?
+	- Sí
+		mini_bot: Escaneo activado... enemigos detectados a 25 metros.
+		mini_bot: Procede con cuidado.
+	- No
+		mini_bot: Entendido. Mantente alerta por ti mismo.
+- Despedirse
+	[end_timeline]
+
+mini_bot: Cuida tu integridad, Leo. El servidor no perdona errores.
+[end_timeline]

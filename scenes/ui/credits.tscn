@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://ci13elfc2cyeq"]
+
+[ext_resource type="Script" uid="uid://c80vn7dgd2070" path="res://scenes/ui/credits.gd" id="1_kk2ga"]
+[ext_resource type="FontFile" uid="uid://irf00yw8ay4d" path="res://assets/fonts/early_game_boy.ttf" id="1_ng644"]
+[ext_resource type="Texture2D" uid="uid://cwutcujo6nm2q" path="res://assets/art/game/backgrounds/logo_strain.png" id="2_uuuvy"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kk2ga")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0575887, 0.051885, 0.280381, 1)
+
+[node name="Margin" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Text" type="RichTextLabel" parent="Background/Margin/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("1_ng644")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center][b][color=#ff4d4d]Beyond The Screen[/color][/b][/center]
+[center][i][color=#66ffcc]Rompe la Simulacion, Encuentra la Verdad![/color][/i][/center]
+[center]──────────────────────────────[/center]
+
+[b][color=#4da6ff]Equipo Principal[/color][/b]
+[color=#66ff66]Leonardo Yaranga[/color] - Programador, Disenador
+[color=#66ff66]Joel Rivera[/color] - Programador, Guionista
+[color=#ff99cc]Lindsay Barrionuevo[/color] - Disenadora
+[color=#66ccff]Alexander Bedon[/color] - Programador
+[color=#ffcc66]Silvia Anasco[/color] - Guionista, Disenadora
+
+[center]──────────────────────────────[/center]
+[b][color=#ff4d4d]Musica y Sonido[/color][/b]
+[color=#ffcccc]\"A Grim Horror Atmosphere For Video Games And Movies\"[/color] - Universfield  
+  [color=#999999](CC BY 4.0) https://freesound.org/s/702863/[/color]
+
+[color=#ffcccc]\"Khiva Live Music in a Restaurant\"[/color] - selcukartut  
+  [color=#999999](CC0) https://freesound.org/s/686050/[/color]
+
+[color=#ffcccc]\"Forging\"[/color] - adamcreeper  
+  [color=#999999](CC0) https://freesound.org/s/780503/[/color]
+
+[color=#ffcccc]\"deep_under.wav\"[/color] - poots  
+  [color=#999999](CC BY 4.0) https://freesound.org/s/123093/[/color]
+
+[color=#ffcccc]\"Blade_Slice_Metal_01c\"[/color] - Artninja  
+  [color=#999999](CC BY 4.0) https://freesound.org/s/777075/[/color]
+
+[center]──────────────────────────────[/center]
+[b][color=#ff66cc]IA y Herramientas[/color][/b]
+[color=#ffccff]Grok[/color] - Asistencia en codigo y asistencia creativa  
+[color=#ffccff]WAN AI[/color] - Videos cortos con IA  
+[color=#ffccff]Leonardo.ai[/color] - Generacion de imagenes  
+[color=#ffccff]Bing AI Image Creator[/color] - Imagenes  
+[color=#ffccff]ChatGPT[/color] - Asistencia en codigo y diseno narrativo  
+[color=#ffccff]Anime AI Generator[/color] (HuggingFace) - Ilustraciones
+
+[center]──────────────────────────────[/center]
+[b][color=#66ffcc]Agradecimientos Especiales[/color][/b]
+Basado en el trabajo de [url=https://github.com/MateuSai/Godot-Roguelike-Tutorial]Godot Roguelike Tutorial[/url] por [url=https://www.youtube.com/@matinator9185]Matinator9185[/url]  
+Recursos adicionales de [url=https://itch.io/]itch.io[/url]
+
+[center][i][color=#4da6ff]Gracias por jugar :3 [/color][/i][/center]"
+
+[node name="LogoContainer" type="CenterContainer" parent="Background/Margin/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LogoStrain" type="TextureRect" parent="Background/Margin/HBoxContainer/LogoContainer"]
+custom_minimum_size = Vector2(400, 340)
+layout_mode = 2
+texture = ExtResource("2_uuuvy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
